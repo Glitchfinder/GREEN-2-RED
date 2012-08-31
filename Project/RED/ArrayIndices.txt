@@ -1,0 +1,95 @@
+(1)	Initialized:			A boolean. When 1, the array has been initialized. When 0, it has not.
+(16)	TitleCounter:			A counter for the title screen.
+(17)	TitleActive:			Boolean. If 1, title has a prompt showing.
+(18)	SoundEffect:			Sound effect to play. If 0, nothing to play. Otherwise, the name of the SE to play.
+(33)	BackgroundMusic:		Background music to play. If 0, nothing to player. If -1, kill current music only. Otherwise, the name of the BGM to play.
+(34)	LoadLayout:			Layout to load. If 0, no layout needs to be loaded. Otherwise, the name of the layout to load.
+(35)	UtilityPlayer:			The player object assigned to control utilities such as pausing. Unrelated to actual control schema.
+(19)	UnloadedPlayers:		Number of unloaded players remaining.
+(37)	ForceRevival:			Boolean. If true, switch to a new map and activate the revival tile.
+(38)	RevivalActive:			A counter. If above 0, a revival has happened and all players are temporarily invincible.
+(39)	LayoutFullyLoaded:		Boolean. If 0, the layout is loading. If 1, the layout is fully loaded.
+(40)	PlayerGoalCount:		If 0, no players are on a goal. Otherwise, reflects the number of players on a goal.
+(12)	CurrentLayoutType:		The current type of layout. The splash screen is 0, the title screen is 1, and the game itself is 2.
+(13)	CurrentPAUSE:			Pause boolean. The game is paused when this is 1, and playable when it is 0.
+(9)	CurrentMap:			Current Map ID.
+(0)	CurrentMapAngle:		The angle of the current map. (Should only be 0, 90, 180, or 270)
+(3)	CurrentMapCOINCount:		Number of COINS remaining on the current map.
+(4)	CurrentMapENEMYCount:		Number of ENEMIES remaining on the current map.
+(5)	CurrentMapEXPBase:		The base amount of EXP awarded for completing the current map.
+(36)	CurrentMapZoom:			The zoom on the current map. Automatically calculated by the Player behavior. Calculated by the utility player.
+(8)	PlayerCount:			Number of players on the map.
+(2)	PlayerEXP:			Total EXP earned by the players.
+(6)	PlayerEXPMultiplierBase:	The base amount of EXP required to level.
+(7)	PlayerLEVEL:			Total LEVEL of the players.
+(10)	Player1COINS:			Number of COINS Player 1 has collected.
+(14)	Player1LIVES:			Number of LIVES Player 1 has remaining.
+(20)	Player1COLOR:			The COLOR that Player 1 selected. 1 = RED, 2 = INDIGO.
+(28)	Player1RESPAWN:			The respawn timer for Player 1.
+(41)	Player1DIRECTION:		The direction Player 1 took to exit. If 0, they are dead and must wait for a respawn.
+(11)	Player2COINS:			Number of COINS Player 2 has collected.
+(15)	Player2LIVES:			Number of LIVES Player 2 has remaining.
+(21)	Player2COLOR:			The COLOR that Player 2 selected. 1 = RED, 2 = INDIGO.
+(29)	Player2RESPAWN:			The respawn timer for Player 2.
+(42)	Player2DIRECTION:		The direction Player 2 took to exit. If 0, they are dead and must wait for a respawn.
+(22)	Player3COINS:			Number of COINS Player 3 has collected.
+(23)	Player3LIVES:			Number of LIVES Player 3 has remaining.
+(24)	Player3COLOR:			The COLOR that Player 3 selected. 1 = RED, 2 = INDIGO.
+(30)	Player3RESPAWN:			The respawn timer for Player 3.
+(43)	Player3DIRECTION:		The direction Player 3 took to exit. If 0, they are dead and must wait for a respawn.
+(25)	Player4COINS:			Number of COINS Player 4 has collected.
+(26)	Player4LIVES:			Number of LIVES Player 4 has remaining.
+(27)	Player4COLOR:			The COLOR that Player 4 selected. 1 = RED, 2 = INDIGO.
+(31)	Player4RESPAWN:			The respawn timer for Player 4.
+(44)	Player4DIRECTION:		The direction Player 4 took to exit. If 0, they are dead and must wait for a respawn.
+(32)	NULLValue:			A index for use when no index should be used. Should always be the text "NULL"
+
+
+
+
+
+(0)	CurrentMapAngle:		The angle of the current map. (Should only be 0, 90, 180, or 270)
+(1)	Initialized:			A boolean. When 1, the array has been initialized. When 0, it has not.
+(2)	PlayerEXP:			Total EXP earned by the players.
+(3)	CurrentMapCOINCount:		Number of COINS remaining on the current map.
+(4)	CurrentMapENEMYCount:		Number of ENEMIES remaining on the current map.
+(5)	CurrentMapEXPBase:		The base amount of EXP awarded for completing the current map.
+(6)	PlayerEXPMultiplierBase:	The base amount of EXP required to level.
+(7)	PlayerLEVEL:			Total LEVEL of the players.
+(8)	PlayerCount:			Number of players on the map.
+(9)	CurrentMap:			Current Map ID.
+(10)	Player1COINS:			Number of COINS Player 1 has collected.
+(11)	Player2COINS:			Number of COINS Player 2 has collected.
+(12)	CurrentLayoutType:		The current type of layout. The splash screen is 0, the title screen is 1, and the game itself is 2.
+(13)	CurrentPAUSE:			Pause boolean. The game is paused when this is 1, and playable when it is 0.
+(14)	Player1LIVES:			Number of LIVES Player 1 has remaining.
+(15)	Player2LIVES:			Number of LIVES Player 2 has remaining.
+(16)	TitleCounter:			A counter for the title screen.
+(17)	TitleActive:			Boolean. If 1, title has a prompt showing.
+(18)	SoundEffect:			Sound effect to play. If 0, nothing to play. Otherwise, the name of the SE to play.
+(19)	UnloadedPlayers:		Number of unloaded players remaining.
+(20)	Player1COLOR:			The COLOR that Player 1 selected. 1 = RED, 2 = INDIGO.
+(21)	Player2COLOR:			The COLOR that Player 2 selected. 1 = RED, 2 = INDIGO.
+(22)	Player3COINS:			Number of COINS Player 1 has collected.
+(23)	Player3LIVES:			Number of LIVES Player 1 has remaining.
+(24)	Player3COLOR:			The COLOR that Player 1 selected. 1 = RED, 2 = INDIGO.
+(25)	Player4COINS:			Number of COINS Player 2 has collected.
+(26)	Player4LIVES:			Number of LIVES Player 2 has remaining.
+(27)	Player4COLOR:			The COLOR that Player 2 selected. 1 = RED, 2 = INDIGO.
+(28)	Player1RESPAWN:			The respawn timer for Player 1.
+(29)	Player2RESPAWN:			The respawn timer for Player 2.
+(30)	Player3RESPAWN:			The respawn timer for Player 3.
+(31)	Player4RESPAWN:			The respawn timer for Player 4.
+(32)	NULLValue:			A index for use when no index should be used. Should always be the text "NULL"
+(33)	BackgroundMusic:		Background music to play. If 0, nothing to player. If -1, kill current music only. Otherwise, the name of the BGM to play.
+(34)	LoadLayout:			Layout to load. If 0, no layout needs to be loaded. If -1, Layout is fully loaded. Otherwise, the name of the layout to load.
+(35)	UtilityPlayer:			The player object assigned to control utilities such as pausing. Unrelated to actual control schema.
+(36)	CurrentMapZoom:			The zoom on the current map. Automatically calculated by the Player behavior. Calculated by the utility player.
+(37)	ForceRevival:			Boolean. If true, switch to a new map and activate the revival tile.
+(38)	RevivalActive:			A counter. If above 0, a revival has happened and all players are temporarily invincible.
+(39)	LayoutFullyLoaded:		Boolean. If 0, the layout is loading. If 1, the layout is fully loaded.
+(40)	PlayerGoalCount:		If 0, no players are on a goal. Otherwise, reflects the number of players on a goal.
+(41)	Player1DIRECTION:		The direction Player 1 took to exit. If 0, they are dead and must wait for a respawn.
+(42)	Player2DIRECTION:		The direction Player 2 took to exit. If 0, they are dead and must wait for a respawn.
+(43)	Player3DIRECTION:		The direction Player 3 took to exit. If 0, they are dead and must wait for a respawn.
+(44)	Player4DIRECTION:		The direction Player 4 took to exit. If 0, they are dead and must wait for a respawn.

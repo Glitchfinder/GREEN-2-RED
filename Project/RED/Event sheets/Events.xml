@@ -1,0 +1,785 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Events</name>
+    <events>
+        <event-block>
+            <conditions>
+                <condition id="-2" name="On start of layout" type="System" />
+                <condition id="0" name="Compare at X" type="Globals">
+                    <param id="0" name="X">1</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set size" type="Globals">
+                    <param id="0" name="Width">46</param>
+                    <param id="1" name="Height">1</param>
+                    <param id="2" name="Depth">1</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">1</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">2</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">3</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">4</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">5</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">6</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">7</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">8</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">9</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">10</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">11</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">12</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">13</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">14</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">15</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">16</param>
+                    <param id="1" name="Value">30</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">17</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">18</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">19</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">20</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">21</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">22</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">23</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">24</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">25</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">26</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">27</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">28</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">29</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">30</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">31</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">32</param>
+                    <param id="1" name="Value">&quot;NULL&quot;</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">33</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">34</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">35</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">36</param>
+                    <param id="1" name="Value">1.0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">37</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">38</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">39</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">40</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">41</param>
+                    <param id="1" name="Value">Choose(1, 2, 3, 4)</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">42</param>
+                    <param id="1" name="Value">Choose(1, 2, 3, 4)</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">43</param>
+                    <param id="1" name="Value">Choose(1, 2, 3, 4)</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">44</param>
+                    <param id="1" name="Value">Choose(1, 2, 3, 4)</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">45</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-2" name="On start of layout" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="TitleBackground" id="0" name="Set data array" type="titleBG">
+                    <param id="0" name="Set data array.">Globals</param>
+                </action>
+                <action behavior="YELLOWTreasure" id="1" name="Add player" type="YELLOWTreasure">
+                    <param id="0" name="Add player.">REDPlayer</param>
+                </action>
+                <action behavior="YELLOWTreasure" id="1" name="Add player" type="YELLOWTreasure">
+                    <param id="0" name="Add player.">INDIGOPlayer</param>
+                </action>
+                <action behavior="YELLOWTreasure" id="0" name="Set data array" type="YELLOWTreasure">
+                    <param id="0" name="Set data array.">Globals</param>
+                </action>
+                <action behavior="ORANGE" id="10" name="Add player" type="ORANGEEnemy">
+                    <param id="0" name="Add player.">REDPlayer</param>
+                </action>
+                <action behavior="ORANGE" id="10" name="Add player" type="ORANGEEnemy">
+                    <param id="0" name="Add player.">INDIGOPlayer</param>
+                </action>
+                <action behavior="ORANGE" id="9" name="Set data array" type="ORANGEEnemy">
+                    <param id="0" name="Set data array.">Globals</param>
+                </action>
+                <action behavior="WHITEReviver" id="1" name="Add player" type="WHITEReviver">
+                    <param id="0" name="Add player.">REDPlayer</param>
+                </action>
+                <action behavior="WHITEReviver" id="1" name="Add player" type="WHITEReviver">
+                    <param id="0" name="Add player.">INDIGOPlayer</param>
+                </action>
+                <action behavior="WHITEReviver" id="0" name="Set data array" type="WHITEReviver">
+                    <param id="0" name="Set data array.">Globals</param>
+                </action>
+                <action behavior="SPIKETrap" id="10" name="Add player" type="SPIKETrap">
+                    <param id="0" name="Add player.">REDPlayer</param>
+                </action>
+                <action behavior="SPIKETrap" id="10" name="Add player" type="SPIKETrap">
+                    <param id="0" name="Add player.">INDIGOPlayer</param>
+                </action>
+                <action behavior="SPIKETrap" id="9" name="Set data array" type="SPIKETrap">
+                    <param id="0" name="Set data array.">Globals</param>
+                </action>
+                <action id="-16" name="Set opacity" type="PauseScreen">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" type="PauseLogo">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" type="BLUEBackground">
+                    <param id="0" name="Opacity">Random(30, 70)</param>
+                </action>
+                <action id="-26" name="Move to layer" type="BLUEBackground">
+                    <param id="0" name="Layer">Choose(0, 1)</param>
+                </action>
+                <action id="-25" name="Move to bottom" type="BLUEBackground" />
+                <action id="-16" name="Set opacity" type="GREENBackground">
+                    <param id="0" name="Opacity">Random(30, 70)</param>
+                </action>
+                <action id="-26" name="Move to layer" type="GREENBackground">
+                    <param id="0" name="Layer">Choose(0, 1)</param>
+                </action>
+                <action id="-25" name="Move to bottom" type="GREENBackground" />
+                <action id="-16" name="Set opacity" type="REDBackground">
+                    <param id="0" name="Opacity">Random(30, 70)</param>
+                </action>
+                <action id="-26" name="Move to layer" type="REDBackground">
+                    <param id="0" name="Layer">Choose(0, 1)</param>
+                </action>
+                <action id="-25" name="Move to bottom" type="REDBackground" />
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">33</param>
+                    <param id="1" name="Value">Globals.At(12) = 1 ? &quot;title&quot; : Globals.At(12) = 3 ? &quot;basic 1&quot; : (Globals.At(9) = 1 ? (&quot;basic &quot; &amp; Choose(1, 2, 3)) : Globals.At(9) = 2 ?  (&quot;basic &quot; &amp; Choose(1, 2, 3)) : Globals.At(9) = 3 ?  (&quot;battle &quot; &amp; Choose(1, 2, 3)) : Globals.At(9) = 4 ?  (&quot;treasure &quot; &amp; Choose(1, 2, 3)) :  (&quot;basic &quot; &amp; Choose(1, 2, 3)))</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Value">Globals.At(12) = 100 ? Choose(0, 90, 180, 270) : 0</param>
+                </action>
+                <action id="-22" name="Set layout angle" type="System">
+                    <param id="0" name="Angle">Globals.At(0)</param>
+                </action>
+                <action behavior="Player" id="12" name="Add player" type="REDPlayer">
+                    <param id="0" name="Add player.">INDIGOPlayer</param>
+                </action>
+                <action behavior="Player" id="13" name="Add goal tile" type="REDPlayer">
+                    <param id="0" name="Add goal.">goal</param>
+                </action>
+                <action behavior="Player" id="14" name="Add bar tile" type="REDPlayer">
+                    <param id="0" name="Add bar.">BLACKBars</param>
+                </action>
+                <action behavior="Player" id="9" name="Set movement angle" type="REDPlayer">
+                    <param id="0" name="Movement Angle">Globals.At(0)</param>
+                </action>
+                <action behavior="Player" id="10" name="Set player number" type="REDPlayer">
+                    <param id="0" name="Set player number">1</param>
+                </action>
+                <action behavior="Player" id="11" name="Set data array" type="REDPlayer">
+                    <param id="0" name="Set data array.">Globals</param>
+                </action>
+                <action id="-7" name="Set size" type="REDPlayer">
+                    <param id="0" name="Width">128</param>
+                    <param id="1" name="Height">128</param>
+                </action>
+                <action id="-24" name="Move to top" type="REDPlayer" />
+                <action behavior="Player" id="12" name="Add player" type="INDIGOPlayer">
+                    <param id="0" name="Add player.">REDPlayer</param>
+                </action>
+                <action behavior="Player" id="14" name="Add bar tile" type="INDIGOPlayer">
+                    <param id="0" name="Add bar.">BLACKBars</param>
+                </action>
+                <action behavior="Player" id="13" name="Add goal tile" type="INDIGOPlayer">
+                    <param id="0" name="Add goal.">goal</param>
+                </action>
+                <action behavior="Player" id="9" name="Set movement angle" type="INDIGOPlayer">
+                    <param id="0" name="Movement Angle">Globals.At(0)</param>
+                </action>
+                <action behavior="Player" id="10" name="Set player number" type="INDIGOPlayer">
+                    <param id="0" name="Set player number">2</param>
+                </action>
+                <action behavior="Player" id="11" name="Set data array" type="INDIGOPlayer">
+                    <param id="0" name="Set data array.">Globals</param>
+                </action>
+                <action id="-7" name="Set size" type="INDIGOPlayer">
+                    <param id="0" name="Width">128</param>
+                    <param id="1" name="Height">128</param>
+                </action>
+                <action id="-24" name="Move to top" type="INDIGOPlayer" />
+                <action id="-16" name="Set opacity" type="BLACKBars">
+                    <param id="0" name="Opacity">70</param>
+                </action>
+                <action id="-23" name="Set layer angle" type="System">
+                    <param id="0" name="Layer">2</param>
+                    <param id="1" name="Angle">-Globals.At(0)</param>
+                </action>
+                <action id="-23" name="Set layer angle" type="System">
+                    <param id="0" name="Layer">3</param>
+                    <param id="1" name="Angle">-Globals.At(0)</param>
+                </action>
+                <action id="-16" name="Set opacity" type="GUIBackground">
+                    <param id="0" name="Opacity">Globals.At(12) = 2 ? 30 : 0</param>
+                </action>
+                <action id="2" name="Set font face" type="Player1Lives">
+                    <param id="0" name="Font face">&quot;Verdana&quot;</param>
+                    <param id="1" name="Style">1</param>
+                </action>
+                <action id="5" name="Set web font" type="Player1Lives">
+                    <param id="0" name="Family name">&quot;Gruppo&quot;</param>
+                    <param id="1" name="CSS URL">&quot;http://fonts.googleapis.com/css?family=Gruppo&quot;</param>
+                </action>
+                <action id="3" name="Set font size" type="Player1Lives">
+                    <param id="0" name="Size (pt)">14</param>
+                </action>
+                <action id="-2" name="Set Y" type="Player1Lives">
+                    <param id="0" name="Y">5</param>
+                </action>
+                <action id="2" name="Set font face" type="Player2Lives">
+                    <param id="0" name="Font face">&quot;Verdana&quot;</param>
+                    <param id="1" name="Style">1</param>
+                </action>
+                <action id="5" name="Set web font" type="Player2Lives">
+                    <param id="0" name="Family name">&quot;Gruppo&quot;</param>
+                    <param id="1" name="CSS URL">&quot;http://fonts.googleapis.com/css?family=Gruppo&quot;</param>
+                </action>
+                <action id="3" name="Set font size" type="Player2Lives">
+                    <param id="0" name="Size (pt)">14</param>
+                </action>
+                <action id="-2" name="Set Y" type="Player2Lives">
+                    <param id="0" name="Y">5</param>
+                </action>
+                <action id="2" name="Set font face" type="Player1Coins">
+                    <param id="0" name="Font face">&quot;Verdana&quot;</param>
+                    <param id="1" name="Style">1</param>
+                </action>
+                <action id="5" name="Set web font" type="Player1Coins">
+                    <param id="0" name="Family name">&quot;Gruppo&quot;</param>
+                    <param id="1" name="CSS URL">&quot;http://fonts.googleapis.com/css?family=Gruppo&quot;</param>
+                </action>
+                <action id="3" name="Set font size" type="Player1Coins">
+                    <param id="0" name="Size (pt)">14</param>
+                </action>
+                <action id="-2" name="Set Y" type="Player1Coins">
+                    <param id="0" name="Y">21</param>
+                </action>
+                <action id="2" name="Set font face" type="Player2Coins">
+                    <param id="0" name="Font face">&quot;Verdana&quot;</param>
+                    <param id="1" name="Style">1</param>
+                </action>
+                <action id="5" name="Set web font" type="Player2Coins">
+                    <param id="0" name="Family name">&quot;Gruppo&quot;</param>
+                    <param id="1" name="CSS URL">&quot;http://fonts.googleapis.com/css?family=Gruppo&quot;</param>
+                </action>
+                <action id="3" name="Set font size" type="Player2Coins">
+                    <param id="0" name="Size (pt)">14</param>
+                </action>
+                <action id="-2" name="Set Y" type="Player2Coins">
+                    <param id="0" name="Y">21</param>
+                </action>
+                <action id="5" name="Set web font" type="TitlePrompt">
+                    <param id="0" name="Family name">&quot;Geo&quot;</param>
+                    <param id="1" name="CSS URL">&quot;http://fonts.googleapis.com/css?family=Geo&quot;</param>
+                </action>
+                <action id="5" name="Set web font" type="TitleHelpPrompt">
+                    <param id="0" name="Family name">&quot;Geo&quot;</param>
+                    <param id="1" name="CSS URL">&quot;http://fonts.googleapis.com/css?family=Geo&quot;</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">8</param>
+                    <param id="1" name="Value">0 + (Globals.At(14) &gt; 0 ? 1 : 0) + (Globals.At(15) &gt; 0 ? 1 : 0) + (Globals.At(23) &gt; 0 ? 1 : 0) + (Globals.At(26) &gt; 0 ? 1 : 0)</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">19</param>
+                    <param id="1" name="Value">Globals.At(8)</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">20</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">21</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">39</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-3" name="On end of layout" type="System" />
+            </conditions>
+            <actions>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">2</param>
+                    <param id="1" name="Value">Globals.At(12) = 2 ? (Globals.At(2) + (Globals.At(3) &lt;= 0 &amp; Globals.At(4) &lt;= 0 ? Globals.At(5) * 2 : Globals.At(3) &lt;= 0 &amp; Globals.At(4) &gt; 0 ?  Int(Round(Float(Globals.At(5)) * 1.5)) : Globals.At(3) &gt; 0 &amp; Globals.At(4) &lt;= 0 ?  Int(Round(Float(Globals.At(5)) * 1.5)) : Globals.At(5))) : Globals.At(2)</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">36</param>
+                    <param id="1" name="Value">1.0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">39</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">40</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-1" name="Every tick" type="System" />
+            </conditions>
+            <actions>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">32</param>
+                    <param id="1" name="Value">&quot;NULL&quot;</param>
+                </action>
+                <action id="5" name="Set playback rate" type="Audio">
+                    <param id="0" name="Tag">Globals.At(33) = -1 ? &quot;BackgroundMusic&quot; : Globals.At(33) = 0 ? &quot;&quot; : &quot;&quot;</param>
+                    <param id="1" name="Playback rate">0.0</param>
+                </action>
+                <action id="5" name="Set playback rate" type="Audio">
+                    <param id="0" name="Tag">Globals.At(33) = -2 ? &quot;BackgroundMusic&quot; : Globals.At(33) = 0 ? &quot;&quot; : &quot;&quot;</param>
+                    <param id="1" name="Playback rate">1.0</param>
+                </action>
+                <action id="7" name="Play (by name)" type="Audio">
+                    <param id="0" name="Folder">1</param>
+                    <param id="1" name="Audio file name">Globals.At(33) = 0 ? &quot;&quot; : Globals.At(33)</param>
+                    <param id="3" name="Loop">1</param>
+                    <param id="2" name="Tag (optional)">&quot;BackgroundMusic&quot;</param>
+                </action>
+                <action id="7" name="Play (by name)" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">Globals.At(18) = 0 ? &quot;&quot; : Globals.At(18)</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="2" name="Tag (optional)">&quot;SoundEffect&quot;</param>
+                </action>
+                <action id="7" name="Play (by name)" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;&quot;</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Set text" type="Player1Lives">
+                    <param id="0" name="Text">Globals.At(13) ?  (&quot;LIVES:&quot; &amp; Globals.At(14)) : Globals.At(14)</param>
+                </action>
+                <action id="0" name="Set text" type="Player2Lives">
+                    <param id="0" name="Text">Globals.At(13) ?  (&quot;LIVES:&quot; &amp; Globals.At(15)) : Globals.At(15)</param>
+                </action>
+                <action id="0" name="Set text" type="Player1Coins">
+                    <param id="0" name="Text">Globals.At(13) ?  (&quot;COINS:&quot; &amp; Globals.At(10)) : Globals.At(10)</param>
+                </action>
+                <action id="0" name="Set text" type="Player2Coins">
+                    <param id="0" name="Text">Globals.At(13) ?  (&quot;COINS:&quot; &amp; Globals.At(11)) : Globals.At(11)</param>
+                </action>
+                <action id="-16" name="Set opacity" type="GUIBackground">
+                    <param id="0" name="Opacity">Globals.At(13) = 0 ? 30 : 0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">17</param>
+                    <param id="1" name="Value">Globals.At(16) = 0 ? Globals.At(17) = 0 ? 1 : 0 : Globals.At(17)</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">16</param>
+                    <param id="1" name="Value">Globals.At(16) = 0 ? 30 : (Globals.At(16) - 1)</param>
+                </action>
+                <action id="-16" name="Set opacity" type="TitlePrompt">
+                    <param id="0" name="Opacity">Globals.At(17) = 0 ? 0 : 100</param>
+                </action>
+                <action behavior="Player" id="12" name="Add player" type="REDPlayer">
+                    <param id="0" name="Add player.">INDIGOPlayer</param>
+                </action>
+                <action behavior="Player" id="13" name="Add goal tile" type="REDPlayer">
+                    <param id="0" name="Add goal.">goal</param>
+                </action>
+                <action behavior="Player" id="14" name="Add bar tile" type="REDPlayer">
+                    <param id="0" name="Add bar.">BLACKBars</param>
+                </action>
+                <action behavior="Player" id="9" name="Set movement angle" type="REDPlayer">
+                    <param id="0" name="Movement Angle">Globals.At(0)</param>
+                </action>
+                <action behavior="Player" id="10" name="Set player number" type="REDPlayer">
+                    <param id="0" name="Set player number">(Globals.At(20) = 1 ? 1 : (Globals.At(21) = 1 ? 2 : (Globals.At(24) = 1 ? 3 : (Globals.At(27) = 1 ? 4 : 0))))</param>
+                </action>
+                <action behavior="Player" id="11" name="Set data array" type="REDPlayer">
+                    <param id="0" name="Set data array.">Globals</param>
+                </action>
+                <action behavior="Player" id="12" name="Add player" type="INDIGOPlayer">
+                    <param id="0" name="Add player.">REDPlayer</param>
+                </action>
+                <action behavior="Player" id="14" name="Add bar tile" type="INDIGOPlayer">
+                    <param id="0" name="Add bar.">BLACKBars</param>
+                </action>
+                <action behavior="Player" id="13" name="Add goal tile" type="INDIGOPlayer">
+                    <param id="0" name="Add goal.">goal</param>
+                </action>
+                <action behavior="Player" id="9" name="Set movement angle" type="INDIGOPlayer">
+                    <param id="0" name="Movement Angle">Globals.At(0)</param>
+                </action>
+                <action behavior="Player" id="10" name="Set player number" type="INDIGOPlayer">
+                    <param id="0" name="Set player number">(Globals.At(20) = 2 ? 1 : (Globals.At(21) = 2 ? 2 : (Globals.At(24) = 2 ? 3 : (Globals.At(27) = 2 ? 4 : 0))))</param>
+                </action>
+                <action behavior="Player" id="11" name="Set data array" type="INDIGOPlayer">
+                    <param id="0" name="Set data array.">Globals</param>
+                </action>
+                <action id="-16" name="Set opacity" type="PauseScreen">
+                    <param id="0" name="Opacity">Globals.At(13) = 0 ? 0 : 50</param>
+                </action>
+                <action id="-16" name="Set opacity" type="PauseLogo">
+                    <param id="0" name="Opacity">Globals.At(13) = 0 ? 0 : 50</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">33</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">18</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">35</param>
+                    <param id="1" name="Value">(Globals.At(14) &gt; 0 &amp; Globals.At(28) = -1) ? 1 : (Globals.At(15) &gt; 0 &amp; Globals.At(29) = -1) ? 2 : (Globals.At(23) &gt; 0 &amp; Globals.At(30) = -1) ? 3 : (Globals.At(26) &gt; 0 &amp; Globals.At(31) = -1) ? 4 : 1</param>
+                </action>
+                <action id="-17" name="Set scale" type="System">
+                    <param id="0" name="Layer">1</param>
+                    <param id="1" name="Scale">Globals.At(36)</param>
+                </action>
+                <action id="-13" name="Set time scale" type="System">
+                    <param id="0" name="Time scale">Globals.At(13) = 1 ? 0.0 : 1.0</param>
+                </action>
+                <action id="0" name="Set text" type="FPSCounter">
+                    <param id="0" name="Text">fps &amp; &quot; FPS&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="Compare at X" type="Globals">
+                    <param id="0" name="X">34</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="0" name="Compare at X" type="Globals">
+                    <param id="0" name="X">39</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" type="Audio">
+                    <param id="0" name="Tag">Globals.At(34) = -1 ? &quot;&quot; : &quot;BackgroundMusic&quot;</param>
+                </action>
+                <action id="-25" name="Go to layout (by name)" type="System">
+                    <param id="0" name="Layout">Globals.At(34)</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">34</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">39</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="Compare at X" type="Globals">
+                    <param id="0" name="X">14</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="0" name="Compare at X" type="Globals">
+                    <param id="0" name="X">15</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="0" name="Compare at X" type="Globals">
+                    <param id="0" name="X">23</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="0" name="Compare at X" type="Globals">
+                    <param id="0" name="X">26</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" type="System">
+                    <param id="0" name="Layout">&quot;Title&quot;</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">1</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On key pressed" type="KBInput">
+                    <param id="0" name="Key">72 (H)</param>
+                </condition>
+                <condition id="0" name="Compare at X" type="Globals">
+                    <param id="0" name="X">12</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">12</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action id="-25" name="Go to layout (by name)" type="System">
+                    <param id="0" name="Layout">&quot;Help&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-2" name="On start of layout" type="System" />
+                <condition id="0" name="Compare at X" type="Globals">
+                    <param id="0" name="X">12</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="ORANGE" id="7" name="Set enabled" type="ORANGEEnemy">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action behavior="SPIKETrap" id="7" name="Set enabled" type="SPIKETrap">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="5" name="Set web font" type="HelpText">
+                    <param id="0" name="Family name">&quot;Geo&quot;</param>
+                    <param id="1" name="CSS URL">&quot;http://fonts.googleapis.com/css?family=Geo&quot;</param>
+                </action>
+                <action id="3" name="Set font size" type="HelpText">
+                    <param id="0" name="Size (pt)">18</param>
+                </action>
+                <action id="-3" name="Set position" type="REDIcon">
+                    <param id="0" name="X">400</param>
+                    <param id="1" name="Y">400</param>
+                </action>
+                <action id="0" name="Set text" type="HelpText">
+                    <param id="0" name="Text">&quot;This is RED. You can control him with the W, A, S, and D keys.&quot;</param>
+                </action>
+                <action id="-16" name="Wait" type="System">
+                    <param id="0" name="Seconds">5</param>
+                </action>
+                <action id="-9" name="Destroy" type="REDIcon" />
+                <action id="-3" name="Set position" type="INDIGOIcon">
+                    <param id="0" name="X">400</param>
+                    <param id="1" name="Y">400</param>
+                </action>
+                <action id="0" name="Set text" type="HelpText">
+                    <param id="0" name="Text">&quot;This is INDIGO. You can control her with the arrow keys, or 2, 4, 6, and 8 on the numpad.&quot;</param>
+                </action>
+                <action id="-16" name="Wait" type="System">
+                    <param id="0" name="Seconds">5</param>
+                </action>
+                <action id="-9" name="Destroy" type="INDIGOIcon" />
+                <action id="-3" name="Set position" type="ORANGEEnemy">
+                    <param id="0" name="X">400</param>
+                    <param id="1" name="Y">400</param>
+                </action>
+                <action id="0" name="Set text" type="HelpText">
+                    <param id="0" name="Text">&quot;This is ORANGE. He despises you, and will kill you when given the chance.&quot;</param>
+                </action>
+                <action id="-16" name="Wait" type="System">
+                    <param id="0" name="Seconds">5</param>
+                </action>
+                <action id="-9" name="Destroy" type="ORANGEEnemy" />
+                <action id="-3" name="Set position" type="SPIKETrap">
+                    <param id="0" name="X">400</param>
+                    <param id="1" name="Y">400</param>
+                </action>
+                <action id="0" name="Set text" type="HelpText">
+                    <param id="0" name="Text">&quot;This is SPIKE TRAP. He doesn&apos;t really like you either.&quot;</param>
+                </action>
+                <action id="-16" name="Wait" type="System">
+                    <param id="0" name="Seconds">5</param>
+                </action>
+                <action id="-9" name="Destroy" type="SPIKETrap" />
+                <action id="-3" name="Set position" type="YELLOWIcon">
+                    <param id="0" name="X">400</param>
+                    <param id="1" name="Y">400</param>
+                </action>
+                <action id="0" name="Set text" type="HelpText">
+                    <param id="0" name="Text">&quot;This is a COIN. Collect as many as possible.&quot;</param>
+                </action>
+                <action id="-16" name="Wait" type="System">
+                    <param id="0" name="Seconds">5</param>
+                </action>
+                <action id="-9" name="Destroy" type="YELLOWIcon" />
+                <action id="-3" name="Set position" type="WHITEReviverIcon">
+                    <param id="0" name="X">400</param>
+                    <param id="1" name="Y">400</param>
+                </action>
+                <action id="0" name="Set text" type="HelpText">
+                    <param id="0" name="Text">&quot;This is a REVIVAL TILE. Activate it as soon as possible&quot;</param>
+                </action>
+                <action id="-16" name="Wait" type="System">
+                    <param id="0" name="Seconds">5</param>
+                </action>
+                <action id="-9" name="Destroy" type="WHITEReviverIcon" />
+                <action id="-3" name="Set position" type="goal">
+                    <param id="0" name="X">400</param>
+                    <param id="1" name="Y">400</param>
+                </action>
+                <action id="0" name="Set text" type="HelpText">
+                    <param id="0" name="Text">&quot;This is a GOAL. Use it to change maps.&quot;</param>
+                </action>
+                <action id="-16" name="Wait" type="System">
+                    <param id="0" name="Seconds">5</param>
+                </action>
+                <action id="-9" name="Destroy" type="goal" />
+                <action id="0" name="Set text" type="HelpText">
+                    <param id="0" name="Text">&quot;Have fun playing RED!&quot;</param>
+                </action>
+                <action id="-16" name="Wait" type="System">
+                    <param id="0" name="Seconds">5</param>
+                </action>
+                <action id="-25" name="Go to layout (by name)" type="System">
+                    <param id="0" name="Layout">&quot;Title&quot;</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">1</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>RED</name>
+    <description>GREEN 2</description>
+    <version>1.0</version>
+    <author>theory&amp;&amp;Glitchfinder</author>
+    <unique-id>1c01z6bg9z2d2</unique-id>
+    <saved-with-version>9500</saved-with-version>
+    <used-plugins>
+        <plugin id="Keyboard" version="1">Keyboard</plugin>
+        <plugin id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin id="Sprite" version="1">Sprite</plugin>
+        <plugin id="Text" version="1">Text</plugin>
+        <plugin id="Audio" version="1">Audio</plugin>
+        <plugin id="Arr" version="1">Array</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior id="REDEXITTile" version="1">EXITTile</behavior>
+        <behavior id="REDORANGEEnemy" version="1">ORANGE</behavior>
+        <behavior id="REDPlayer" version="1">Player</behavior>
+        <behavior id="REDRANDOMWall" version="1">RANDOMWall</behavior>
+        <behavior id="REDSPIKETrap" version="1">SPIKETrap</behavior>
+        <behavior id="REDTitleBG" version="1">Title Background</behavior>
+        <behavior id="REDWHITEReviver" version="1">WHITEReviver</behavior>
+        <behavior id="REDYELLOWTreasure" version="1">YELLOWTreasure</behavior>
+        <behavior id="custom" version="1">Custom Movement</behavior>
+        <behavior id="scrollto" version="1">Scroll To</behavior>
+        <behavior id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML 5" />
+    </configurations>
+    <window-size>
+        <width>800</width>
+        <height>600</height>
+    </window-size>
+    <pixel-rounding>1</pixel-rounding>
+    <first-layout>Title</first-layout>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">No</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Off</prop>
+        <prop name="Preview browser">Chrome</prop>
+        <prop name="Preview mode">HTTP</prop>
+        <prop name="Sampling">Linear</prop>
+    </configuration-settings>
+    <object-folder expanded="1">
+        <object-type name="REDPlayer">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="Player&apos;s Next Map Type" name="NextMap" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="ScrollTo">
+                    <behavior id="scrollto" />
+                </behavior-type>
+                <behavior-type name="Player">
+                    <behavior id="REDPlayer" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="KBInput">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="BLACKWall">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="RANDOMWall">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="RANDOMWall">
+                    <behavior id="REDRANDOMWall" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="goal">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="EXITTile">
+                    <behavior id="REDEXITTile" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Audio">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="BLUEBackground">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="REDBackground">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="GREENBackground">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="YELLOWTreasure">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="YELLOWTreasure">
+                    <behavior id="REDYELLOWTreasure" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="INDIGOPlayer">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="Player&apos;s Next Map Type" name="NextMap" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="ScrollTo">
+                    <behavior id="scrollto" />
+                </behavior-type>
+                <behavior-type name="Player">
+                    <behavior id="REDPlayer" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="PauseScreen">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="Globals">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="titleBG">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="Player&apos;s Next Map Type" name="NextMap" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="TitleBackground">
+                    <behavior id="REDTitleBG" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Logo">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.0460526" y="0.177966" />
+                            <point x="0.5" y="0.00847458" />
+                            <point x="0.953947" y="0.177966" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PauseLogo">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="CustomMovement">
+                    <behavior id="custom" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.0460526" y="0.177966" />
+                            <point x="0.5" y="0.00847458" />
+                            <point x="0.953947" y="0.177966" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ORANGEEnemy">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="Player&apos;s Next Map Type" name="NextMap" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="ORANGE">
+                    <behavior id="REDORANGEEnemy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="GUIBackground">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="REDIcon">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="INDIGOIcon">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Player2Lives">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Player1Lives">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="YELLOWIcon">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Player1Coins">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Player2Coins">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="TitlePrompt">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="WHITEReviver">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="WHITEReviver">
+                    <behavior id="REDWHITEReviver" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SmoothCamera">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Player">
+                    <behavior id="REDPlayer" />
+                </behavior-type>
+                <behavior-type name="ScrollTo">
+                    <behavior id="scrollto" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="FPSCounter">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="BLACKBars">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SPIKETrap">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="Player&apos;s Next Map Type" name="NextMap" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="SPIKETrap">
+                    <behavior id="REDSPIKETrap" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.03125" y="0.03125" />
+                            <point x="0.5" y="0.15625" />
+                            <point x="0.96875" y="0.03125" />
+                            <point x="0.84375" y="0.5" />
+                            <point x="0.96875" y="0.96875" />
+                            <point x="0.5" y="0.84375" />
+                            <point x="0.03125" y="0.96875" />
+                            <point x="0.15625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TitleHelpPrompt">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="WHITEReviverIcon">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="HelpText">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="BLACKWall2">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder expanded="1">
+        <layout>Splash.xml</layout>
+        <layout>Title.xml</layout>
+        <layout>Map (Battleground).xml</layout>
+        <layout>Map (Corner).xml</layout>
+        <layout>Map (Maze).xml</layout>
+        <layout>Map (Treasure).xml</layout>
+        <layout>Help.xml</layout>
+    </layout-folder>
+    <event-folder expanded="1">
+        <event-sheet>Events.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="KBInput" />
+        <global-instance type="Audio">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+            </properties>
+        </global-instance>
+    </global-instances>
+    <sounds-folder expanded="1">
+        <file name="normal.m4a" />
+        <file name="normal.ogg" />
+        <file name="special.m4a" />
+        <file name="special.ogg" />
+        <file name="revival.m4a" />
+        <file name="revival.ogg" />
+        <file name="activate.m4a" />
+        <file name="activate.ogg" />
+        <file name="death.m4a" />
+        <file name="death.ogg" />
+    </sounds-folder>
+    <music-folder expanded="1">
+        <file name="basic 1.m4a" />
+        <file name="basic 1.ogg" />
+        <file name="basic 2.m4a" />
+        <file name="basic 2.ogg" />
+        <file name="basic 3.m4a" />
+        <file name="basic 3.ogg" />
+        <file name="battle 1.m4a" />
+        <file name="battle 1.ogg" />
+        <file name="battle 2.m4a" />
+        <file name="battle 2.ogg" />
+        <file name="battle 3.m4a" />
+        <file name="battle 3.ogg" />
+        <file name="treasure 1.m4a" />
+        <file name="treasure 1.ogg" />
+        <file name="treasure 2.m4a" />
+        <file name="treasure 2.ogg" />
+        <file name="title.m4a" />
+        <file name="title.ogg" />
+        <file name="treasure 3.m4a" />
+        <file name="treasure 3.ogg" />
+    </music-folder>
+    <files-folder expanded="1" />
+</c2project>
