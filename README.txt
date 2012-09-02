@@ -35,8 +35,8 @@ steps:
 
   2) Add the folders found within the Behaviors directory to Construct 2's local
      behaviors directory. This directory can be found at
-     <install path>\exporters\html5, where <install path> is the directory in
-     which you installed Construct 2.
+     <install path>\exporters\html5behaviors, where <install path> is the
+     directory in which you installed Construct 2.
 
   3) Open RED.caproj in the Construct 2 editor.
 

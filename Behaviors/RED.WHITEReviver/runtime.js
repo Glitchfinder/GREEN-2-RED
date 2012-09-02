@@ -234,7 +234,7 @@ cr.behaviors.REDWHITEReviver = function(runtime)
 					newPlayer.height = 128;
 					newPlayer.set_bbox_changed();
 					this.dataArray.instances[0].set(18, 0, 0, "revival");
-					this.dataArray.instances[0].set(38, 0, 0, 300);
+					this.dataArray.instances[0].set(38, 0, 0, 5);
 					this.dataArray.instances[0].set(8, 0, 0, this.dataArray.instances[0].at(8, 0, 0) + 1);
 				}
 				continue;

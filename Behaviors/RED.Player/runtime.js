@@ -69,8 +69,6 @@ cr.behaviors.REDPlayer = function(runtime)
 		this.paused = false;
 		this.playerNumber = 0;
 		this.multiplePlayers = false;
-		this.esckey = false;
-		this.lastesctick = -1;
 		this.players = {};
 		this.goals = 0;
 		this.exiting = false;
@@ -125,14 +123,6 @@ cr.behaviors.REDPlayer = function(runtime)
 	behinstProto.onKeyDown = function (info)
 	{	
 		var tickcount = this.runtime.tickcount;
-		
-		if(info.keyCode == 27)
-		{
-			info.preventDefault();
-			
-			if (this.lastesctick < tickcount)
-				this.esckey = true;
-		}
 		
 		if(this.playerCount > 1 && this.playerNumber == 2) {
 			switch (info.which) {
@@ -324,13 +314,6 @@ cr.behaviors.REDPlayer = function(runtime)
 	{
 		var tickcount = this.runtime.tickcount;
 		
-		if(info.keyCode == 27)
-		{
-			info.preventDefault();
-			this.esckey = false;
-			this.lastesctick = tickcount;
-		}
-		
 		if(this.playerCount > 1 && this.playerNumber == 2) {
 			switch (info.which) {
 			case 37:	// left arrow
@@ -478,10 +461,7 @@ cr.behaviors.REDPlayer = function(runtime)
 		{
 			return;
 		}
-		
-		if(this.dataArray.instances[0].at(39, 0, 0) == 1)
-			this.inst.opacity = 1.0;
-		
+
 		switch(this.playerNumber)
 		{
 		case 1:
@@ -505,28 +485,18 @@ cr.behaviors.REDPlayer = function(runtime)
 			
 			break;
 		}
-		
-		if (!this.paused &&
-			this.esckey &&
-			this.dataArray.instances[0].at(35, 0, 0) == this.playerNumber)
-		{
-			this.dataArray.instances[0].set(13, 0, 0, 1);
-			this.dataArray.instances[0].set(33, 0, 0, -1);
-			this.dataArray.instances[0].set(35, 0, 0, 1);
-			this.esckey = false;
-		}
-		else if (this.paused &&
-				this.esckey &&
-				this.dataArray.instances[0].at(35, 0, 0) == this.playerNumber)
-		{
-			this.dataArray.instances[0].set(13, 0, 0, 0);
-			this.dataArray.instances[0].set(33, 0, 0, -2);
-			this.dataArray.instances[0].set(35, 0, 0, 1);
-			this.esckey = false;
-		}
-		
+
+		if(this.dataArray.instances[0].at(39, 0, 0) == 1)
+			this.inst.opacity = 1.0;
+
+		if(this.dataArray.instances[0].at(39, 0, 0) <= 0)
+			return;
+
+		if(this.dataArray.instances[0].at(19, 0, 0) > 0)
+			return;
+
 		var dt = this.runtime.getDt(this.inst);
-		
+
 		var left = this.leftkey || this.simleft;
 		var right = this.rightkey || this.simright;
 		var up = this.upkey || this.simup;
@@ -535,7 +505,7 @@ cr.behaviors.REDPlayer = function(runtime)
 		this.simright = false;
 		this.simup = false;
 		this.simdown = false;
-		
+
 		if (this.playerCount == 0)
 		{
 			this.leftkey = false;
@@ -543,420 +513,10 @@ cr.behaviors.REDPlayer = function(runtime)
 			this.upkey = false;
 			this.downkey = false;
 		}
-		
+
 		if (!this.enabled)
 			return;
-		
-		if (this.paused)
-		{
-			this.esckey = false;
-			return;
-		}
-		
-		if (this.dataArray.instances[0].at(38, 0, 0) > 0 &&
-			this.dataArray.instances[0].at(35, 0, 0) == this.playerNumber)
-			this.dataArray.instances[0].set(38, 0, 0, this.dataArray.instances[0].at(38, 0, 0) - 1);
-		
-		if (this.dataArray.instances[0].at(35, 0, 0) == this.playerNumber)
-		{
-			var expMult = this.dataArray.instances[0].at(6, 0, 0);
-			var level = this.dataArray.instances[0].at(7, 0, 0);
-			var currentExp = this.dataArray.instances[0].at(2, 0, 0);
-			
-			if ((expMult * level) <= currentExp)
-			{
-				this.dataArray.instances[0].set(2, 0, 0, (currentExp - (expMult * level)));
-				this.dataArray.instances[0].set(7, 0, 0, level + 1);
-			}
-			
-			var zoom = 1.0;
-			
-			for(var i = 0; i < this.players.players.length; i += 1)
-			{
-				
-				if(typeof this.players.players[i].instances[0] == 'undefined')
-					continue;
-					
-				var playerNum = 0;
-				
-				for(var i2 = 0; i2 < this.players.players[i].instances[0].behavior_insts.length; i2 += 1)
-				{
-					if(typeof this.players.players[i].instances[0].behavior_insts[i2].playerNumber !=
-						'undefined')
-					{
-						playerNum = this.players.players[i].instances[0].behavior_insts[i2].playerNumber;
-					}
-				}
-				
-				if(playerNum == 0)
-					continue;
-				
-				var tempZoom = 1.0;
-				
-				var thisX = this.inst.x
-				var thisY = this.inst.y
-				
-				var thatX = this.players.players[i].instances[0].x
-				var thatY = this.players.players[i].instances[0].y
-				
-				if (Math.sqrt((Math.pow((thisX - thatX), 2)) + (Math.pow((thisY - thatY), 2))) > 500)
-					tempZoom = (1.0/((1.0/500.0) * Math.sqrt((Math.pow((thisX - thatX), 2)) +
-						(Math.pow((thisY - thatY), 2)))));
-					
-				if (tempZoom < zoom)
-					zoom = tempZoom;
-					
-			}
-			
-			this.dataArray.instances[0].set(36, 0, 0, zoom);
-		}
-		
-		var direction = 0;
-		
-		var directionCounts = [0, 0, 0, 0];
-		
-		var onExit = false;
-		
-		if (this.goals != 0 &&
-			this.playerNumber != 0 &&
-			this.dataArray.instances[0].at(39, 0, 0) >= 1)
-		{
-			for (var i = 0; i < this.goals.instances.length; i += 1)
-			{
-				if(typeof this.goals.instances[i] == 'undefined')
-					continue;
-				
-				if(typeof this.goals.instances[i].behavior_insts[0] == 'undefined')
-					continue;
-				
-				if(typeof this.goals.instances[i].behavior_insts[0].direction == 'undefined')
-					continue;
-				
-				direction = this.goals.instances[i].behavior_insts[0].direction;
-				
-				directionCounts[direction - 1] += 1;
-				
-				var collision = this.runtime.testOverlap(this.inst, this.goals.instances[i]);
-				
-				if (!this.exiting && collision && this.dataArray.instances[0].at(19, 0, 0) <= 0)
-				{
-					switch (this.playerNumber)
-					{
-					case 1:
-						this.dataArray.instances[0].set(41, 0, 0, direction);
-						break;
-					case 2:
-						this.dataArray.instances[0].set(42, 0, 0, direction);
-						break;
-					case 3:
-						this.dataArray.instances[0].set(43, 0, 0, direction);
-						break;
-					default:
-						this.dataArray.instances[0].set(44, 0, 0, direction);
-						break;
-					}
-					
-					this.dataArray.instances[0].set(40, 0, 0,
-						this.dataArray.instances[0].at(40, 0, 0) + 1);
-					this.exiting = true;
-					onExit = true;
-				}
-				else if(this.exiting &&
-					!collision &&
-					this.dataArray.instances[0].at(19, 0, 0) <= 0 &&
-					!onExit)
-				{
-					this.dataArray.instances[0].set(40, 0, 0,
-						this.dataArray.instances[0].at(40, 0, 0) - 1);
-					this.exiting = false;
-				}
-				
-				var playerCount = this.dataArray.instances[0].at(8, 0, 0);
-				var playersExiting = this.dataArray.instances[0].at(40, 0, 0);
-				
-				if (this.dataArray.instances[0].at(19, 0, 0) <= 0 &&
-					this.exiting &&
-					this.dataArray.instances[0].at(35, 0, 0) == this.playerNumber &&
-					playerCount <= playersExiting)
-				{
-					var randomNumber = Math.floor(Math.random() * 100);
-					
-					if (randomNumber < 50)
-					{
-						this.dataArray.instances[0].set(34, 0, 0, "Map (Maze)");
-						this.dataArray.instances[0].set(9, 0, 0, 1);
-					}
-					else if (randomNumber < 75)
-					{
-						this.dataArray.instances[0].set(34, 0, 0, "Map (Corner)");
-						this.dataArray.instances[0].set(9, 0, 0, 2);
-					}
-					else if (randomNumber < 90)
-					{
-						this.dataArray.instances[0].set(34, 0, 0, "Map (Battleground)");
-						this.dataArray.instances[0].set(9, 0, 0, 3);
-					}
-					else
-					{
-						this.dataArray.instances[0].set(34, 0, 0, "Map (Treasure)");
-						this.dataArray.instances[0].set(9, 0, 0, 4);
-					}
-					
-					return;
-				}
-				
-				if (this.dataArray.instances[0].at(19, 0, 0) > 0 && !this.exiting)
-				{
-					var exitDirection = 0;
-					switch (this.playerNumber)
-					{
-					case 1:
-						if (this.dataArray.instances[0].at(41, 0, 0) <= 0 &&
-							this.dataArray.instances[0].at(38, 0, 0) <= 0 &&
-							this.dataArray.instances[0].at(28, 0, 0) >= 0 &&
-							this.dataArray.instances[0].at(37, 0, 0) <= 0)
-						{
-							this.dataArray.instances[0].set(19, 0, 0,
-								this.dataArray.instances[0].at(19, 0, 0) - 1);
-							this.dataArray.instances[0].set(8, 0, 0,
-								this.dataArray.instances[0].at(8, 0, 0) - 1);
-							this.runtime.DestroyInstance(this.inst);
-							return;
-						}
-					
-						exitDirection = this.dataArray.instances[0].at(41, 0, 0);
-						break;
-					case 2:
-						if (this.dataArray.instances[0].at(42, 0, 0) <= 0 &&
-							this.dataArray.instances[0].at(38, 0, 0) <= 0 &&
-							this.dataArray.instances[0].at(29, 0, 0) >= 0 &&
-							this.dataArray.instances[0].at(37, 0, 0) <= 0)
-						{
-							this.dataArray.instances[0].set(19, 0, 0,
-								this.dataArray.instances[0].at(19, 0, 0) - 1);
-							this.dataArray.instances[0].set(8, 0, 0,
-								this.dataArray.instances[0].at(8, 0, 0) - 1);
-							this.runtime.DestroyInstance(this.inst);
-							return;
-						}
-					
-						exitDirection = this.dataArray.instances[0].at(42, 0, 0);
-						break;
-					case 3:
-						if (this.dataArray.instances[0].at(43, 0, 0) <= 0 &&
-							this.dataArray.instances[0].at(38, 0, 0) <= 0 &&
-							this.dataArray.instances[0].at(30, 0, 0) >= 0 &&
-							this.dataArray.instances[0].at(37, 0, 0) <= 0)
-						{
-							this.dataArray.instances[0].set(19, 0, 0,
-								this.dataArray.instances[0].at(19, 0, 0) - 1);
-							this.dataArray.instances[0].set(8, 0, 0,
-								this.dataArray.instances[0].at(8, 0, 0) - 1);
-							this.runtime.DestroyInstance(this.inst);
-							return;
-						}
-					
-						exitDirection = this.dataArray.instances[0].at(43, 0, 0);
-						break;
-					case 4:
-						if (this.dataArray.instances[0].at(44, 0, 0) <= 0 &&
-							this.dataArray.instances[0].at(38, 0, 0) <= 0 &&
-							this.dataArray.instances[0].at(31, 0, 0) >= 0 &&
-							this.dataArray.instances[0].at(37, 0, 0) <= 0)
-						{
-							this.dataArray.instances[0].set(19, 0, 0,
-								this.dataArray.instances[0].at(19, 0, 0) - 1);
-							this.dataArray.instances[0].set(8, 0, 0,
-								this.dataArray.instances[0].at(8, 0, 0) - 1);
-							this.runtime.DestroyInstance(this.inst);
-							return;
-						}
-					
-						exitDirection = this.dataArray.instances[0].at(44, 0, 0);
-						break;
-					}
-					
-					if (exitDirection == 0)
-						exitDirection = Math.floor(Math.random() * 4) + 1;
-					
-					var newDirection = 0;
-					
-					switch (exitDirection)
-					{
-					case 1:
-						switch (this.layoutAngle)
-						{
-						case 0:
-							newDirection = 2;
-							break;
-						case 90:
-							newDirection = 3;
-							break;
-						case 180:
-							newDirection = 1;
-							break;
-						default:
-							newDirection = 4;
-							break;
-						}
-						break;
-					case 2:
-						switch (this.layoutAngle)
-						{
-						case 0:
-							newDirection = 1;
-							break;
-						case 90:
-							newDirection = 4;
-							break;
-						case 180:
-							newDirection = 2;
-							break;
-						default:
-							newDirection = 3;
-							break;
-						}
-						break;
-					case 3:
-						switch (this.layoutAngle)
-						{
-						case 0:
-							newDirection = 4;
-							break;
-						case 90:
-							newDirection = 1;
-							break;
-						case 180:
-							newDirection = 3;
-							break;
-						default:
-							newDirection = 2;
-							break;
-						}
-						break;
-					default:
-						switch (this.layoutAngle)
-						{
-						case 0:
-							newDirection = 3;
-							break;
-						case 90:
-							newDirection = 2;
-							break;
-						case 180:
-							newDirection = 4;
-							break;
-						default:
-							newDirection = 1;
-							break;
-						}
-						break;
-					}
-					
-					if(directionCounts[newDirection - 1] == this.playerNumber &&
-						!this.placed &&
-						this.dataArray.instances[0].at(37, 0, 0) <= 0 &&
-						this.dataArray.instances[0].at(38, 0, 0) <= 0)
-					{
-						switch (newDirection)
-						{
-						case 1:
-							this.inst.x = this.goals.instances[i].x + 64;
-							this.inst.y = this.goals.instances[i].y;
-							this.inst.opacity = 1.0;
-							this.inst.set_bbox_changed();
-							this.placed = true;
-							if(this.bars != 0)
-							{
-								var layer = this.runtime.getLayerByNumber(1);
-								var newBars = this.runtime.createInstance(this.bars, layer);
-								newBars.x = this.goals.instances[i].x + 32;
-								newBars.y = this.goals.instances[i].y;
-								newBars.set_bbox_changed();
-							}
-							break;
-						case 2:
-							this.inst.x = this.goals.instances[i].x - 64;
-							this.inst.y = this.goals.instances[i].y;
-							this.inst.opacity = 1.0;
-							this.inst.set_bbox_changed();
-							this.placed = true;
-							if(this.bars != 0)
-							{
-								var layer = this.runtime.getLayerByNumber(1);
-								var newBars = this.runtime.createInstance(this.bars, layer);
-								newBars.x = this.goals.instances[i].x - 32;
-								newBars.y = this.goals.instances[i].y;
-								newBars.set_bbox_changed();
-							}
-							break;
-						case 3:
-							this.inst.x = this.goals.instances[i].x;
-							this.inst.y = this.goals.instances[i].y + 64;
-							this.inst.opacity = 1.0;
-							this.inst.set_bbox_changed();
-							this.placed = true;
-							if(this.bars != 0)
-							{
-								var layer = this.runtime.getLayerByNumber(1);
-								var newBars = this.runtime.createInstance(this.bars, layer);
-								newBars.x = this.goals.instances[i].x;
-								newBars.y = this.goals.instances[i].y + 32;
-								newBars.set_bbox_changed();
-							}
-							break;
-						default:
-							this.inst.x = this.goals.instances[i].x;
-							this.inst.y = this.goals.instances[i].y - 64;
-							this.inst.opacity = 1.0;
-							this.inst.set_bbox_changed();
-							this.placed = true;
-							if(this.bars != 0)
-							{
-								var layer = this.runtime.getLayerByNumber(1);
-								var newBars = this.runtime.createInstance(this.bars, layer);
-								newBars.x = this.goals.instances[i].x;
-								newBars.y = this.goals.instances[i].y - 32;
-								newBars.set_bbox_changed();
-							}
-							break;
-						}
-					}
-				}
-				else if (this.playerNumber != 0 &&
-					this.dataArray.instances[0].at(35, 0, 0) == this.playerNumber &&
-					this.dataArray.instances[0].at(19, 0, 0) <= 0)
-				{
-					if (this.dataArray.instances[0].at(41, 0, 0) != 0)
-						this.dataArray.instances[0].set(41, 0, 0, 0);
-					if (this.dataArray.instances[0].at(42, 0, 0) != 0)
-						this.dataArray.instances[0].set(42, 0, 0, 0);
-					if (this.dataArray.instances[0].at(43, 0, 0) != 0)
-						this.dataArray.instances[0].set(43, 0, 0, 0);
-					if (this.dataArray.instances[0].at(44, 0, 0) != 0)
-						this.dataArray.instances[0].set(44, 0, 0, 0);
-				}
-			}
-		}
-		
-		if (this.inst.width > 16 || this.inst.height > 16)
-		{
-			this.inst.width -= 4;
-			this.inst.height = this.inst.width;
-			this.inst.set_bbox_changed();
-			if(this.inst.width <= 16)
-			{
-				this.dataArray.instances[0].set(19, 0, 0, this.dataArray.instances[0].at(19, 0, 0) - 1);
-			}
-			return;
-		}
-		else if (this.inst.width < 16 || this.inst.height < 16)
-		{
-			this.inst.width = 16;
-			this.inst.height = this.inst.width;
-			this.inst.set_bbox_changed();
-		}
-		
+
 		// Is already overlapping solid: must have moved itself in (e.g. by rotating or being crushed),
 		// so push out
 		var collobj = this.runtime.testOverlapSolid(this.inst);

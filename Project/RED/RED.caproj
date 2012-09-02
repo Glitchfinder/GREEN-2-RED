@@ -7,15 +7,15 @@
     <unique-id>1c01z6bg9z2d2</unique-id>
     <saved-with-version>9500</saved-with-version>
     <used-plugins>
+        <plugin id="Arr" version="1">Array</plugin>
         <plugin id="Keyboard" version="1">Keyboard</plugin>
-        <plugin id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin id="Audio" version="1">Audio</plugin>
         <plugin id="Sprite" version="1">Sprite</plugin>
         <plugin id="Text" version="1">Text</plugin>
-        <plugin id="Audio" version="1">Audio</plugin>
-        <plugin id="Arr" version="1">Array</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior id="REDEXITTile" version="1">EXITTile</behavior>
+        <behavior id="REDManager" version="1">Manager</behavior>
         <behavior id="REDORANGEEnemy" version="1">ORANGE</behavior>
         <behavior id="REDPlayer" version="1">Player</behavior>
         <behavior id="REDRANDOMWall" version="1">RANDOMWall</behavior>
@@ -382,9 +382,45 @@
         <object-type name="HelpText">
             <plugin id="Text" />
         </object-type>
-        <object-type name="BLACKWall2">
-            <plugin id="TiledBg" />
-            <texture />
+        <object-type name="Manager">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Manager">
+                    <behavior id="REDManager" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ORANGEIcon">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SPIKEIcon">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.03125" y="0.03125" />
+                            <point x="0.5" y="0.15625" />
+                            <point x="0.96875" y="0.03125" />
+                            <point x="0.84375" y="0.5" />
+                            <point x="0.96875" y="0.96875" />
+                            <point x="0.5" y="0.84375" />
+                            <point x="0.03125" y="0.96875" />
+                            <point x="0.15625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families />

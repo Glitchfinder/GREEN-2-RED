@@ -209,6 +209,24 @@
                 <condition id="-2" name="On start of layout" type="System" />
             </conditions>
             <actions>
+                <action behavior="Manager" id="12" name="Add player" type="Manager">
+                    <param id="0" name="Add player.">REDPlayer</param>
+                </action>
+                <action behavior="Manager" id="12" name="Add player" type="Manager">
+                    <param id="0" name="Add player.">INDIGOPlayer</param>
+                </action>
+                <action behavior="Manager" id="13" name="Add goal tile" type="Manager">
+                    <param id="0" name="Add goal.">goal</param>
+                </action>
+                <action behavior="Manager" id="14" name="Add bar tile" type="Manager">
+                    <param id="0" name="Add bar.">BLACKBars</param>
+                </action>
+                <action behavior="Manager" id="9" name="Set movement angle" type="Manager">
+                    <param id="0" name="Movement Angle">Globals.At(0)</param>
+                </action>
+                <action behavior="Manager" id="11" name="Set data array" type="Manager">
+                    <param id="0" name="Set data array.">Globals</param>
+                </action>
                 <action behavior="TitleBackground" id="0" name="Set data array" type="titleBG">
                     <param id="0" name="Set data array.">Globals</param>
                 </action>
@@ -286,15 +304,6 @@
                 <action id="-22" name="Set layout angle" type="System">
                     <param id="0" name="Angle">Globals.At(0)</param>
                 </action>
-                <action behavior="Player" id="12" name="Add player" type="REDPlayer">
-                    <param id="0" name="Add player.">INDIGOPlayer</param>
-                </action>
-                <action behavior="Player" id="13" name="Add goal tile" type="REDPlayer">
-                    <param id="0" name="Add goal.">goal</param>
-                </action>
-                <action behavior="Player" id="14" name="Add bar tile" type="REDPlayer">
-                    <param id="0" name="Add bar.">BLACKBars</param>
-                </action>
                 <action behavior="Player" id="9" name="Set movement angle" type="REDPlayer">
                     <param id="0" name="Movement Angle">Globals.At(0)</param>
                 </action>
@@ -309,15 +318,6 @@
                     <param id="1" name="Height">128</param>
                 </action>
                 <action id="-24" name="Move to top" type="REDPlayer" />
-                <action behavior="Player" id="12" name="Add player" type="INDIGOPlayer">
-                    <param id="0" name="Add player.">REDPlayer</param>
-                </action>
-                <action behavior="Player" id="14" name="Add bar tile" type="INDIGOPlayer">
-                    <param id="0" name="Add bar.">BLACKBars</param>
-                </action>
-                <action behavior="Player" id="13" name="Add goal tile" type="INDIGOPlayer">
-                    <param id="0" name="Add goal.">goal</param>
-                </action>
                 <action behavior="Player" id="9" name="Set movement angle" type="INDIGOPlayer">
                     <param id="0" name="Movement Angle">Globals.At(0)</param>
                 </action>
@@ -516,14 +516,23 @@
                 <action id="-16" name="Set opacity" type="TitlePrompt">
                     <param id="0" name="Opacity">Globals.At(17) = 0 ? 0 : 100</param>
                 </action>
-                <action behavior="Player" id="12" name="Add player" type="REDPlayer">
+                <action behavior="Manager" id="12" name="Add player" type="Manager">
+                    <param id="0" name="Add player.">REDPlayer</param>
+                </action>
+                <action behavior="Manager" id="12" name="Add player" type="Manager">
                     <param id="0" name="Add player.">INDIGOPlayer</param>
                 </action>
-                <action behavior="Player" id="13" name="Add goal tile" type="REDPlayer">
+                <action behavior="Manager" id="13" name="Add goal tile" type="Manager">
                     <param id="0" name="Add goal.">goal</param>
                 </action>
-                <action behavior="Player" id="14" name="Add bar tile" type="REDPlayer">
+                <action behavior="Manager" id="14" name="Add bar tile" type="Manager">
                     <param id="0" name="Add bar.">BLACKBars</param>
+                </action>
+                <action behavior="Manager" id="9" name="Set movement angle" type="Manager">
+                    <param id="0" name="Movement Angle">Globals.At(0)</param>
+                </action>
+                <action behavior="Manager" id="11" name="Set data array" type="Manager">
+                    <param id="0" name="Set data array.">Globals</param>
                 </action>
                 <action behavior="Player" id="9" name="Set movement angle" type="REDPlayer">
                     <param id="0" name="Movement Angle">Globals.At(0)</param>
@@ -533,15 +542,6 @@
                 </action>
                 <action behavior="Player" id="11" name="Set data array" type="REDPlayer">
                     <param id="0" name="Set data array.">Globals</param>
-                </action>
-                <action behavior="Player" id="12" name="Add player" type="INDIGOPlayer">
-                    <param id="0" name="Add player.">REDPlayer</param>
-                </action>
-                <action behavior="Player" id="14" name="Add bar tile" type="INDIGOPlayer">
-                    <param id="0" name="Add bar.">BLACKBars</param>
-                </action>
-                <action behavior="Player" id="13" name="Add goal tile" type="INDIGOPlayer">
-                    <param id="0" name="Add goal.">goal</param>
                 </action>
                 <action behavior="Player" id="9" name="Set movement angle" type="INDIGOPlayer">
                     <param id="0" name="Movement Angle">Globals.At(0)</param>
@@ -578,7 +578,7 @@
                     <param id="0" name="Time scale">Globals.At(13) = 1 ? 0.0 : 1.0</param>
                 </action>
                 <action id="0" name="Set text" type="FPSCounter">
-                    <param id="0" name="Text">fps &amp; &quot; FPS&quot;</param>
+                    <param id="0" name="Text">fps &amp; &quot; FPS; Dir: &quot;  &amp; Globals.At(41) &amp; &quot;, &quot; &amp; Globals.At(42)</param>
                 </action>
             </actions>
         </event-block>
@@ -676,11 +676,8 @@
                 </condition>
             </conditions>
             <actions>
-                <action behavior="ORANGE" id="7" name="Set enabled" type="ORANGEEnemy">
-                    <param id="0" name="State">0</param>
-                </action>
-                <action behavior="SPIKETrap" id="7" name="Set enabled" type="SPIKETrap">
-                    <param id="0" name="State">0</param>
+                <action id="6" name="Stop" type="Audio">
+                    <param id="0" name="Tag">&quot;BackgroundMusic&quot;</param>
                 </action>
                 <action id="5" name="Set web font" type="HelpText">
                     <param id="0" name="Family name">&quot;Geo&quot;</param>
@@ -697,7 +694,7 @@
                     <param id="0" name="Text">&quot;This is RED. You can control him with the W, A, S, and D keys.&quot;</param>
                 </action>
                 <action id="-16" name="Wait" type="System">
-                    <param id="0" name="Seconds">5</param>
+                    <param id="0" name="Seconds">7.5</param>
                 </action>
                 <action id="-9" name="Destroy" type="REDIcon" />
                 <action id="-3" name="Set position" type="INDIGOIcon">
@@ -708,10 +705,10 @@
                     <param id="0" name="Text">&quot;This is INDIGO. You can control her with the arrow keys, or 2, 4, 6, and 8 on the numpad.&quot;</param>
                 </action>
                 <action id="-16" name="Wait" type="System">
-                    <param id="0" name="Seconds">5</param>
+                    <param id="0" name="Seconds">7.5</param>
                 </action>
                 <action id="-9" name="Destroy" type="INDIGOIcon" />
-                <action id="-3" name="Set position" type="ORANGEEnemy">
+                <action id="-3" name="Set position" type="ORANGEIcon">
                     <param id="0" name="X">400</param>
                     <param id="1" name="Y">400</param>
                 </action>
@@ -719,10 +716,10 @@
                     <param id="0" name="Text">&quot;This is ORANGE. He despises you, and will kill you when given the chance.&quot;</param>
                 </action>
                 <action id="-16" name="Wait" type="System">
-                    <param id="0" name="Seconds">5</param>
+                    <param id="0" name="Seconds">7.5</param>
                 </action>
-                <action id="-9" name="Destroy" type="ORANGEEnemy" />
-                <action id="-3" name="Set position" type="SPIKETrap">
+                <action id="-9" name="Destroy" type="ORANGEIcon" />
+                <action id="-3" name="Set position" type="SPIKEIcon">
                     <param id="0" name="X">400</param>
                     <param id="1" name="Y">400</param>
                 </action>
@@ -730,9 +727,9 @@
                     <param id="0" name="Text">&quot;This is SPIKE TRAP. He doesn&apos;t really like you either.&quot;</param>
                 </action>
                 <action id="-16" name="Wait" type="System">
-                    <param id="0" name="Seconds">5</param>
+                    <param id="0" name="Seconds">7.5</param>
                 </action>
-                <action id="-9" name="Destroy" type="SPIKETrap" />
+                <action id="-9" name="Destroy" type="SPIKEIcon" />
                 <action id="-3" name="Set position" type="YELLOWIcon">
                     <param id="0" name="X">400</param>
                     <param id="1" name="Y">400</param>
@@ -741,7 +738,7 @@
                     <param id="0" name="Text">&quot;This is a COIN. Collect as many as possible.&quot;</param>
                 </action>
                 <action id="-16" name="Wait" type="System">
-                    <param id="0" name="Seconds">5</param>
+                    <param id="0" name="Seconds">7.5</param>
                 </action>
                 <action id="-9" name="Destroy" type="YELLOWIcon" />
                 <action id="-3" name="Set position" type="WHITEReviverIcon">
@@ -752,7 +749,7 @@
                     <param id="0" name="Text">&quot;This is a REVIVAL TILE. Activate it as soon as possible&quot;</param>
                 </action>
                 <action id="-16" name="Wait" type="System">
-                    <param id="0" name="Seconds">5</param>
+                    <param id="0" name="Seconds">7.5</param>
                 </action>
                 <action id="-9" name="Destroy" type="WHITEReviverIcon" />
                 <action id="-3" name="Set position" type="goal">
@@ -763,14 +760,14 @@
                     <param id="0" name="Text">&quot;This is a GOAL. Use it to change maps.&quot;</param>
                 </action>
                 <action id="-16" name="Wait" type="System">
-                    <param id="0" name="Seconds">5</param>
+                    <param id="0" name="Seconds">7.5</param>
                 </action>
                 <action id="-9" name="Destroy" type="goal" />
                 <action id="0" name="Set text" type="HelpText">
                     <param id="0" name="Text">&quot;Have fun playing RED!&quot;</param>
                 </action>
                 <action id="-16" name="Wait" type="System">
-                    <param id="0" name="Seconds">5</param>
+                    <param id="0" name="Seconds">7.5</param>
                 </action>
                 <action id="-25" name="Go to layout (by name)" type="System">
                     <param id="0" name="Layout">&quot;Title&quot;</param>
@@ -778,6 +775,9 @@
                 <action id="2" name="Set at X" type="Globals">
                     <param id="0" name="X">1</param>
                     <param id="1" name="Value">0</param>
+                </action>
+                <action id="6" name="Stop" type="Audio">
+                    <param id="0" name="Tag">&quot;BackgroundMusic&quot;</param>
                 </action>
             </actions>
         </event-block>
