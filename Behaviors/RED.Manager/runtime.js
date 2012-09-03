@@ -62,6 +62,8 @@ cr.behaviors.REDManager = function(runtime)
 	{
 		this.exiting = false;
 		this.placed = false;
+		this.esckey = false;
+		this.lastesctick = -1;
 
 		jQuery(document).keydown(
 			(function (self)
@@ -635,6 +637,12 @@ cr.behaviors.REDManager = function(runtime)
 
 	acts.AddPlayer = function (player)
 	{
+		for(var i = 0; i < this.players.players.length; i++)
+		{
+			if(this.players.players[i] == player)
+				return;
+		}
+
 		this.players.players.push(player);
 	};
 
