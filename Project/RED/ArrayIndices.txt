@@ -14,6 +14,7 @@
 (13)	CurrentPAUSE:			Pause boolean. The game is paused when this is 1, and playable when it is 0.
 (9)	CurrentMap:			Current Map ID.
 (0)	CurrentMapAngle:		The angle of the current map. (Should only be 0, 90, 180, or 270)
+(46)	LastMapAngle:			The angle of the previous map. (Should only be 0, 90, 180, or 270)
 (3)	CurrentMapCOINCount:		Number of COINS remaining on the current map.
 (4)	CurrentMapENEMYCount:		Number of ENEMIES remaining on the current map.
 (5)	CurrentMapEXPBase:		The base amount of EXP awarded for completing the current map.
@@ -93,3 +94,4 @@
 (42)	Player2DIRECTION:		The direction Player 2 took to exit. If 0, they are dead and must wait for a respawn.
 (43)	Player3DIRECTION:		The direction Player 3 took to exit. If 0, they are dead and must wait for a respawn.
 (44)	Player4DIRECTION:		The direction Player 4 took to exit. If 0, they are dead and must wait for a respawn.
+(46)	LastMapAngle:			The angle of the previous map. (Should only be 0, 90, 180, or 270)

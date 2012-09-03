@@ -14,7 +14,7 @@
             </conditions>
             <actions>
                 <action id="1" name="Set size" type="Globals">
-                    <param id="0" name="Width">46</param>
+                    <param id="0" name="Width">47</param>
                     <param id="1" name="Height">1</param>
                     <param id="2" name="Depth">1</param>
                 </action>
@@ -184,23 +184,42 @@
                 </action>
                 <action id="2" name="Set at X" type="Globals">
                     <param id="0" name="X">41</param>
-                    <param id="1" name="Value">Choose(1, 2, 3, 4)</param>
+                    <param id="1" name="Value">Choose(0, 1, 2, 3)</param>
                 </action>
                 <action id="2" name="Set at X" type="Globals">
                     <param id="0" name="X">42</param>
-                    <param id="1" name="Value">Choose(1, 2, 3, 4)</param>
+                    <param id="1" name="Value">Choose(0, 1, 2, 3)</param>
                 </action>
                 <action id="2" name="Set at X" type="Globals">
                     <param id="0" name="X">43</param>
-                    <param id="1" name="Value">Choose(1, 2, 3, 4)</param>
+                    <param id="1" name="Value">Choose(0, 1, 2, 3)</param>
                 </action>
                 <action id="2" name="Set at X" type="Globals">
                     <param id="0" name="X">44</param>
-                    <param id="1" name="Value">Choose(1, 2, 3, 4)</param>
+                    <param id="1" name="Value">Choose(0, 1, 2, 3)</param>
                 </action>
                 <action id="2" name="Set at X" type="Globals">
                     <param id="0" name="X">45</param>
                     <param id="1" name="Value">2</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">46</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="4" name="Preload" type="Audio">
+                    <param id="0" name="Audio file">activate</param>
+                </action>
+                <action id="4" name="Preload" type="Audio">
+                    <param id="0" name="Audio file">death</param>
+                </action>
+                <action id="4" name="Preload" type="Audio">
+                    <param id="0" name="Audio file">normal</param>
+                </action>
+                <action id="4" name="Preload" type="Audio">
+                    <param id="0" name="Audio file">revival</param>
+                </action>
+                <action id="4" name="Preload" type="Audio">
+                    <param id="0" name="Audio file">special</param>
                 </action>
             </actions>
         </event-block>
@@ -209,24 +228,6 @@
                 <condition id="-2" name="On start of layout" type="System" />
             </conditions>
             <actions>
-                <action behavior="Manager" id="12" name="Add player" type="Manager">
-                    <param id="0" name="Add player.">REDPlayer</param>
-                </action>
-                <action behavior="Manager" id="12" name="Add player" type="Manager">
-                    <param id="0" name="Add player.">INDIGOPlayer</param>
-                </action>
-                <action behavior="Manager" id="13" name="Add goal tile" type="Manager">
-                    <param id="0" name="Add goal.">goal</param>
-                </action>
-                <action behavior="Manager" id="14" name="Add bar tile" type="Manager">
-                    <param id="0" name="Add bar.">BLACKBars</param>
-                </action>
-                <action behavior="Manager" id="9" name="Set movement angle" type="Manager">
-                    <param id="0" name="Movement Angle">Globals.At(0)</param>
-                </action>
-                <action behavior="Manager" id="11" name="Set data array" type="Manager">
-                    <param id="0" name="Set data array.">Globals</param>
-                </action>
                 <action behavior="TitleBackground" id="0" name="Set data array" type="titleBG">
                     <param id="0" name="Set data array.">Globals</param>
                 </action>
@@ -299,10 +300,28 @@
                 </action>
                 <action id="2" name="Set at X" type="Globals">
                     <param id="0" name="X">0</param>
-                    <param id="1" name="Value">Globals.At(12) = 100 ? Choose(0, 90, 180, 270) : 0</param>
+                    <param id="1" name="Value">Globals.At(12) = 2 ? Choose(0, 90, 180, 270) : 0</param>
                 </action>
                 <action id="-22" name="Set layout angle" type="System">
                     <param id="0" name="Angle">Globals.At(0)</param>
+                </action>
+                <action behavior="Manager" id="12" name="Add player" type="Manager">
+                    <param id="0" name="Add player.">REDPlayer</param>
+                </action>
+                <action behavior="Manager" id="12" name="Add player" type="Manager">
+                    <param id="0" name="Add player.">INDIGOPlayer</param>
+                </action>
+                <action behavior="Manager" id="13" name="Add goal tile" type="Manager">
+                    <param id="0" name="Add goal.">goal</param>
+                </action>
+                <action behavior="Manager" id="14" name="Add bar tile" type="Manager">
+                    <param id="0" name="Add bar.">BLACKBars</param>
+                </action>
+                <action behavior="Manager" id="9" name="Set movement angle" type="Manager">
+                    <param id="0" name="Movement Angle">Globals.At(0)</param>
+                </action>
+                <action behavior="Manager" id="11" name="Set data array" type="Manager">
+                    <param id="0" name="Set data array.">Globals</param>
                 </action>
                 <action behavior="Player" id="9" name="Set movement angle" type="REDPlayer">
                     <param id="0" name="Movement Angle">Globals.At(0)</param>
@@ -453,6 +472,10 @@
                     <param id="0" name="X">40</param>
                     <param id="1" name="Value">0</param>
                 </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">46</param>
+                    <param id="1" name="Value">Globals.At(0)</param>
+                </action>
             </actions>
         </event-block>
         <event-block>
@@ -484,11 +507,13 @@
                     <param id="3" name="Loop">0</param>
                     <param id="2" name="Tag (optional)">&quot;SoundEffect&quot;</param>
                 </action>
-                <action id="7" name="Play (by name)" type="Audio">
-                    <param id="0" name="Folder">0</param>
-                    <param id="1" name="Audio file name">&quot;&quot;</param>
-                    <param id="3" name="Loop">0</param>
-                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">33</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="2" name="Set at X" type="Globals">
+                    <param id="0" name="X">18</param>
+                    <param id="1" name="Value">0</param>
                 </action>
                 <action id="0" name="Set text" type="Player1Lives">
                     <param id="0" name="Text">Globals.At(13) ?  (&quot;LIVES:&quot; &amp; Globals.At(14)) : Globals.At(14)</param>
@@ -559,14 +584,6 @@
                     <param id="0" name="Opacity">Globals.At(13) = 0 ? 0 : 50</param>
                 </action>
                 <action id="2" name="Set at X" type="Globals">
-                    <param id="0" name="X">33</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-                <action id="2" name="Set at X" type="Globals">
-                    <param id="0" name="X">18</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-                <action id="2" name="Set at X" type="Globals">
                     <param id="0" name="X">35</param>
                     <param id="1" name="Value">(Globals.At(14) &gt; 0 &amp; Globals.At(28) = -1) ? 1 : (Globals.At(15) &gt; 0 &amp; Globals.At(29) = -1) ? 2 : (Globals.At(23) &gt; 0 &amp; Globals.At(30) = -1) ? 3 : (Globals.At(26) &gt; 0 &amp; Globals.At(31) = -1) ? 4 : 1</param>
                 </action>
@@ -578,7 +595,7 @@
                     <param id="0" name="Time scale">Globals.At(13) = 1 ? 0.0 : 1.0</param>
                 </action>
                 <action id="0" name="Set text" type="FPSCounter">
-                    <param id="0" name="Text">fps &amp; &quot; FPS; Dir: &quot;  &amp; Globals.At(41) &amp; &quot;, &quot; &amp; Globals.At(42)</param>
+                    <param id="0" name="Text">fps &amp; &quot; FPS; Exit: &quot; &amp; Globals.At(28) &amp; &quot;, &quot; &amp; Globals.At(29)</param>
                 </action>
             </actions>
         </event-block>

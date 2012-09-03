@@ -173,6 +173,9 @@ cr.behaviors.REDManager = function(runtime)
 			if(typeof instance == 'undefined')
 				continue;
 
+			if(!instance.visible || instance.opacity <= 0)
+				continue;
+
 			var playerNum = 0;
 			var behInstance = 0;
 
@@ -181,9 +184,9 @@ cr.behaviors.REDManager = function(runtime)
 				if(playerNum == 0)
 					behInstance = instance.behavior_insts[i2];
 
-				if(typeof instance.behavior_insts[i2].playerNumber != 'undefined')
+				if(typeof behInstance.playerNumber != 'undefined')
 				{
-					playerNum = instance.behavior_insts[i2].playerNumber;
+					playerNum = behInstance.playerNumber;
 				}
 			}
 
@@ -259,6 +262,9 @@ cr.behaviors.REDManager = function(runtime)
 		if(this.dataArray.instances[0].at(39, 0, 0) <= 0)
 			return;
 
+		if(behInst.playerNumber == 0)
+			return;
+
 		var direction = 0;
 		var directions = [0, 0, 0, 0];
 		var onExit = this.exiting;
@@ -278,7 +284,7 @@ cr.behaviors.REDManager = function(runtime)
 
 			direction = goal.behavior_insts[0].direction;
 
-			directions[direction - 1] += 1;
+			directions[direction] += 1;
 
 			var coll = this.runtime.testOverlap(instance, goal);
 
@@ -295,10 +301,7 @@ cr.behaviors.REDManager = function(runtime)
 
 			var result = this.handlePlayerLoad(goal, directions, instance, behInst);
 			if(result != -1)
-				continue;
-
-			if(behInst.playerNumber == 0)
-				continue;
+				break;
 
 			if(this.dataArray.instances[0].at(19, 0, 0) > 0)
 				continue;
@@ -309,14 +312,14 @@ cr.behaviors.REDManager = function(runtime)
 			if(this.dataArray.instances[0].at(39, 0, 0) <= 0)
 				continue;
 
-			if (this.dataArray.instances[0].at(41, 0, 0) != 0)
-				this.dataArray.instances[0].set(41, 0, 0, 0);
-			if (this.dataArray.instances[0].at(42, 0, 0) != 0)
-				this.dataArray.instances[0].set(42, 0, 0, 0);
-			if (this.dataArray.instances[0].at(43, 0, 0) != 0)
-				this.dataArray.instances[0].set(43, 0, 0, 0);
-			if (this.dataArray.instances[0].at(44, 0, 0) != 0)
-				this.dataArray.instances[0].set(44, 0, 0, 0);
+			if (this.dataArray.instances[0].at(41, 0, 0) != -1)
+				this.dataArray.instances[0].set(41, 0, 0, -1);
+			if (this.dataArray.instances[0].at(42, 0, 0) != -1)
+				this.dataArray.instances[0].set(42, 0, 0, -1);
+			if (this.dataArray.instances[0].at(43, 0, 0) != -1)
+				this.dataArray.instances[0].set(43, 0, 0, -1);
+			if (this.dataArray.instances[0].at(44, 0, 0) != -1)
+				this.dataArray.instances[0].set(44, 0, 0, -1);
 		}
 
 		if(!anyExiting)
@@ -362,10 +365,7 @@ cr.behaviors.REDManager = function(runtime)
 		if(!behInst.exiting)
 			return -1;
 
-		if(collision)
-			return -1;
-
-		if(this.dataArray.instances[0].at(19, 0, 0) > 0)
+		if(collision && this.dataArray.instances[0].at(19, 0, 0) <= 0)
 			return -1;
 		
 		if(onExit)
@@ -426,30 +426,31 @@ cr.behaviors.REDManager = function(runtime)
 		if (this.dataArray.instances[0].at(19, 0, 0) <= 0)
 			return -1;
 
+		if(this.dataArray.instances[0].at(39, 0, 0) <= 0)
+			return -1;
+
 		var exitDirection = this.calculateExitDirection(instance, behInst);
 
 		if(exitDirection == -1)
 			return false;
 
-		if (exitDirection == 0)
-			exitDirection = Math.floor(Math.random() * 4) + 1;
+		if (exitDirection == -2)
+			exitDirection = Math.floor(Math.random() * 4);
 
 		var newDirection = this.calculateRotatedExitDirection(exitDirection);
 
-		this.placePlayerOnLoad(newDirection, directions, goal, instance, behInst);
-
-		return true;
+		return this.placePlayerOnLoad(newDirection, directions, goal, instance, behInst);
 	}
 
 	behinstProto.calculateExitDirection = function(instance, behInst)
 	{
-		var exitDirection = 0;
+		var exitDirection = -2;
 
 		switch (behInst.playerNumber)
 		{
 		case 1:
 			exitDirection = this.dataArray.instances[0].at(41, 0, 0);
-			if(this.dataArray.instances[0].at(41, 0, 0) > 0)
+			if(this.dataArray.instances[0].at(41, 0, 0) >= 0)
 				break;
 
 			if(this.dataArray.instances[0].at(28, 0, 0) < 0)
@@ -462,7 +463,7 @@ cr.behaviors.REDManager = function(runtime)
 			return -1;
 		case 2:
 			exitDirection = this.dataArray.instances[0].at(42, 0, 0);
-			if(this.dataArray.instances[0].at(42, 0, 0) > 0)
+			if(this.dataArray.instances[0].at(42, 0, 0) >= 0)
 				break;
 
 			if(this.dataArray.instances[0].at(29, 0, 0) < 0)
@@ -475,7 +476,7 @@ cr.behaviors.REDManager = function(runtime)
 			return -1;
 		case 3:
 			exitDirection = this.dataArray.instances[0].at(43, 0, 0);
-			if(this.dataArray.instances[0].at(43, 0, 0) > 0)
+			if(this.dataArray.instances[0].at(43, 0, 0) >= 0)
 				break;
 
 			if(this.dataArray.instances[0].at(30, 0, 0) < 0)
@@ -488,7 +489,7 @@ cr.behaviors.REDManager = function(runtime)
 			return -1;
 		case 4:
 			exitDirection = this.dataArray.instances[0].at(44, 0, 0);
-			if(this.dataArray.instances[0].at(44, 0, 0) > 0)
+			if(this.dataArray.instances[0].at(44, 0, 0) >= 0)
 				break;
 
 			if(this.dataArray.instances[0].at(31, 0, 0) < 0)
@@ -506,6 +507,9 @@ cr.behaviors.REDManager = function(runtime)
 
 	behinstProto.decrementPlayers = function(instance)
 	{
+		instance.visible = false;
+		instance.opacity = 0;
+
 		var playersRemaining = this.dataArray.instances[0].at(19, 0, 0) - 1;
 		playersRemaining = (playersRemaining < 0) ? 0 : playersRemaining;
 		this.dataArray.instances[0].set(19, 0, 0, playersRemaining);
@@ -518,77 +522,28 @@ cr.behaviors.REDManager = function(runtime)
 
 	behinstProto.calculateRotatedExitDirection = function(exitDirection)
 	{
-		switch (exitDirection)
-		{
-		case 1:
-			switch (this.layoutAngle)
-			{
-			case 0:
-				return 2;
-			case 90:
-				return 3;
-			case 180:
-				return 1;
-			default:
-				return 4;
-			}
-			break;
-		case 2:
-			switch (this.layoutAngle)
-			{
-			case 0:
-				return 1;
-			case 90:
-				return 4;
-			case 180:
-				return 2;
-			default:
-				return 3;
-			}
-			break;
-		case 3:
-			switch (this.layoutAngle)
-			{
-			case 0:
-				return 4;
-			case 90:
-				return 1;
-			case 180:
-				return 3;
-			default:
-				return 2;
-			}
-			break;
-		default:
-			switch (this.layoutAngle)
-			{
-			case 0:
-				return 3;
-			case 90:
-				return 2;
-			case 180:
-				return 4;
-			default:
-				return 1;
-			}
-			break;
-		}
+		var currentAngle = this.layoutAngle;
+		var oldAngle = this.dataArray.instances[0].at(46, 0, 0);
+
+		var change = ((((oldAngle - currentAngle) / 90) * (-1)) + 6) % 4;
+
+		return ((exitDirection + change) % 4)
 	}
 
 	behinstProto.placePlayerOnLoad = function (direction, directions, goal, instance, behInst)
 	{
-		if(directions[direction - 1] != behInst.playerNumber)
-			return;
+		if(directions[direction] != behInst.playerNumber)
+			return -1;
 
 		if(behInst.placed)
-			return;
+			return false;
 
 		if(this.dataArray.instances[0].at(37, 0, 0) > 0)
-			return;
+			return -1;
 
 		switch (direction)
 		{
-		case 1:
+		case 3:
 			instance.x = goal.x + 64;
 			instance.y = goal.y;
 			instance.opacity = 1.0;
@@ -603,7 +558,7 @@ cr.behaviors.REDManager = function(runtime)
 				newBars.set_bbox_changed();
 			}
 			break;
-		case 2:
+		case 1:
 			instance.x = goal.x - 64;
 			instance.y = goal.y;
 			instance.opacity = 1.0;
@@ -618,7 +573,7 @@ cr.behaviors.REDManager = function(runtime)
 				newBars.set_bbox_changed();
 			}
 			break;
-		case 3:
+		case 0:
 			instance.x = goal.x;
 			instance.y = goal.y + 64;
 			instance.opacity = 1.0;
@@ -649,6 +604,8 @@ cr.behaviors.REDManager = function(runtime)
 			}
 			break;
 		}
+
+		return true;
 	}
 
 	//////////////////////////////////////

@@ -7,11 +7,11 @@
     <unique-id>1c01z6bg9z2d2</unique-id>
     <saved-with-version>9500</saved-with-version>
     <used-plugins>
+        <plugin id="Text" version="1">Text</plugin>
         <plugin id="Arr" version="1">Array</plugin>
         <plugin id="Keyboard" version="1">Keyboard</plugin>
         <plugin id="Audio" version="1">Audio</plugin>
         <plugin id="Sprite" version="1">Sprite</plugin>
-        <plugin id="Text" version="1">Text</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior id="REDEXITTile" version="1">EXITTile</behavior>
@@ -60,7 +60,7 @@
                 </behavior-type>
             </behaviors>
             <animation-folder expanded="1">
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                <animation framecount="1" loop="0" name="RED" pingpong="0" repeatcount="1" repeatto="0" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -164,7 +164,7 @@
                 </behavior-type>
             </behaviors>
             <animation-folder expanded="1">
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
+                <animation framecount="1" loop="0" name="INDIGO" pingpong="0" repeatcount="1" repeatto="0" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -449,12 +449,12 @@
         <file name="normal.ogg" />
         <file name="special.m4a" />
         <file name="special.ogg" />
-        <file name="revival.m4a" />
-        <file name="revival.ogg" />
-        <file name="activate.m4a" />
-        <file name="activate.ogg" />
         <file name="death.m4a" />
         <file name="death.ogg" />
+        <file name="activate.m4a" />
+        <file name="activate.ogg" />
+        <file name="revival.m4a" />
+        <file name="revival.ogg" />
     </sounds-folder>
     <music-folder expanded="1">
         <file name="basic 1.m4a" />

@@ -87,38 +87,31 @@ cr.behaviors.REDWHITEReviver = function(runtime)
 				
 				if(typeof this.players.players[i].animations[0] != 'undefined')
 				{
-					if(typeof this.players.players[i].animations[0][6] != 'undefined')
+					if(typeof this.players.players[i].animations[0].frames[0] != 'undefined')
 					{
-						if(typeof this.players.players[i].animations[0][6][0] != 'undefined')
+						if(typeof this.players.players[i].animations[0].frames[0].texture_file != 'undefined')
 						{
-							if(typeof this.players.players[i].animations[0][6][0][0] != 'undefined')
-							{
-								texname = this.players.players[i].animations[0][6][0][0];
-							}
+							texname = this.players.players[i].animations[0].frames[0].texture_file;
 						}
 					}
 				}
-				
-				var texnumber = 0;
+
+				var texnumber = -1;
 				var revivalNumber = 0;
 				
-				texname = texname.replace("images/", "");
+				texname = texname.toUpperCase().toLowerCase();
 				
-				if (texname == "redplayer-default-000.png")
+				if (~texname.indexOf('red'))
 				{
 					texnumber = 1;
 				}
-				else if (texname == "indigoplayer-default-000.png")
+				else if (~texname.indexOf('indigo'))
 				{
 					texnumber = 2;
 				}
-				else
-				{
-					document.write(texname);
-				}
 				
 				var newPlayer = 0;
-				
+
 				for (var index = 0; index < 4; index += 1)
 				{
 					switch(index)
@@ -131,9 +124,7 @@ cr.behaviors.REDWHITEReviver = function(runtime)
 								if (this.dataArray.instances[0].at(28, 0, 0) == 0)
 								{
 									this.dataArray.instances[0].set(28, 0, 0, -1);
-									var layer = this.runtime.getLayerByNumber(1);
-									
-									var newPlayer = this.runtime.createInstance(this.players.players[i], layer);
+									newPlayer = 1;
 								}
 								else
 								{
@@ -156,9 +147,7 @@ cr.behaviors.REDWHITEReviver = function(runtime)
 								if (this.dataArray.instances[0].at(29, 0, 0) == 0)
 								{
 									this.dataArray.instances[0].set(29, 0, 0, -1);
-									var layer = this.runtime.getLayerByNumber(1);
-									
-									var newPlayer = this.runtime.createInstance(this.players.players[i], layer);
+									newPlayer = 1;
 								}
 								else
 								{
@@ -181,9 +170,7 @@ cr.behaviors.REDWHITEReviver = function(runtime)
 								if (this.dataArray.instances[0].at(30, 0, 0) == 0)
 								{
 									this.dataArray.instances[0].set(30, 0, 0, -1);
-									var layer = this.runtime.getLayerByNumber(1);
-									
-									var newPlayer = this.runtime.createInstance(this.players.players[i], layer);
+									newPlayer = 1;
 								}
 								else
 								{
@@ -206,9 +193,7 @@ cr.behaviors.REDWHITEReviver = function(runtime)
 								if (this.dataArray.instances[0].at(31, 0, 0) == 0)
 								{
 									this.dataArray.instances[0].set(31, 0, 0, -1);
-									var layer = this.runtime.getLayerByNumber(1);
-									
-									var newPlayer = this.runtime.createInstance(this.players.players[i], layer);
+									newPlayer = 1;
 								}
 								else
 								{
@@ -226,8 +211,10 @@ cr.behaviors.REDWHITEReviver = function(runtime)
 					}
 				}
 				
-				if (newPlayer != 0)
+				if (newPlayer == 1)
 				{
+					var layer = this.runtime.getLayerByNumber(1);
+					newPlayer = this.runtime.createInstance(this.players.players[i], layer);
 					newPlayer.x = this.inst.x;
 					newPlayer.y = this.inst.y;
 					newPlayer.width = 128;
@@ -242,7 +229,7 @@ cr.behaviors.REDWHITEReviver = function(runtime)
 			
 			var playerNumber = 0;
 			
-			var playerBehavior = 0
+			var playerBehavior = 0;
 			
 			for(var i2 = 0; i2 < this.players.players[i].instances[0].behavior_insts.length; i2 += 1)
 			{
