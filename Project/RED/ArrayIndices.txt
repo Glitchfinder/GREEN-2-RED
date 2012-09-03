@@ -4,7 +4,7 @@
 (18)	SoundEffect:			Sound effect to play. If 0, nothing to play. Otherwise, the name of the SE to play.
 (33)	BackgroundMusic:		Background music to play. If 0, nothing to player. If -1, kill current music only. Otherwise, the name of the BGM to play.
 (34)	LoadLayout:			Layout to load. If 0, no layout needs to be loaded. Otherwise, the name of the layout to load.
-(35)	UtilityPlayer:			The player object assigned to control utilities such as pausing. Unrelated to actual control schema.
+(35)	UtilityPlayer:			(DEPRECATED) The player object assigned to control utilities such as pausing. Unrelated to actual control schema.
 (19)	UnloadedPlayers:		Number of unloaded players remaining.
 (37)	ForceRevival:			Boolean. If true, switch to a new map and activate the revival tile.
 (38)	RevivalActive:			A counter. If above 0, a revival has happened and all players are temporarily invincible.
@@ -84,7 +84,7 @@
 (32)	NULLValue:			A index for use when no index should be used. Should always be the text "NULL"
 (33)	BackgroundMusic:		Background music to play. If 0, nothing to player. If -1, kill current music only. Otherwise, the name of the BGM to play.
 (34)	LoadLayout:			Layout to load. If 0, no layout needs to be loaded. If -1, Layout is fully loaded. Otherwise, the name of the layout to load.
-(35)	UtilityPlayer:			The player object assigned to control utilities such as pausing. Unrelated to actual control schema.
+(35)	UtilityPlayer:			(DEPRECATED) The player object assigned to control utilities such as pausing. Unrelated to actual control schema.
 (36)	CurrentMapZoom:			The zoom on the current map. Automatically calculated by the Player behavior. Calculated by the utility player.
 (37)	ForceRevival:			Boolean. If true, switch to a new map and activate the revival tile.
 (38)	RevivalActive:			A counter. If above 0, a revival has happened and all players are temporarily invincible.
