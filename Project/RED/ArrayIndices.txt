@@ -2,7 +2,7 @@
 (16)	TitleCounter:			A counter for the title screen.
 (17)	TitleActive:			Boolean. If 1, title has a prompt showing.
 (18)	SoundEffect:			Sound effect to play. If 0, nothing to play. Otherwise, the name of the SE to play.
-(33)	BackgroundMusic:		Background music to play. If 0, nothing to player. If -1, kill current music only. Otherwise, the name of the BGM to play.
+(33)	BackgroundMusic:		Background music to play. If 0, nothing to play. Otherwise, the name of the BGM to play.
 (34)	LoadLayout:			Layout to load. If 0, no layout needs to be loaded. Otherwise, the name of the layout to load.
 (35)	UtilityPlayer:			(DEPRECATED) The player object assigned to control utilities such as pausing. Unrelated to actual control schema.
 (19)	UnloadedPlayers:		Number of unloaded players remaining.
@@ -82,7 +82,7 @@
 (30)	Player3RESPAWN:			The respawn timer for Player 3.
 (31)	Player4RESPAWN:			The respawn timer for Player 4.
 (32)	NULLValue:			A index for use when no index should be used. Should always be the text "NULL"
-(33)	BackgroundMusic:		Background music to play. If 0, nothing to player. If -1, kill current music only. Otherwise, the name of the BGM to play.
+(33)	BackgroundMusic:		Background music to play. If 0, nothing to play. Otherwise, the name of the BGM to play.
 (34)	LoadLayout:			Layout to load. If 0, no layout needs to be loaded. If -1, Layout is fully loaded. Otherwise, the name of the layout to load.
 (35)	UtilityPlayer:			(DEPRECATED) The player object assigned to control utilities such as pausing. Unrelated to actual control schema.
 (36)	CurrentMapZoom:			The zoom on the current map. Automatically calculated by the Player behavior. Calculated by the utility player.

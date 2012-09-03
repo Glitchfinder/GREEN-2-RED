@@ -127,7 +127,6 @@ cr.behaviors.REDManager = function(runtime)
 		if (this.paused && this.esckey)
 		{
 			this.dataArray.instances[0].set(13, 0, 0, 0);
-			this.dataArray.instances[0].set(33, 0, 0, -2);
 			this.dataArray.instances[0].set(35, 0, 0, 1);
 			this.esckey = false;
 		}
@@ -138,7 +137,6 @@ cr.behaviors.REDManager = function(runtime)
 		if (this.esckey)
 		{
 			this.dataArray.instances[0].set(13, 0, 0, 1);
-			this.dataArray.instances[0].set(33, 0, 0, -1);
 			this.dataArray.instances[0].set(35, 0, 0, 1);
 			this.esckey = false;
 		}

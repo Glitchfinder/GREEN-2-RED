@@ -249,6 +249,7 @@
                 <action behavior="ORANGE" id="9" name="Set data array" type="ORANGEEnemy">
                     <param id="0" name="Set data array.">Globals</param>
                 </action>
+                <action id="-24" name="Move to top" type="ORANGEEnemy" />
                 <action behavior="WHITEReviver" id="1" name="Add player" type="WHITEReviver">
                     <param id="0" name="Add player.">REDPlayer</param>
                 </action>
@@ -267,6 +268,7 @@
                 <action behavior="SPIKETrap" id="9" name="Set data array" type="SPIKETrap">
                     <param id="0" name="Set data array.">Globals</param>
                 </action>
+                <action id="-24" name="Move to top" type="SPIKETrap" />
                 <action id="-16" name="Set opacity" type="PauseScreen">
                     <param id="0" name="Opacity">0</param>
                 </action>
@@ -488,12 +490,8 @@
                     <param id="1" name="Value">&quot;NULL&quot;</param>
                 </action>
                 <action id="5" name="Set playback rate" type="Audio">
-                    <param id="0" name="Tag">Globals.At(33) = -1 ? &quot;BackgroundMusic&quot; : Globals.At(33) = 0 ? &quot;&quot; : &quot;&quot;</param>
-                    <param id="1" name="Playback rate">0.0</param>
-                </action>
-                <action id="5" name="Set playback rate" type="Audio">
-                    <param id="0" name="Tag">Globals.At(33) = -2 ? &quot;BackgroundMusic&quot; : Globals.At(33) = 0 ? &quot;&quot; : &quot;&quot;</param>
-                    <param id="1" name="Playback rate">1.0</param>
+                    <param id="0" name="Tag">&quot;BackgroundMusic&quot;</param>
+                    <param id="1" name="Playback rate">Globals.At(13) = 0 ? 1.0 : 0.0</param>
                 </action>
                 <action id="7" name="Play (by name)" type="Audio">
                     <param id="0" name="Folder">1</param>
