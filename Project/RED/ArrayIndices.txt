@@ -43,6 +43,7 @@
 (27)	Player4COLOR:			The COLOR that Player 4 selected. 1 = RED, 2 = INDIGO.
 (31)	Player4RESPAWN:			The respawn timer for Player 4.
 (44)	Player4DIRECTION:		The direction Player 4 took to exit. If 0, they are dead and must wait for a respawn.
+(45)	TotalPlayerCount		(UNUSED) Total number of players that started the game.
 (32)	NULLValue:			A index for use when no index should be used. Should always be the text "NULL"
 
 
@@ -94,4 +95,5 @@
 (42)	Player2DIRECTION:		The direction Player 2 took to exit. If 0, they are dead and must wait for a respawn.
 (43)	Player3DIRECTION:		The direction Player 3 took to exit. If 0, they are dead and must wait for a respawn.
 (44)	Player4DIRECTION:		The direction Player 4 took to exit. If 0, they are dead and must wait for a respawn.
+(45)	TotalPlayerCount		(UNUSED) Total number of players that started the game.
 (46)	LastMapAngle:			The angle of the previous map. (Should only be 0, 90, 180, or 270)
