@@ -5,28 +5,29 @@
     <version>1.0</version>
     <author>theory&amp;&amp;Glitchfinder</author>
     <unique-id>1c01z6bg9z2d2</unique-id>
-    <saved-with-version>9500</saved-with-version>
+    <saved-with-version>10000</saved-with-version>
     <used-plugins>
-        <plugin id="Text" version="1">Text</plugin>
-        <plugin id="Arr" version="1">Array</plugin>
-        <plugin id="Keyboard" version="1">Keyboard</plugin>
-        <plugin id="Audio" version="1">Audio</plugin>
-        <plugin id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
     </used-plugins>
     <used-behaviors>
-        <behavior id="REDEXITTile" version="1">EXITTile</behavior>
-        <behavior id="REDManager" version="1">Manager</behavior>
-        <behavior id="REDORANGEEnemy" version="1">ORANGE</behavior>
-        <behavior id="REDPlayer" version="1">Player</behavior>
-        <behavior id="REDRANDOMWall" version="1">RANDOMWall</behavior>
-        <behavior id="REDSPIKETrap" version="1">SPIKETrap</behavior>
-        <behavior id="REDTitleBG" version="1">Title Background</behavior>
-        <behavior id="REDWHITEReviver" version="1">WHITEReviver</behavior>
-        <behavior id="REDYELLOWTreasure" version="1">YELLOWTreasure</behavior>
-        <behavior id="custom" version="1">Custom Movement</behavior>
-        <behavior id="scrollto" version="1">Scroll To</behavior>
-        <behavior id="solid" version="1">Solid</behavior>
+        <behavior author="Glitchfinder, Scirra" id="REDEXITTile" version="1">EXITTile</behavior>
+        <behavior author="Glitchfinder, Scirra" id="REDManager" version="1">Manager</behavior>
+        <behavior author="Glitchfinder, Scirra" id="REDORANGEEnemy" version="1">ORANGE</behavior>
+        <behavior author="Glitchfinder, Scirra" id="REDPlayer" version="1">Player</behavior>
+        <behavior author="Glitchfinder, Scirra" id="REDRANDOMWall" version="1">RANDOMWall</behavior>
+        <behavior author="Glitchfinder, Scirra" id="REDSPIKETrap" version="1">SPIKETrap</behavior>
+        <behavior author="Glitchfinder, Scirra" id="REDTitleBG" version="1">Title Background</behavior>
+        <behavior author="Glitchfinder, Scirra" id="REDWHITEReviver" version="1">WHITEReviver</behavior>
+        <behavior author="Glitchfinder, Scirra" id="REDYELLOWTreasure" version="1">YELLOWTreasure</behavior>
+        <behavior author="Scirra" id="custom" version="1">Custom Movement</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
+    <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML 5" />
     </configurations>
@@ -391,7 +392,17 @@
             </behaviors>
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.03125" y="0.03125" />
+                            <point x="0.5" y="0" />
+                            <point x="0.8125" y="0.1875" />
+                            <point x="0.8125" y="0.8125" />
+                            <point x="0.5" y="1" />
+                            <point x="0.03125" y="0.96875" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>

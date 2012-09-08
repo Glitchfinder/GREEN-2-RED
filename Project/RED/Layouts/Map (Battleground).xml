@@ -23,13 +23,16 @@
             <zoom-rate>1</zoom-rate>
             <opacity>1</opacity>
             <force-own-texture>0</force-own-texture>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
             <instances>
                 <instance type="REDBackground">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>512</y>
@@ -47,8 +50,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>512</y>
@@ -66,8 +70,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>512</y>
@@ -82,6 +87,7 @@
                     </world>
                 </instance>
             </instances>
+            <effects />
         </layer>
         <layer name="Tilemap">
             <initially-visible>1</initially-visible>
@@ -94,12 +100,13 @@
             <zoom-rate>1</zoom-rate>
             <opacity>1</opacity>
             <force-own-texture>0</force-own-texture>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
             <instances>
                 <instance type="goal">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -108,6 +115,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1280</x>
                         <y>160</y>
@@ -125,11 +134,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>960</y>
@@ -147,11 +157,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>896</y>
@@ -169,11 +180,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>832</y>
@@ -191,11 +203,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>768</y>
@@ -213,11 +226,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>704</y>
@@ -235,11 +249,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>640</y>
@@ -257,11 +272,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>384</y>
@@ -279,11 +295,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>320</y>
@@ -301,11 +318,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>256</y>
@@ -323,11 +341,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>192</y>
@@ -345,11 +364,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>64</y>
@@ -367,11 +387,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1264</x>
                         <y>96</y>
@@ -389,11 +410,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>960</y>
@@ -411,11 +433,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>896</y>
@@ -433,11 +456,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>832</y>
@@ -455,11 +479,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>768</y>
@@ -477,11 +502,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>704</y>
@@ -499,11 +525,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>640</y>
@@ -521,11 +548,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>384</y>
@@ -543,11 +571,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>320</y>
@@ -565,11 +594,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>256</y>
@@ -587,11 +617,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>192</y>
@@ -609,11 +640,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>128</y>
@@ -631,11 +663,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1152</x>
                         <y>64</y>
@@ -653,11 +686,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>128</x>
                         <y>64</y>
@@ -675,11 +709,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>192</x>
                         <y>64</y>
@@ -697,11 +732,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1088</x>
                         <y>64</y>
@@ -719,11 +755,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1024</x>
                         <y>64</y>
@@ -741,11 +778,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>256</x>
                         <y>64</y>
@@ -763,11 +801,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>320</x>
                         <y>64</y>
@@ -785,11 +824,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>960</x>
                         <y>64</y>
@@ -807,11 +847,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>384</x>
                         <y>64</y>
@@ -829,11 +870,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>896</x>
                         <y>64</y>
@@ -851,11 +893,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>448</x>
                         <y>64</y>
@@ -873,11 +916,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>832</x>
                         <y>64</y>
@@ -895,11 +939,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>768</x>
                         <y>64</y>
@@ -917,11 +962,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>512</x>
                         <y>64</y>
@@ -939,7 +985,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -948,6 +993,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>160</x>
                         <y>0</y>
@@ -965,11 +1012,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>768</x>
                         <y>960</y>
@@ -987,11 +1035,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>512</x>
                         <y>960</y>
@@ -1009,11 +1058,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>448</x>
                         <y>960</y>
@@ -1031,11 +1081,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>384</x>
                         <y>960</y>
@@ -1053,11 +1104,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>320</x>
                         <y>960</y>
@@ -1075,11 +1127,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>256</x>
                         <y>960</y>
@@ -1097,11 +1150,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>192</x>
                         <y>960</y>
@@ -1119,11 +1173,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>128</x>
                         <y>960</y>
@@ -1141,11 +1196,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>832</x>
                         <y>960</y>
@@ -1163,11 +1219,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>896</x>
                         <y>960</y>
@@ -1185,11 +1242,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>960</x>
                         <y>960</y>
@@ -1207,11 +1265,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1024</x>
                         <y>960</y>
@@ -1229,11 +1288,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1088</x>
                         <y>960</y>
@@ -1251,11 +1311,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1152</x>
                         <y>960</y>
@@ -1273,11 +1334,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>576</x>
                         <y>576</y>
@@ -1295,11 +1357,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>560</x>
                         <y>544</y>
@@ -1317,11 +1380,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>560</x>
                         <y>480</y>
@@ -1339,11 +1403,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>576</x>
                         <y>448</y>
@@ -1361,11 +1426,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>432</y>
@@ -1383,11 +1449,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>720</x>
                         <y>480</y>
@@ -1405,11 +1472,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>720</x>
                         <y>544</y>
@@ -1427,11 +1495,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>704</x>
                         <y>576</y>
@@ -1449,7 +1518,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -1468,6 +1536,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>448</y>
@@ -1485,11 +1555,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>544</x>
                         <y>416</y>
@@ -1507,11 +1578,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>544</x>
                         <y>608</y>
@@ -1529,11 +1601,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>432</y>
@@ -1551,11 +1624,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>736</x>
                         <y>608</y>
@@ -1573,11 +1647,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>736</x>
                         <y>416</y>
@@ -1595,11 +1670,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>704</x>
                         <y>448</y>
@@ -1617,12 +1693,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>128</x>
                         <y>480</y>
@@ -1640,12 +1717,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>128</x>
                         <y>544</y>
@@ -1663,12 +1741,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>160</x>
                         <y>480</y>
@@ -1686,12 +1765,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>160</x>
                         <y>544</y>
@@ -1709,12 +1789,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>192</x>
                         <y>512</y>
@@ -1732,12 +1813,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>224</x>
                         <y>480</y>
@@ -1755,12 +1837,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>224</x>
                         <y>544</y>
@@ -1778,12 +1861,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>256</x>
                         <y>544</y>
@@ -1801,12 +1885,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>256</x>
                         <y>480</y>
@@ -1824,12 +1909,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>288</x>
                         <y>512</y>
@@ -1847,12 +1933,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>320</x>
                         <y>480</y>
@@ -1870,12 +1957,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>320</x>
                         <y>544</y>
@@ -1893,12 +1981,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>352</x>
                         <y>544</y>
@@ -1916,12 +2005,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>352</x>
                         <y>480</y>
@@ -1939,12 +2029,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>384</x>
                         <y>512</y>
@@ -1962,12 +2053,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>416</x>
                         <y>480</y>
@@ -1985,12 +2077,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>416</x>
                         <y>544</y>
@@ -2008,12 +2101,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>448</x>
                         <y>544</y>
@@ -2031,12 +2125,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>448</x>
                         <y>480</y>
@@ -2054,12 +2149,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>480</x>
                         <y>512</y>
@@ -2077,12 +2173,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>800</x>
                         <y>512</y>
@@ -2100,12 +2197,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>896</x>
                         <y>512</y>
@@ -2123,12 +2221,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>992</x>
                         <y>512</y>
@@ -2146,12 +2245,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1088</x>
                         <y>512</y>
@@ -2169,12 +2269,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1152</x>
                         <y>480</y>
@@ -2192,12 +2293,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1120</x>
                         <y>480</y>
@@ -2215,12 +2317,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1152</x>
                         <y>544</y>
@@ -2238,12 +2341,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1120</x>
                         <y>544</y>
@@ -2261,12 +2365,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1056</x>
                         <y>480</y>
@@ -2284,12 +2389,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1024</x>
                         <y>480</y>
@@ -2307,12 +2413,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1056</x>
                         <y>544</y>
@@ -2330,12 +2437,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1024</x>
                         <y>544</y>
@@ -2353,12 +2461,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>960</x>
                         <y>480</y>
@@ -2376,12 +2485,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>928</x>
                         <y>480</y>
@@ -2399,12 +2509,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>960</x>
                         <y>544</y>
@@ -2422,12 +2533,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>928</x>
                         <y>544</y>
@@ -2445,12 +2557,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>864</x>
                         <y>480</y>
@@ -2468,12 +2581,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>832</x>
                         <y>480</y>
@@ -2491,12 +2605,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>864</x>
                         <y>544</y>
@@ -2514,12 +2629,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>832</x>
                         <y>544</y>
@@ -2537,12 +2653,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>352</y>
@@ -2560,12 +2677,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>256</y>
@@ -2583,12 +2701,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>160</y>
@@ -2606,12 +2725,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>128</y>
@@ -2629,12 +2749,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>128</y>
@@ -2652,12 +2773,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>192</y>
@@ -2675,12 +2797,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>224</y>
@@ -2698,12 +2821,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>192</y>
@@ -2721,12 +2845,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>224</y>
@@ -2744,12 +2869,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>288</y>
@@ -2767,12 +2893,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>320</y>
@@ -2790,12 +2917,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>288</y>
@@ -2813,12 +2941,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>320</y>
@@ -2836,12 +2965,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>672</y>
@@ -2859,12 +2989,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>768</y>
@@ -2882,12 +3013,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>864</y>
@@ -2905,11 +3037,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>592</y>
@@ -2927,11 +3060,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>592</y>
@@ -2949,12 +3083,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>704</y>
@@ -2972,12 +3107,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>736</y>
@@ -2995,12 +3131,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>704</y>
@@ -3018,12 +3155,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>736</y>
@@ -3041,12 +3179,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>800</y>
@@ -3064,12 +3203,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>832</y>
@@ -3087,12 +3227,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>800</y>
@@ -3110,12 +3251,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>832</y>
@@ -3133,12 +3275,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>896</y>
@@ -3156,12 +3299,13 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                         <behavior-instance type="RANDOMWall" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>896</y>
@@ -3179,11 +3323,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>16</y>
@@ -3201,11 +3346,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>64</y>
@@ -3223,11 +3369,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>912</x>
                         <y>16</y>
@@ -3245,11 +3392,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1264</x>
                         <y>512</y>
@@ -3267,11 +3415,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1264</x>
                         <y>304</y>
@@ -3289,11 +3438,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1264</x>
                         <y>928</y>
@@ -3311,11 +3461,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>1008</y>
@@ -3333,11 +3484,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>16</x>
                         <y>512</y>
@@ -3355,11 +3507,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>-496</y>
@@ -3377,11 +3530,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1776</x>
                         <y>512</y>
@@ -3399,11 +3553,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>1520</y>
@@ -3421,11 +3576,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>-496</x>
                         <y>512</y>
@@ -3443,7 +3599,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3462,6 +3617,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>576</y>
@@ -3479,7 +3636,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3495,6 +3651,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>544</x>
                         <y>448</y>
@@ -3512,7 +3670,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3528,6 +3685,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>576</x>
                         <y>416</y>
@@ -3545,7 +3704,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3561,6 +3719,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>704</x>
                         <y>416</y>
@@ -3578,7 +3738,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3594,6 +3753,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>736</x>
                         <y>448</y>
@@ -3611,7 +3772,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3627,6 +3787,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>736</x>
                         <y>576</y>
@@ -3644,7 +3806,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3660,6 +3821,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>704</x>
                         <y>608</y>
@@ -3677,7 +3840,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3693,6 +3855,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>576</x>
                         <y>608</y>
@@ -3710,7 +3874,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3726,6 +3889,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>544</x>
                         <y>576</y>
@@ -3743,7 +3908,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3759,6 +3923,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>224</y>
@@ -3776,7 +3942,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3792,6 +3957,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>352</x>
                         <y>64</y>
@@ -3809,7 +3976,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3825,6 +3991,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>96</y>
@@ -3842,7 +4010,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3858,6 +4025,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>224</x>
                         <y>64</y>
@@ -3875,7 +4044,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3891,6 +4059,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>96</x>
                         <y>64</y>
@@ -3908,7 +4078,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3924,6 +4093,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>928</x>
                         <y>64</y>
@@ -3941,7 +4112,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3957,6 +4127,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1056</x>
                         <y>64</y>
@@ -3974,7 +4146,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -3990,6 +4161,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1184</x>
                         <y>64</y>
@@ -4007,7 +4180,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -4023,6 +4195,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>96</y>
@@ -4040,7 +4214,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -4056,6 +4229,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>224</y>
@@ -4073,7 +4248,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -4089,6 +4263,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>800</y>
@@ -4106,7 +4282,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -4122,6 +4297,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>928</y>
@@ -4139,7 +4316,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -4155,6 +4331,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1184</x>
                         <y>960</y>
@@ -4172,7 +4350,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -4188,6 +4365,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1056</x>
                         <y>960</y>
@@ -4205,7 +4384,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -4221,6 +4399,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>928</x>
                         <y>960</y>
@@ -4238,7 +4418,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -4254,6 +4433,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>352</x>
                         <y>960</y>
@@ -4271,7 +4452,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -4287,6 +4467,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>224</x>
                         <y>960</y>
@@ -4304,7 +4486,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -4320,6 +4501,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>96</x>
                         <y>960</y>
@@ -4337,7 +4520,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -4353,6 +4535,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>928</y>
@@ -4370,7 +4554,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -4386,6 +4569,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>800</y>
@@ -4403,11 +4588,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="WHITEReviver" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>512</y>
@@ -4425,7 +4611,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -4434,6 +4619,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>0</x>
                         <y>864</y>
@@ -4451,11 +4638,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>928</y>
@@ -4473,7 +4661,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -4482,6 +4669,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1120</x>
                         <y>1024</y>
@@ -4499,11 +4688,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>96</y>
@@ -4521,11 +4711,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>64</y>
@@ -4543,11 +4734,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1184</x>
                         <y>512</y>
@@ -4565,11 +4757,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>96</x>
                         <y>512</y>
@@ -4587,11 +4780,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>1008</y>
@@ -4609,11 +4803,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>912</x>
                         <y>1008</y>
@@ -4631,11 +4826,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>368</x>
                         <y>1008</y>
@@ -4653,11 +4849,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>1008</y>
@@ -4675,11 +4872,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1264</x>
                         <y>720</y>
@@ -4697,11 +4895,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>16</x>
                         <y>720</y>
@@ -4719,11 +4918,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>480</y>
@@ -4741,11 +4941,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>288</y>
@@ -4763,11 +4964,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>736</y>
@@ -4785,11 +4987,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>544</y>
@@ -4807,11 +5010,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>960</y>
@@ -4829,11 +5033,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>288</x>
                         <y>960</y>
@@ -4851,11 +5056,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>416</x>
                         <y>960</y>
@@ -4873,11 +5079,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>864</x>
                         <y>960</y>
@@ -4895,11 +5102,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>992</x>
                         <y>960</y>
@@ -4917,11 +5125,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>960</y>
@@ -4939,11 +5148,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>864</y>
@@ -4961,11 +5171,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>736</y>
@@ -4983,11 +5194,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>288</y>
@@ -5005,11 +5217,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>160</y>
@@ -5027,11 +5240,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>64</y>
@@ -5049,11 +5263,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>992</x>
                         <y>64</y>
@@ -5071,11 +5286,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>864</x>
                         <y>64</y>
@@ -5093,11 +5309,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>416</x>
                         <y>64</y>
@@ -5115,11 +5332,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>288</x>
                         <y>64</y>
@@ -5137,11 +5355,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>64</y>
@@ -5159,11 +5378,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>160</y>
@@ -5181,11 +5401,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>160</y>
@@ -5203,11 +5424,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>256</y>
@@ -5225,11 +5447,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>256</y>
@@ -5247,11 +5470,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>384</x>
                         <y>480</y>
@@ -5269,11 +5493,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>288</x>
                         <y>480</y>
@@ -5291,11 +5516,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>192</x>
                         <y>480</y>
@@ -5313,11 +5539,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>192</x>
                         <y>544</y>
@@ -5335,11 +5562,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>288</x>
                         <y>544</y>
@@ -5357,11 +5585,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>384</x>
                         <y>544</y>
@@ -5379,11 +5608,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>896</x>
                         <y>544</y>
@@ -5401,11 +5631,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>992</x>
                         <y>544</y>
@@ -5423,11 +5654,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1088</x>
                         <y>544</y>
@@ -5445,11 +5677,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1088</x>
                         <y>480</y>
@@ -5467,11 +5700,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>992</x>
                         <y>480</y>
@@ -5489,11 +5723,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>896</x>
                         <y>480</y>
@@ -5511,11 +5746,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>768</y>
@@ -5533,11 +5769,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>864</y>
@@ -5555,11 +5792,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>864</y>
@@ -5577,11 +5815,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>768</y>
@@ -5599,11 +5838,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>16</x>
                         <y>304</y>
@@ -5621,11 +5861,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>16</x>
                         <y>96</y>
@@ -5643,11 +5884,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>16</x>
                         <y>928</y>
@@ -5665,11 +5907,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>512</y>
@@ -5687,11 +5930,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>480</y>
@@ -5709,11 +5953,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>480</y>
@@ -5731,11 +5976,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>672</x>
                         <y>544</y>
@@ -5753,11 +5999,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>608</x>
                         <y>544</y>
@@ -5775,11 +6022,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>512</y>
@@ -5797,11 +6045,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>480</y>
@@ -5819,11 +6068,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="YELLOWTreasure" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>544</y>
@@ -5841,11 +6091,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>16</y>
@@ -5863,11 +6114,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>368</x>
                         <y>16</y>
@@ -5885,11 +6137,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>16</y>
@@ -5907,11 +6160,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>960</y>
@@ -5929,7 +6183,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -5945,6 +6198,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>480</x>
                         <y>64</y>
@@ -5962,7 +6217,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -5978,6 +6232,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>800</x>
                         <y>64</y>
@@ -5995,7 +6251,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -6011,6 +6266,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>352</y>
@@ -6028,7 +6285,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -6044,6 +6300,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1216</x>
                         <y>672</y>
@@ -6061,7 +6319,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -6077,6 +6334,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>800</x>
                         <y>960</y>
@@ -6094,7 +6353,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -6110,6 +6368,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>480</x>
                         <y>960</y>
@@ -6127,7 +6387,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -6143,6 +6402,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>672</y>
@@ -6160,7 +6421,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <instance-variables>
                         <NextMap>0</NextMap>
@@ -6176,6 +6436,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>352</y>
@@ -6193,11 +6455,12 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>128</y>
@@ -6213,13 +6476,14 @@
                 </instance>
                 <instance type="Manager">
                     <properties>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Manager" />
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>192</x>
                         <y>1184</y>
@@ -6237,7 +6501,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -6246,6 +6509,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>576</x>
                         <y>0</y>
@@ -6263,7 +6528,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -6272,6 +6536,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>704</x>
                         <y>0</y>
@@ -6289,7 +6555,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -6298,6 +6563,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1120</x>
                         <y>0</y>
@@ -6315,7 +6582,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -6324,6 +6590,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1280</x>
                         <y>448</y>
@@ -6341,7 +6609,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -6350,6 +6617,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1280</x>
                         <y>576</y>
@@ -6367,7 +6636,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -6376,6 +6644,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1280</x>
                         <y>864</y>
@@ -6393,7 +6663,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -6402,6 +6671,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>704</x>
                         <y>1024</y>
@@ -6419,7 +6690,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -6428,6 +6698,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>576</x>
                         <y>1024</y>
@@ -6445,7 +6717,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -6454,6 +6725,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>160</x>
                         <y>1024</y>
@@ -6471,7 +6744,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -6480,6 +6752,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>0</x>
                         <y>576</y>
@@ -6497,7 +6771,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -6506,6 +6779,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>0</x>
                         <y>448</y>
@@ -6523,7 +6798,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -6532,6 +6806,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>0</x>
                         <y>160</y>
@@ -6546,6 +6822,7 @@
                     </world>
                 </instance>
             </instances>
+            <effects />
         </layer>
         <layer name="Overlay">
             <initially-visible>1</initially-visible>
@@ -6558,13 +6835,16 @@
             <zoom-rate>1</zoom-rate>
             <opacity>1</opacity>
             <force-own-texture>0</force-own-texture>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
             <instances>
                 <instance type="PauseScreen">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>400</x>
                         <y>300</y>
@@ -6582,7 +6862,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="CustomMovement">
@@ -6592,6 +6871,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>400</x>
                         <y>300</y>
@@ -6609,8 +6890,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
                         <y>32</y>
@@ -6628,8 +6910,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>736</x>
                         <y>32</y>
@@ -6647,8 +6930,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>10</x>
                         <y>10</y>
@@ -6666,8 +6950,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>790</x>
                         <y>10</y>
@@ -6690,13 +6975,16 @@
                         <horizontal-alignment>Left</horizontal-alignment>
                         <hotspot>Center</hotspot>
                         <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>78</x>
                         <y>8</y>
                         <z>0</z>
                         <width>108</width>
-                        <height>10</height>
+                        <height>20</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -6713,13 +7001,16 @@
                         <horizontal-alignment>Right</horizontal-alignment>
                         <hotspot>Center</hotspot>
                         <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>722</x>
                         <y>8</y>
                         <z>0</z>
                         <width>108</width>
-                        <height>10</height>
+                        <height>20</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -6731,8 +7022,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>10</x>
                         <y>26</y>
@@ -6750,8 +7042,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>790</x>
                         <y>26</y>
@@ -6774,13 +7067,16 @@
                         <horizontal-alignment>Left</horizontal-alignment>
                         <hotspot>Center</hotspot>
                         <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>78</x>
                         <y>24</y>
                         <z>0</z>
                         <width>108</width>
-                        <height>10</height>
+                        <height>20</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -6797,13 +7093,16 @@
                         <horizontal-alignment>Right</horizontal-alignment>
                         <hotspot>Center</hotspot>
                         <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>722</x>
                         <y>24</y>
                         <z>0</z>
                         <width>108</width>
-                        <height>10</height>
+                        <height>20</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -6820,7 +7119,10 @@
                         <horizontal-alignment>Right</horizontal-alignment>
                         <hotspot>Top-left</hotspot>
                         <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>576</x>
                         <y>544</y>
@@ -6835,7 +7137,9 @@
                     </world>
                 </instance>
             </instances>
+            <effects />
         </layer>
     </layers>
     <nonworld-instances />
+    <effects />
 </c2layout>

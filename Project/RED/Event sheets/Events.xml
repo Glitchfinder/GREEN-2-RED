@@ -349,6 +349,9 @@
                 <action behavior="Manager" id="12" name="Add player" type="Manager">
                     <param id="0" name="Add player.">INDIGOPlayer</param>
                 </action>
+                <action behavior="Manager" id="15" name="Add orange enemy" type="Manager">
+                    <param id="0" name="Add orange.">ORANGEEnemy</param>
+                </action>
                 <action behavior="Manager" id="13" name="Add goal tile" type="Manager">
                     <param id="0" name="Add goal.">goal</param>
                 </action>
@@ -379,7 +382,7 @@
                     <param id="0" name="Size (pt)">14</param>
                 </action>
                 <action id="-2" name="Set Y" type="Player1Lives">
-                    <param id="0" name="Y">5</param>
+                    <param id="0" name="Y">10</param>
                 </action>
                 <action id="2" name="Set font face" type="Player2Lives">
                     <param id="0" name="Font face">&quot;Verdana&quot;</param>
@@ -393,7 +396,7 @@
                     <param id="0" name="Size (pt)">14</param>
                 </action>
                 <action id="-2" name="Set Y" type="Player2Lives">
-                    <param id="0" name="Y">5</param>
+                    <param id="0" name="Y">10</param>
                 </action>
                 <action id="2" name="Set font face" type="Player1Coins">
                     <param id="0" name="Font face">&quot;Verdana&quot;</param>
@@ -407,7 +410,7 @@
                     <param id="0" name="Size (pt)">14</param>
                 </action>
                 <action id="-2" name="Set Y" type="Player1Coins">
-                    <param id="0" name="Y">21</param>
+                    <param id="0" name="Y">26</param>
                 </action>
                 <action id="2" name="Set font face" type="Player2Coins">
                     <param id="0" name="Font face">&quot;Verdana&quot;</param>
@@ -421,7 +424,7 @@
                     <param id="0" name="Size (pt)">14</param>
                 </action>
                 <action id="-2" name="Set Y" type="Player2Coins">
-                    <param id="0" name="Y">21</param>
+                    <param id="0" name="Y">26</param>
                 </action>
                 <action id="5" name="Set web font" type="TitlePrompt">
                     <param id="0" name="Family name">&quot;Geo&quot;</param>
@@ -563,6 +566,9 @@
                 <action behavior="Manager" id="12" name="Add player" type="Manager">
                     <param id="0" name="Add player.">INDIGOPlayer</param>
                 </action>
+                <action behavior="Manager" id="15" name="Add orange enemy" type="Manager">
+                    <param id="0" name="Add orange.">ORANGEEnemy</param>
+                </action>
                 <action behavior="Manager" id="13" name="Add goal tile" type="Manager">
                     <param id="0" name="Add goal.">goal</param>
                 </action>
@@ -581,7 +587,7 @@
                 <action id="-16" name="Set opacity" type="PauseLogo">
                     <param id="0" name="Opacity">Globals.At(13) = 0 ? 0 : 50</param>
                 </action>
-                <action id="-17" name="Set scale" type="System">
+                <action id="-17" name="Set layer scale" type="System">
                     <param id="0" name="Layer">1</param>
                     <param id="1" name="Scale">Globals.At(36)</param>
                 </action>

@@ -25,16 +25,16 @@ AddObjectParam("Set data array.", "Set the behavior's data array.");
 AddAction(11, 0, "Set data array", "", "Set {my} data array to <i>{0}</i>.", "Set the data array.", "SetDataArray");
 
 AddObjectParam("Add player.", "Add a player to the behavior's player array.");
-AddAction(12, 0, "Add player", "", "Added player <i>{0}</i> to {my}.", "Add a a player object.", "AddPlayer");
+AddAction(12, 0, "Add player", "", "Added player <i>{0}</i> to {my}.", "Add a player object.", "AddPlayer");
 
 AddObjectParam("Add goal.", "Add a goal tile to the behavior's tile array.");
-AddAction(13, 0, "Add goal tile", "", "Added <i>{0}</i> tile to {my}.", "Add a a goal tile object.", "AddGoal");
+AddAction(13, 0, "Add goal tile", "", "Added <i>{0}</i> tile to {my}.", "Add a goal tile object.", "AddGoal");
 
 AddObjectParam("Add bar.", "Add a bar tile to the behavior's tile array.");
-AddAction(14, 0, "Add bar tile", "", "Added <i>{0}</i> tile to {my}.", "Add a a bar tile object.", "AddBar");
+AddAction(14, 0, "Add bar tile", "", "Added <i>{0}</i> tile to {my}.", "Add a bar tile object.", "AddBar");
 
-AddObjectParam("Add wall.", "Add a wall tile to the behavior's tile array.");
-AddAction(15, 0, "Add wall tile", "", "Added <i>{0}</i> tile to {my}.", "Add a a wall tile object.", "AddWall");
+AddObjectParam("Add orange.", "Add an orange enemy to the behavior.");
+AddAction(15, 0, "Add orange enemy", "", "Added enemy <i>{0}</i> to {my}.", "Add an orange enemy object.", "AddOrange");
 
 //////////////////////////////////////////////////////////////
 // Expressions

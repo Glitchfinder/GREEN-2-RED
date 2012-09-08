@@ -72,9 +72,6 @@ AddAction(13, 0, "Add goal tile", "", "Added <i>{0}</i> tile to {my}.", "Add a a
 AddObjectParam("Add bar.", "Add a bar tile to the behavior's tile array.");
 AddAction(14, 0, "Add bar tile", "", "Added <i>{0}</i> tile to {my}.", "Add a a bar tile object.", "AddBar");
 
-AddObjectParam("Add wall.", "Add a wall tile to the behavior's tile array.");
-AddAction(15, 0, "Add wall tile", "", "Added <i>{0}</i> tile to {my}.", "Add a a wall tile object.", "AddWall");
-
 //////////////////////////////////////////////////////////////
 // Expressions
 AddExpression(0, ef_return_number, "Get speed", "", "Speed", "The current object speed, in pixels per second.");

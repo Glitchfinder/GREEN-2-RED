@@ -23,13 +23,16 @@
             <zoom-rate>1</zoom-rate>
             <opacity>1</opacity>
             <force-own-texture>0</force-own-texture>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
             <instances>
                 <instance type="REDBackground">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>512</y>
@@ -47,8 +50,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>512</y>
@@ -66,8 +70,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
                         <y>512</y>
@@ -82,6 +87,7 @@
                     </world>
                 </instance>
             </instances>
+            <effects />
         </layer>
         <layer name="Layer 1">
             <initially-visible>1</initially-visible>
@@ -94,7 +100,10 @@
             <zoom-rate>1</zoom-rate>
             <opacity>1</opacity>
             <force-own-texture>0</force-own-texture>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
             <instances />
+            <effects />
         </layer>
         <layer name="Layer 2">
             <initially-visible>1</initially-visible>
@@ -107,6 +116,8 @@
             <zoom-rate>1</zoom-rate>
             <opacity>1</opacity>
             <force-own-texture>0</force-own-texture>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
             <instances>
                 <instance type="HelpText">
                     <properties>
@@ -117,7 +128,10 @@
                         <horizontal-alignment>Center</horizontal-alignment>
                         <hotspot>Center</hotspot>
                         <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>400</x>
                         <y>300</y>
@@ -135,8 +149,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>-32</x>
                         <y>128</y>
@@ -154,8 +169,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>-32</x>
                         <y>32</y>
@@ -173,8 +189,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>-32</x>
                         <y>0</y>
@@ -192,7 +209,6 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="EXITTile">
@@ -201,6 +217,8 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>-32</x>
                         <y>192</y>
@@ -218,8 +236,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>-32</x>
                         <y>160</y>
@@ -237,8 +256,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>-32</x>
                         <y>64</y>
@@ -256,8 +276,9 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-frame>0</initial-frame>
-                        <effect>(none)</effect>
                     </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
                     <world>
                         <x>-32</x>
                         <y>96</y>
@@ -272,7 +293,9 @@
                     </world>
                 </instance>
             </instances>
+            <effects />
         </layer>
     </layers>
     <nonworld-instances />
+    <effects />
 </c2layout>

@@ -75,7 +75,6 @@ cr.behaviors.REDPlayer = function(runtime)
 		this.bars = 0;
 		this.placed = false;
 		this.playerCount = 0;
-		this.walls = 0;
 	};
 	
 	var behinstProto = behaviorProto.Instance.prototype;
@@ -873,6 +872,12 @@ cr.behaviors.REDPlayer = function(runtime)
 	
 	acts.AddPlayer = function (player)
 	{
+		for(var i = 0; i < this.players.players.length; i++)
+		{
+			if(this.players.players[i] == player)
+				return;
+		}
+
 		this.players.players.push(player);
 	};
 	
@@ -884,11 +889,6 @@ cr.behaviors.REDPlayer = function(runtime)
 	acts.AddBar = function (bar)
 	{
 		this.bars = bar;
-	};
-	
-	acts.AddWall = function (wall)
-	{
-		this.walls = wall;
 	};
 
 	//////////////////////////////////////

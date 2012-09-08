@@ -48,7 +48,7 @@ cr.behaviors.REDManager = function(runtime)
 		this.goals = 0;
 		this.exiting = false;
 		this.bars = 0;
-		this.walls = 0;
+		this.orange = 0;
 		this.lastDt = this.runtime.getDt(this.inst);
 	};
 
@@ -201,9 +201,7 @@ cr.behaviors.REDManager = function(runtime)
 					behInstance = instance.behavior_insts[i2];
 
 				if(typeof behInstance.playerNumber != 'undefined')
-				{
 					playerNum = behInstance.playerNumber;
-				}
 			}
 
 			if(playerNum == 0)
@@ -219,6 +217,7 @@ cr.behaviors.REDManager = function(runtime)
 
 			this.resizePlayers(instance);
 			this.handleGoals(instance, behInstance);
+			this.handleOrange(instance, playerNum);
 		}
 
 		this.setMapZoom(zoom);
@@ -250,13 +249,13 @@ cr.behaviors.REDManager = function(runtime)
 
 		var tempZoom = 1.0;
 
-		var thisX = instance.x
-		var thisY = instance.y
+		var thisX = instance.x;
+		var thisY = instance.y;
 
 		var squareX = Math.pow((thisX - x), 2);
 		var squareY = Math.pow((thisY - y), 2);
 
-		var distance = Math.sqrt(squareX + squareY)
+		var distance = Math.sqrt(squareX + squareY);
 
 		if (distance > 500)
 			tempZoom = (1.0/(0.002 * distance));
@@ -281,6 +280,7 @@ cr.behaviors.REDManager = function(runtime)
 			instance.width -= 4;
 			instance.height = instance.width;
 			instance.set_bbox_changed();
+
 			if(instance.width <= 16)
 			{
 				this.setUnloadedPlayerCount(this.getUnloadedPlayerCount() - 1);
@@ -327,6 +327,7 @@ cr.behaviors.REDManager = function(runtime)
 		for (var i = 0; i < this.goals.instances.length; i += 1)
 		{
 			var goal = this.goals.instances[i];
+
 			if(typeof goal == 'undefined')
 				continue;
 
@@ -580,63 +581,23 @@ cr.behaviors.REDManager = function(runtime)
 	{
 		var exitDirection = -2;
 
-		switch (behInst.playerNumber)
-		{
-		case 1:
-			exitDirection = this.getPlayerDirection(1);
-			if(this.getPlayerDirection(1) >= 0)
-				break;
+		var number = behInst.playerNumber;
 
-			if(this.getRespawnTimer(1) < 0)
-				break;
+		if(number != 1 && number != 2 && number != 3 && number != 4)
+			return exitDirection;
 
-			if(this.isRevivalForced())
-				break;
+		exitDirection = this.getPlayerDirection(number);
+		if(exitDirection >= 0)
+			return exitDirection;
 
-			this.decrementPlayers(instance);
-			return -1;
-		case 2:
-			exitDirection = this.getPlayerDirection(2);
-			if(this.getPlayerDirection(2) >= 0)
-				break;
+		if(this.getRespawnTimer(number) < 0)
+			return exitDirection;
 
-			if(this.getRespawnTimer(2) < 0)
-				break;
+		if(this.isRevivalForced())
+			return exitDirection;
 
-			if(this.isRevivalForced())
-				break;
-
-			this.decrementPlayers(instance);
-			return -1;
-		case 3:
-			exitDirection = this.getPlayerDirection(3);
-			if(this.getPlayerDirection(3) >= 0)
-				break;
-
-			if(this.getRespawnTimer(3) < 0)
-				break;
-
-			if(this.isRevivalForced())
-				break;
-
-			this.decrementPlayers(instance);
-			return -1;
-		case 4:
-			exitDirection = this.getPlayerDirection(4);
-			if(this.getPlayerDirection(4) >= 0)
-				break;
-
-			if(this.getRespawnTimer(4) < 0)
-				break;
-
-			if(this.isRevivalForced())
-				break;
-
-			this.decrementPlayers(instance);
-			return -1;
-		}
-
-		return exitDirection;
+		this.decrementPlayers(instance);
+		return -1;
 	}
 
 	/*---------------------------------------------------------------------*\
@@ -680,7 +641,7 @@ cr.behaviors.REDManager = function(runtime)
 
 		var change = ((((oldAngle - currentAngle) / 90) * (-1)) + 6) % 4;
 
-		return ((exitDirection + change) % 4)
+		return ((exitDirection + change) % 4);
 	}
 
 	/*---------------------------------------------------------------------*\
@@ -767,6 +728,7 @@ cr.behaviors.REDManager = function(runtime)
 		instance.opacity = 1.0;
 		instance.set_bbox_changed();
 		behInst.placed = true;
+
 		if(this.bars != 0)
 		{
 			var layer = this.runtime.getLayerByNumber(1);
@@ -775,6 +737,190 @@ cr.behaviors.REDManager = function(runtime)
 			newBars.y = goal.y + (y / 2);
 			newBars.set_bbox_changed();
 		}
+	}
+
+	/*---------------------------------------------------------------------*\
+	| *  Handle Orange                                                      |
+	| ------                                                                |
+	|    Called once per player, per tick. This function deals with all     |
+	|  processing related to the Orange enemies. It checks to see if that   |
+	|  have killed a player, as well as whether or not they should charge   |
+	|  toward a player.                                                     |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * instance:  The player instance that is currently being           |
+	|                 processed.                                            |
+	|    * playerNum: The player number of the currently processing player  |
+	|                 instance.                                             |
+	\*---------------------------------------------------------------------*/
+	behinstProto.handleOrange = function (instance, playerNum)
+	{
+		if(!this.arePlayersLoaded())
+			return;
+
+		if(!this.isLayoutLoaded())
+			return;
+
+		if(this.orange == 0)
+			return;
+
+		for(var i = 0; i < this.orange.instances.length; i += 1)
+		{
+			var orange = this.orange.instances[i];
+
+			if(typeof orange == 'undefined')
+				continue;
+
+			if(typeof orange.behavior_insts[0] == 'undefined')
+				continue;
+
+			if(typeof orange.behavior_insts[0].charging == 'undefined')
+				continue;
+
+			var behavior = orange.behavior_insts[0];
+
+			var collision = this.runtime.testOverlap(instance, orange);
+
+			if(collision && !this.isRevivalActive())
+			{
+				this.runtime.DestroyInstance(instance);
+				this.setCurrentPlayerCount(this.getCurrentPlayerCount() - 1);
+				this.setPlayerLives(playerNum, this.getPlayerLives(playerNum) - 1);
+				this.setRespawnTimer(playerNum, 5);
+
+				this.playSound("death");
+				continue;
+			}
+
+			this.attemptCharge(instance, orange, behavior);
+		}
+	}
+
+	/*---------------------------------------------------------------------*\
+	| *  Attempt Charge                                                     |
+	| ------                                                                |
+	|    Called once per orange, player, per tick. This function deals with |
+	|  orange's attempts to charge at a player.                             |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * instance: The player instance that is currently being processed. |
+	|    * orange:   The instance of orange that is currently being         |
+	|                processed.                                             |
+	|    * behavior: The behavior instance for the currently processing     |
+	|                orange enemy.                                          |
+	\*---------------------------------------------------------------------*/
+	behinstProto.attemptCharge = function (instance, orange, behavior)
+	{
+		if (behavior.charging)
+			return;
+
+		{
+			var playerX = instance.x;
+			var playerY = instance.y;
+
+			var x = orange.x;
+			var y = orange.y;
+
+			switch(behavior.currentDirection)
+			{
+			case 0:
+				if(playerY > (y - 10) && playerY < (y + 10) && playerX < x)
+				{
+					orange.opacity = 0;
+					this.checkCharge(playerX, orange, behavior);
+				}
+				break;
+			case 1:
+				if(playerY > (y - 10) && playerY < (y + 10) && playerX > x)
+				{
+					orange.opacity = 0;
+					this.checkCharge(playerX, orange, behavior);
+				}
+				break;
+			case 2:
+				if(playerX > (x - 10) && playerX < (x + 10) && playerY < y)
+				{
+					orange.opacity = 0;
+					this.checkCharge(playerY, orange, behavior);
+				}
+				break;
+			default:
+				if(playerX > (x - 10) && playerX < (x + 10) && playerY > y)
+				{
+					orange.opacity = 0;
+					this.checkCharge(playerY, orange, behavior);
+				}
+				break;
+			}
+
+			orange.x = x;
+			orange.y = y;
+			orange.set_bbox_changed();
+			orange.opacity = 1.0;
+		}
+	}
+
+	/*---------------------------------------------------------------------*\
+	| *  Check Charge                                                       |
+	| ------                                                                |
+	|    Called once per orange, player, per tick. This function deals with |
+	|  orange's attempts to charge at a player, and whether or not orange   |
+	|  will actually charge.                                                |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * location: The x or y value that orange is trying to charge to.   |
+	|    * orange:   The instance of orange that is currently being         |
+	|                processed.                                             |
+	|    * behavior: The behavior instance for the currently processing     |
+	|                orange enemy.                                          |
+	\*---------------------------------------------------------------------*/
+	behinstProto.checkCharge = function (location, orange, behavior)
+	{
+		if(behavior.charging)
+			return false;
+
+		var xValue = 32;
+		var yValue = 32;
+
+		switch(behavior.currentDirection)
+		{
+		case 0:
+			xValue *= -1;
+			yValue *= 0;
+			break;
+		case 1:
+			yValue *= 0;
+			break;
+		case 2:
+			xValue *= 0;
+			yValue *= -1;
+
+			break;
+		default:
+			xValue *= 0;
+			break;
+		}
+
+		while(((location - orange.x) > (xValue - 13)) && xValue != 0)
+		{
+			orange.x += xValue;
+			orange.set_bbox_changed();
+
+			if(this.runtime.testOverlapSolid(orange))
+				return false;
+		}
+
+		while(((location - orange.y) > (yValue - 13)) && yValue != 0)
+		{
+			orange.y += yValue;
+			orange.set_bbox_changed();
+
+			if(this.runtime.testOverlapSolid(orange))
+				return false;
+		}
+
+		behavior.charging = true;
+		behavior.maxspeed *= 4;
 	}
 
 	/*---------------------------------------------------------------------*\
@@ -908,6 +1054,33 @@ cr.behaviors.REDManager = function(runtime)
 	}
 
 	/*---------------------------------------------------------------------*\
+	| *  Get Player's Remaining Lives                                       |
+	| ------                                                                |
+	|    Utility access function. Returns the remaining number of lives for |
+	|  the given player.                                                    |
+	\*---------------------------------------------------------------------*/
+	behinstProto.getPlayerLives = function (player)
+	{
+		if (this.dataArray == null)
+			return -200;
+
+		if(player != 1 && player != 2 && player != 3 && player != 4)
+			return -300;
+
+		switch(player)
+		{
+		case 1:
+			return this.dataArray.instances[0].at(14, 0, 0);
+		case 2:
+			return this.dataArray.instances[0].at(15, 0, 0);
+		case 3:
+			return this.dataArray.instances[0].at(23, 0, 0);
+		default:
+			return this.dataArray.instances[0].at(26, 0, 0);
+		}
+	}
+
+	/*---------------------------------------------------------------------*\
 	| *  Get Player's Respawn Timer                                         |
 	| ------                                                                |
 	|    Utility access function. Returns remaining time, in seconds,       |
@@ -1019,6 +1192,20 @@ cr.behaviors.REDManager = function(runtime)
 			return -200;
 
 		return (this.dataArray.instances[0].at(37, 0, 0) != 0);
+	}
+
+	/*---------------------------------------------------------------------*\
+	| *  Play Sound                                                         |
+	| ------                                                                |
+	|    Utility access function. Tells the game to play a sound effect.    |
+	\*---------------------------------------------------------------------*/
+	behinstProto.playSound = function (newValue)
+	{
+		if (this.dataArray == null)
+			return -200;
+
+		this.dataArray.instances[0].set(18, 0, 0, newValue);
+		return true;
 	}
 
 	/*---------------------------------------------------------------------*\
@@ -1162,6 +1349,36 @@ cr.behaviors.REDManager = function(runtime)
 	}
 
 	/*---------------------------------------------------------------------*\
+	| *  Set Player's Remaining Lives                                       |
+	| ------                                                                |
+	|    Utility access function. Sets the remaining number of lives for    |
+	|  the specified player.                                                |
+	\*---------------------------------------------------------------------*/
+	behinstProto.setPlayerLives = function (player, newValue)
+	{
+		if (this.dataArray == null)
+			return -200;
+
+		if(player != 1 && player != 2 && player != 3 && player != 4)
+			return -300;
+
+		if(newValue < 0)
+			newValue = 0;
+
+		switch(player)
+		{
+		case 1:
+			return this.dataArray.instances[0].set(14, 0, 0, newValue);
+		case 2:
+			return this.dataArray.instances[0].set(15, 0, 0, newValue);
+		case 3:
+			return this.dataArray.instances[0].set(23, 0, 0, newValue);
+		default:
+			return this.dataArray.instances[0].set(26, 0, 0, newValue);
+		}
+	}
+
+	/*---------------------------------------------------------------------*\
 	| *  Set Player's Respawn Timer                                         |
 	| ------                                                                |
 	|    Utility access function. Sets remaining time, in seconds, before   |
@@ -1276,9 +1493,9 @@ cr.behaviors.REDManager = function(runtime)
 		this.bars = bar;
 	};
 
-	acts.AddWall = function (wall)
+	acts.AddOrange = function (orange)
 	{
-		this.walls = wall;
+		this.orange = orange;
 	};
 
 	//////////////////////////////////////
