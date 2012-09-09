@@ -69,10 +69,7 @@ cr.behaviors.REDPlayer = function(runtime)
 		this.paused = false;
 		this.playerNumber = 0;
 		this.multiplePlayers = false;
-		this.players = {};
-		this.goals = 0;
 		this.exiting = false;
-		this.bars = 0;
 		this.placed = false;
 		this.playerCount = 0;
 	};
@@ -91,8 +88,6 @@ cr.behaviors.REDPlayer = function(runtime)
 		this.angleMode = this.properties[4];
 		// 0=no, 1=yes
 		this.defaultControls = (this.properties[5] === 1);
-		// 0=no, 1=yes
-		this.player2 = (this.properties[6] === 1);
 		this.exiting = false;
 		this.placed = false;
 		
@@ -115,8 +110,6 @@ cr.behaviors.REDPlayer = function(runtime)
 				})(this)
 			);
 		}
-		
-		this.players.players = new Array();
 	};
 
 	behinstProto.onKeyDown = function (info)
@@ -457,33 +450,7 @@ cr.behaviors.REDPlayer = function(runtime)
 			this.playerCount = this.dataArray.instances[0].at(45, 0, 0);
 		}
 		else
-		{
 			return;
-		}
-
-		switch(this.playerNumber)
-		{
-		case 1:
-			if (this.dataArray.instances[0].at(14, 0, 0) <= 0)
-				this.runtime.DestroyInstance(this.inst);
-			
-			break;
-		case 2:
-			if (this.dataArray.instances[0].at(15, 0, 0) <= 0)
-				this.runtime.DestroyInstance(this.inst);
-			
-			break;
-		case 3:
-			if (this.dataArray.instances[0].at(23, 0, 0) <= 0)
-				this.runtime.DestroyInstance(this.inst);
-			
-			break;
-		case 4:
-			if (this.dataArray.instances[0].at(26, 0, 0) <= 0)
-				this.runtime.DestroyInstance(this.inst);
-			
-			break;
-		}
 
 		if(this.dataArray.instances[0].at(39, 0, 0) == 1)
 			this.inst.opacity = 1.0;
@@ -868,27 +835,6 @@ cr.behaviors.REDPlayer = function(runtime)
 	acts.SetDataArray = function (array)
 	{
 		this.dataArray = array;
-	};
-	
-	acts.AddPlayer = function (player)
-	{
-		for(var i = 0; i < this.players.players.length; i++)
-		{
-			if(this.players.players[i] == player)
-				return;
-		}
-
-		this.players.players.push(player);
-	};
-	
-	acts.AddGoal = function (goal)
-	{
-		this.goals = goal;
-	};
-	
-	acts.AddBar = function (bar)
-	{
-		this.bars = bar;
 	};
 
 	//////////////////////////////////////

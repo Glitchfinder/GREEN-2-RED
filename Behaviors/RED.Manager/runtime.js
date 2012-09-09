@@ -26,12 +26,20 @@ cr.behaviors.REDManager = function(runtime)
 
 	var behtypeProto = behaviorProto.Type.prototype;
 
+	/*---------------------------------------------------------------------*\
+	| *  On Behavior Created                                                |
+	| ------                                                                |
+	|    Called when the behavior is created.                               |
+	\*---------------------------------------------------------------------*/
 	behtypeProto.onCreate = function()
 	{
 	};
 
-	/////////////////////////////////////
-	// Behavior instance class
+	/*---------------------------------------------------------------------*\
+	| *  Object Instance                                                    |
+	| ------                                                                |
+	|    Called when an instance of the object is created.                  |
+	\*---------------------------------------------------------------------*/
 	behaviorProto.Instance = function(type, inst)
 	{
 		this.type = type;
@@ -54,6 +62,12 @@ cr.behaviors.REDManager = function(runtime)
 
 	var behinstProto = behaviorProto.Instance.prototype;
 
+	/*---------------------------------------------------------------------*\
+	| *  On Object Creation                                                 |
+	| ------                                                                |
+	|    Called when the object is initialized. Deals with the defaulting   |
+	|  of certain values, as well as other things, like binding keys.       |
+	\*---------------------------------------------------------------------*/
 	behinstProto.onCreate = function()
 	{
 		this.exiting = false;
@@ -159,24 +173,8 @@ cr.behaviors.REDManager = function(runtime)
 			return;
 		}
 
-		var dt = this.runtime.getDt(this.inst);
-		var dtDiff = dt - this.lastDt;
-		
-		if (this.isRevivalActive())
-		{
-			var newValue = this.getRevivalCooldown - dtDiff;
-			this.setRevivalCooldown(newValue);
-		}
-
-		var expMult = this.getExperienceMultiplier();
-		var level = this.getPlayerLevel();
-		var currentExp = this.getPlayerExperience();
-
-		if ((expMult * level) <= currentExp)
-		{
-			this.setPlayerExperience(currentExp - (expMult * level));
-			this.setPlayerLevel(level + 1);
-		}
+		this.updateRevivalCooldown();
+		this.updateLevel();
 
 		var zoom = 1.0;
 
@@ -186,10 +184,8 @@ cr.behaviors.REDManager = function(runtime)
 		for(var i = 0; i < this.players.players.length; i += 1)
 		{
 			var instance = this.players.players[i].instances[0];
-			if(typeof instance == 'undefined')
-				continue;
 
-			if(!instance.visible || instance.opacity <= 0)
+			if(typeof instance == 'undefined')
 				continue;
 
 			var playerNum = 0;
@@ -201,11 +197,20 @@ cr.behaviors.REDManager = function(runtime)
 					behInstance = instance.behavior_insts[i2];
 
 				if(typeof behInstance.playerNumber != 'undefined')
+				{
 					playerNum = behInstance.playerNumber;
+					break;
+				}
 			}
 
 			if(playerNum == 0)
 				continue;
+
+			if(this.getPlayerLives(playerNum) <= 0)
+			{
+				this.runtime.DestroyInstance(instance)
+				continue;
+			}
 
 			if(firstX == -100 && firstY == -100)
 			{
@@ -221,8 +226,44 @@ cr.behaviors.REDManager = function(runtime)
 		}
 
 		this.setMapZoom(zoom);
+	};
 
+	/*---------------------------------------------------------------------*\
+	| *  Update Revival Cooldown                                            |
+	| ------                                                                |
+	|    Called once per tick. This function checks the players' current    |
+	|  experience and updates their level accordingly.                      |
+	\*---------------------------------------------------------------------*/
+	behinstProto.updateRevivalCooldown = function ()
+	{
+		var dt = this.runtime.getDt(this.inst);
+		var dtDiff = dt - this.lastDt;
 		this.lastDt = dt;
+
+		if (this.isRevivalActive())
+		{
+			var newValue = this.getRevivalCooldown - dtDiff;
+			this.setRevivalCooldown(newValue);
+		}
+	};
+
+	/*---------------------------------------------------------------------*\
+	| *  Update Player Level                                                |
+	| ------                                                                |
+	|    Called once per tick. This function checks the players' current    |
+	|  experience and updates their level accordingly.                      |
+	\*---------------------------------------------------------------------*/
+	behinstProto.updateLevel = function ()
+	{
+		var expMult = this.getExperienceMultiplier();
+		var level = this.getPlayerLevel();
+		var currentExp = this.getPlayerExperience();
+
+		if ((expMult * level) <= currentExp)
+		{
+			this.setPlayerExperience(currentExp - (expMult * level));
+			this.setPlayerLevel(level + 1);
+		}
 	};
 
 	/*---------------------------------------------------------------------*\
@@ -292,7 +333,7 @@ cr.behaviors.REDManager = function(runtime)
 			instance.height = instance.width;
 			instance.set_bbox_changed();
 		}
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Process Exit Tiles                                                 |
@@ -379,7 +420,7 @@ cr.behaviors.REDManager = function(runtime)
 
 		if(!anyExiting)
 			this.exiting = false;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Check Exits for Players                                            |
@@ -436,7 +477,7 @@ cr.behaviors.REDManager = function(runtime)
 		this.exiting = true;
 		behInst.exiting = true;
 		return true;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Check Exits for Exiting Players                                    |
@@ -469,7 +510,7 @@ cr.behaviors.REDManager = function(runtime)
 		this.setExitingPlayerCount(this.getExitingPlayerCount() - 1);
 		behInst.exiting = false;
 		return false;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Map Selector                                                       |
@@ -514,7 +555,7 @@ cr.behaviors.REDManager = function(runtime)
 		}
 
 		return true;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Handle Player Load                                                 |
@@ -560,7 +601,7 @@ cr.behaviors.REDManager = function(runtime)
 		var newDirection = this.calculateRotatedExitDirection(exitDirection);
 
 		return this.placePlayerOnLoad(newDirection, directions, goal, instance, behInst);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Calculate Base Exit Direction                                      |
@@ -598,7 +639,7 @@ cr.behaviors.REDManager = function(runtime)
 
 		this.decrementPlayers(instance);
 		return -1;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Remove Player From Map                                             |
@@ -619,7 +660,7 @@ cr.behaviors.REDManager = function(runtime)
 		this.setUnloadedPlayerCount(this.getUnloadedPlayerCount() - 1);
 		this.setCurrentPlayerCount(this.getCurrentPlayerCount() - 1);
 		this.runtime.DestroyInstance(instance);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Calculate Rotated Exit Direction                                   |
@@ -642,7 +683,7 @@ cr.behaviors.REDManager = function(runtime)
 		var change = ((((oldAngle - currentAngle) / 90) * (-1)) + 6) % 4;
 
 		return ((exitDirection + change) % 4);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Place Player on Map Load                                           |
@@ -696,7 +737,7 @@ cr.behaviors.REDManager = function(runtime)
 		}
 
 		return true;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Place Player on Map Load                                           |
@@ -737,7 +778,7 @@ cr.behaviors.REDManager = function(runtime)
 			newBars.y = goal.y + (y / 2);
 			newBars.set_bbox_changed();
 		}
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Handle Orange                                                      |
@@ -794,7 +835,7 @@ cr.behaviors.REDManager = function(runtime)
 
 			this.attemptCharge(instance, orange, behavior);
 		}
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Attempt Charge                                                     |
@@ -858,7 +899,7 @@ cr.behaviors.REDManager = function(runtime)
 			orange.set_bbox_changed();
 			orange.opacity = 1.0;
 		}
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Check Charge                                                       |
@@ -921,7 +962,7 @@ cr.behaviors.REDManager = function(runtime)
 
 		behavior.charging = true;
 		behavior.maxspeed *= 4;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Are Players Loaded                                                 |
@@ -935,7 +976,7 @@ cr.behaviors.REDManager = function(runtime)
 			return -200;
 
 		return (this.dataArray.instances[0].at(19, 0, 0) <= 0);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Get Current Player Count                                           |
@@ -949,7 +990,7 @@ cr.behaviors.REDManager = function(runtime)
 			return -200;
 
 		return this.dataArray.instances[0].at(8, 0, 0);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Get Exiting Player Count                                           |
@@ -963,7 +1004,7 @@ cr.behaviors.REDManager = function(runtime)
 			return -200;
 
 		return this.dataArray.instances[0].at(40, 0, 0);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Get Experience Multiplier                                          |
@@ -980,7 +1021,7 @@ cr.behaviors.REDManager = function(runtime)
 			return -200;
 
 		return this.dataArray.instances[0].at(6, 0, 0);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Get Previous Map Angle                                             |
@@ -994,7 +1035,7 @@ cr.behaviors.REDManager = function(runtime)
 			return -200;
 
 		return this.dataArray.instances[0].at(46, 0, 0);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Get Player Direction                                               |
@@ -1004,6 +1045,9 @@ cr.behaviors.REDManager = function(runtime)
 	|  exit the map. If the player is attempting to exit, it will return a  |
 	|  value representing the direction, where 0=>up, 1=>right, 2=>down,    |
 	|  and 3=>left. This is independent of the current map's rotation.      |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * player: The number value that represents a specific player.      |
 	\*---------------------------------------------------------------------*/
 	behinstProto.getPlayerDirection = function (player)
 	{
@@ -1024,7 +1068,7 @@ cr.behaviors.REDManager = function(runtime)
 		default:
 			return this.dataArray.instances[0].at(44, 0, 0);
 		}
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Get Player Experience                                              |
@@ -1038,7 +1082,7 @@ cr.behaviors.REDManager = function(runtime)
 			return -200;
 
 		return this.dataArray.instances[0].at(2, 0, 0);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Get Player Level                                                   |
@@ -1051,13 +1095,16 @@ cr.behaviors.REDManager = function(runtime)
 			return -200;
 
 		return this.dataArray.instances[0].at(7, 0, 0);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Get Player's Remaining Lives                                       |
 	| ------                                                                |
 	|    Utility access function. Returns the remaining number of lives for |
 	|  the given player.                                                    |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * player: The number value that represents a specific player.      |
 	\*---------------------------------------------------------------------*/
 	behinstProto.getPlayerLives = function (player)
 	{
@@ -1078,7 +1125,7 @@ cr.behaviors.REDManager = function(runtime)
 		default:
 			return this.dataArray.instances[0].at(26, 0, 0);
 		}
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Get Player's Respawn Timer                                         |
@@ -1086,6 +1133,9 @@ cr.behaviors.REDManager = function(runtime)
 	|    Utility access function. Returns remaining time, in seconds,       |
 	|  before the player will respawn on a map with an active revival tile. |
 	|  If the player is not dead, will return -1.                           |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * player: The number value that represents a specific player.      |
 	\*---------------------------------------------------------------------*/
 	behinstProto.getRespawnTimer = function (player)
 	{
@@ -1106,7 +1156,7 @@ cr.behaviors.REDManager = function(runtime)
 		default:
 			return this.dataArray.instances[0].at(31, 0, 0);
 		}
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Get Revival Godmode Timer                                          |
@@ -1120,7 +1170,7 @@ cr.behaviors.REDManager = function(runtime)
 			return -200;
 
 		return this.dataArray.instances[0].at(38, 0, 0);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Get Unloaded Player Count                                          |
@@ -1134,7 +1184,7 @@ cr.behaviors.REDManager = function(runtime)
 			return -200;
 
 		return this.dataArray.instances[0].at(19, 0, 0);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Is Layout Loaded                                                   |
@@ -1149,7 +1199,7 @@ cr.behaviors.REDManager = function(runtime)
 			return -200;
 
 		return (this.dataArray.instances[0].at(39, 0, 0) >= 1);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Is Game Paused                                                     |
@@ -1163,7 +1213,7 @@ cr.behaviors.REDManager = function(runtime)
 			return -200;
 
 		return (this.dataArray.instances[0].at(13, 0, 0) == 1);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Is Revival Godmode in Effect                                       |
@@ -1177,7 +1227,7 @@ cr.behaviors.REDManager = function(runtime)
 			return -200;
 
 		return (this.dataArray.instances[0].at(38, 0, 0) > 0);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Is Forced Revival Active                                           |
@@ -1192,12 +1242,16 @@ cr.behaviors.REDManager = function(runtime)
 			return -200;
 
 		return (this.dataArray.instances[0].at(37, 0, 0) != 0);
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Play Sound                                                         |
 	| ------                                                                |
 	|    Utility access function. Tells the game to play a sound effect.    |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * newValue: A string containing the full name of the audio track   |
+	|                to play.                                               |
 	\*---------------------------------------------------------------------*/
 	behinstProto.playSound = function (newValue)
 	{
@@ -1206,13 +1260,16 @@ cr.behaviors.REDManager = function(runtime)
 
 		this.dataArray.instances[0].set(18, 0, 0, newValue);
 		return true;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Set Current Player Count                                           |
 	| ------                                                                |
 	|    Utility access function. Sets the number of players currently      |
 	|  shown on the map.                                                    |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * newValue: A number representing the current number of players.   |
 	\*---------------------------------------------------------------------*/
 	behinstProto.setCurrentPlayerCount = function (newValue)
 	{
@@ -1224,13 +1281,17 @@ cr.behaviors.REDManager = function(runtime)
 
 		this.dataArray.instances[0].set(8, 0, 0, newValue);
 		return true;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Set Exiting Player Count                                           |
 	| ------                                                                |
 	|    Utility access function. Sets the number of players currently      |
 	|  attempting to move to another map.                                   |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * newValue: A number representing the number of players attempting |
+	|                to exit the map.                                       |
 	\*---------------------------------------------------------------------*/
 	behinstProto.setExitingPlayerCount = function (newValue)
 	{
@@ -1242,13 +1303,16 @@ cr.behaviors.REDManager = function(runtime)
 
 		this.dataArray.instances[0].set(40, 0, 0, newValue);
 		return true;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Set Map Zoom                                                       |
 	| ------                                                                |
 	|    Utility access function. Sets the current map scale so that the    |
 	|  map will zoom in or out.                                             |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * newValue: A decimal value representing the current map zoom.     |
 	\*---------------------------------------------------------------------*/
 	behinstProto.setMapZoom = function (newValue)
 	{
@@ -1260,13 +1324,16 @@ cr.behaviors.REDManager = function(runtime)
 
 		this.dataArray.instances[0].set(36, 0, 0, newValue);
 		return true;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Set Game Paused                                                    |
 	| ------                                                                |
 	|    Utility access function. Sets a boolean value representing whether |
 	|  or not the game is currently paused.                                 |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * newValue: A number boolean representing the current pause state. |
 	\*---------------------------------------------------------------------*/
 	behinstProto.setPaused = function (newValue)
 	{
@@ -1278,7 +1345,7 @@ cr.behaviors.REDManager = function(runtime)
 
 		this.dataArray.instances[0].set(13, 0, 0, newValue);
 		return true;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Set Player Direction                                               |
@@ -1288,6 +1355,11 @@ cr.behaviors.REDManager = function(runtime)
 	|  exit the map. If the player is attempting to exit, it should set a   |
 	|  value representing the direction, where 0=>up, 1=>right, 2=>down,    |
 	|  and 3=>left. This is independent of the current map's rotation.      |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * player:   The number value that represents a specific player.    |
+	|    * newValue: A number representing the direction a player is trying |
+	|                to exit the map in.                                    |
 	\*---------------------------------------------------------------------*/
 	behinstProto.setPlayerDirection = function (player, newValue)
 	{
@@ -1311,13 +1383,16 @@ cr.behaviors.REDManager = function(runtime)
 		default:
 			return this.dataArray.instances[0].set(44, 0, 0, newValue);
 		}
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Set Player Experience                                              |
 	| ------                                                                |
 	|    Utility access function. Sets the total experience the player has  |
 	|  earned for the current level.                                        |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * newValue: A number representing the players' current experience. |
 	\*---------------------------------------------------------------------*/
 	behinstProto.setPlayerExperience = function (newValue)
 	{
@@ -1329,12 +1404,15 @@ cr.behaviors.REDManager = function(runtime)
 
 		this.dataArray.instances[0].set(2, 0, 0, newValue);
 		return true;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Set Player Level                                                   |
 	| ------                                                                |
 	|    Utility access function. Sets the player's current level.          |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * newValue: A number representing the players' current level.      |
 	\*---------------------------------------------------------------------*/
 	behinstProto.setPlayerLevel = function (newValue)
 	{
@@ -1346,13 +1424,17 @@ cr.behaviors.REDManager = function(runtime)
 
 		this.dataArray.instances[0].set(7, 0, 0, newValue);
 		return true;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Set Player's Remaining Lives                                       |
 	| ------                                                                |
 	|    Utility access function. Sets the remaining number of lives for    |
 	|  the specified player.                                                |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * player:   The number value that represents a specific player.    |
+	|    * newValue: A number representing the player's remaining lives.    |
 	\*---------------------------------------------------------------------*/
 	behinstProto.setPlayerLives = function (player, newValue)
 	{
@@ -1376,7 +1458,7 @@ cr.behaviors.REDManager = function(runtime)
 		default:
 			return this.dataArray.instances[0].set(26, 0, 0, newValue);
 		}
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Set Player's Respawn Timer                                         |
@@ -1384,6 +1466,11 @@ cr.behaviors.REDManager = function(runtime)
 	|    Utility access function. Sets remaining time, in seconds, before   |
 	|  the player will respawn on a map with an active revival tile. If the |
 	|  player is not dead, it should set -1.                                |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * player:   The number value that represents a specific player.    |
+	|    * newValue: A number representing the time, in seconds, before a   |
+	|                player can be revived.                                 |
 	\*---------------------------------------------------------------------*/
 	behinstProto.setRespawnTimer = function (player, newValue)
 	{
@@ -1407,13 +1494,17 @@ cr.behaviors.REDManager = function(runtime)
 		default:
 			return this.dataArray.instances[0].set(31, 0, 0, newValue);
 		}
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Set Revival Godmode Timer                                          |
 	| ------                                                                |
 	|    Utility access function. Sets the remaining time, in seconds,      |
 	|  before the players no longer have godmode due to a revival.          |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * newValue: A number representing the time, in seconds, before     |
+	|                players can be killed after a recent revival.          |
 	\*---------------------------------------------------------------------*/
 	behinstProto.setRevivalCooldown = function (newValue)
 	{
@@ -1425,13 +1516,17 @@ cr.behaviors.REDManager = function(runtime)
 
 		this.dataArray.instances[0].set(38, 0, 0, newValue);
 		return true;
-	}
+	};
 
 	/*---------------------------------------------------------------------*\
 	| *  Set Unloaded Player Count                                          |
 	| ------                                                                |
 	|    Utility access function. Sets the number of players who have yet   |
 	|  to fully load.                                                       |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * newValue: A number representing the number of players that have  |
+	|                yet to be dealt with after a map loads.                |
 	\*---------------------------------------------------------------------*/
 	behinstProto.setUnloadedPlayerCount = function (newValue)
 	{
@@ -1443,18 +1538,37 @@ cr.behaviors.REDManager = function(runtime)
 
 		this.dataArray.instances[0].set(19, 0, 0, newValue);
 		return true;
-	}
+	};
 
-	//////////////////////////////////////
-	// Conditions
+	/*---------------------------------------------------------------------*\
+	| *  Conditions                                                         |
+	| ------                                                                |
+	|    Functions triggered by the editor. Currently unused by this        |
+	|  behavior class.                                                      |
+	\*---------------------------------------------------------------------*/
 	behaviorProto.cnds = {};
 	var cnds = behaviorProto.cnds;
 
-	//////////////////////////////////////
-	// Actions
+	/*---------------------------------------------------------------------*\
+	| *  Actions                                                            |
+	| ------                                                                |
+	|    Actions performed by the event system. Not intended for use in any |
+	|  setting aside from the event editor.                                 |
+	\*---------------------------------------------------------------------*/
 	behaviorProto.acts = {};
 	var acts = behaviorProto.acts;
 
+	/*---------------------------------------------------------------------*\
+	| *  Set Movement Angle                                                 |
+	| ------                                                                |
+	|    Stores the rotation of the current map. This is called when a new  |
+	|  layout loads.                                                        |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * angle: A number representing the rotation, in degrees, of the    |
+	|             current map. If the number is not 0, 90, 180, or 270, the |
+	|             function will store the value of 0.                       |
+	\*---------------------------------------------------------------------*/
 	acts.SetMovementAngle = function (angle)
 	{
 		// 0, 90, 180, 270, else 0
@@ -1467,11 +1581,30 @@ cr.behaviors.REDManager = function(runtime)
 		}
 	};
 
+	/*---------------------------------------------------------------------*\
+	| *  Set Data Array                                                     |
+	| ------                                                                |
+	|    Stores the game's data array. This is called when a new layout     |
+	|    loads.                                                             |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * array: The game's current Array object.                          |
+	\*---------------------------------------------------------------------*/
 	acts.SetDataArray = function (array)
 	{
 		this.dataArray = array;
 	};
 
+	/*---------------------------------------------------------------------*\
+	| *  Add Player                                                         |
+	| ------                                                                |
+	|    Adds a player to the manager's player array. If the player is      |
+	|  already stored in the array, it is ignored. This is called when a    |
+	|  new layout loads.                                                    |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * player: A player object.                                         |
+	\*---------------------------------------------------------------------*/
 	acts.AddPlayer = function (player)
 	{
 		for(var i = 0; i < this.players.players.length; i++)
@@ -1483,23 +1616,55 @@ cr.behaviors.REDManager = function(runtime)
 		this.players.players.push(player);
 	};
 
+	/*---------------------------------------------------------------------*\
+	| *  Add Goal Tile                                                      |
+	| ------                                                                |
+	|    Stores the goal tile for later use. This is called when a new      |
+	|  layout loads.                                                        |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * goal: A goal object.                                             |
+	\*---------------------------------------------------------------------*/
 	acts.AddGoal = function (goal)
 	{
 		this.goals = goal;
 	};
 
+	/*---------------------------------------------------------------------*\
+	| *  Add Bar Tile                                                       |
+	| ------                                                                |
+	|    Stores the bar tile for later use. This is called when a new       |
+	|  layout loads.                                                        |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * bar: A bar tile object.                                          |
+	\*---------------------------------------------------------------------*/
 	acts.AddBar = function (bar)
 	{
 		this.bars = bar;
 	};
 
+	/*---------------------------------------------------------------------*\
+	| *  Add Orange Enemy                                                   |
+	| ------                                                                |
+	|    Stores the Orange Enemy objects for later use. This is called when |
+	|  a new layour loads.                                                  |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * orange: An orange enemy object.                                  |
+	\*---------------------------------------------------------------------*/
 	acts.AddOrange = function (orange)
 	{
 		this.orange = orange;
 	};
 
-	//////////////////////////////////////
-	// Expressions
+	/*---------------------------------------------------------------------*\
+	| *  Expressions                                                        |
+	| ------                                                                |
+	|    Expressions are functions that the editor can call to check        |
+	|  various portions of the behavior. While an expression cannot set a   |
+	|  value, it must always return a value.                                |
+	\*---------------------------------------------------------------------*/
 	behaviorProto.exps = {};
 	var exps = behaviorProto.exps;
 }());
