@@ -7,11 +7,11 @@
     <unique-id>1c01z6bg9z2d2</unique-id>
     <saved-with-version>10000</saved-with-version>
     <used-plugins>
-        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
-        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
-        <plugin author="Scirra" id="Text" version="1">Text</plugin>
-        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Glitchfinder, Scirra" id="REDEXITTile" version="1">EXITTile</behavior>
@@ -468,24 +468,24 @@
         <file name="revival.ogg" />
     </sounds-folder>
     <music-folder expanded="1">
-        <file name="basic 1.m4a" />
-        <file name="basic 1.ogg" />
-        <file name="basic 2.m4a" />
-        <file name="basic 2.ogg" />
-        <file name="basic 3.m4a" />
-        <file name="basic 3.ogg" />
-        <file name="battle 1.m4a" />
-        <file name="battle 1.ogg" />
-        <file name="battle 2.m4a" />
-        <file name="battle 2.ogg" />
-        <file name="battle 3.m4a" />
-        <file name="battle 3.ogg" />
+        <file name="treasure 2.ogg" />
+        <file name="treasure 2.m4a" />
         <file name="treasure 1.m4a" />
         <file name="treasure 1.ogg" />
-        <file name="treasure 2.m4a" />
-        <file name="treasure 2.ogg" />
-        <file name="title.m4a" />
         <file name="title.ogg" />
+        <file name="title.m4a" />
+        <file name="battle 3.ogg" />
+        <file name="battle 3.m4a" />
+        <file name="battle 2.ogg" />
+        <file name="battle 2.m4a" />
+        <file name="battle 1.ogg" />
+        <file name="basic 3.ogg" />
+        <file name="battle 1.m4a" />
+        <file name="basic 3.m4a" />
+        <file name="basic 2.m4a" />
+        <file name="basic 2.ogg" />
+        <file name="basic 1.ogg" />
+        <file name="basic 1.m4a" />
         <file name="treasure 3.m4a" />
         <file name="treasure 3.ogg" />
     </music-folder>

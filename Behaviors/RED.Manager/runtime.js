@@ -4,8 +4,11 @@
 assert2(cr, "cr namespace not created");
 assert2(cr.behaviors, "cr.behaviors not created");
 
-/////////////////////////////////////
-// Behavior class
+/*---------------------------------------------------------------------*\
+| *  REDManager Behavior Class                                          |
+| ------                                                                |
+|    The REDManager Behavior Class                                      |
+\*---------------------------------------------------------------------*/
 cr.behaviors.REDManager = function(runtime)
 {
 	this.runtime = runtime;
@@ -15,8 +18,11 @@ cr.behaviors.REDManager = function(runtime)
 {
 	var behaviorProto = cr.behaviors.REDManager.prototype;
 
-	/////////////////////////////////////
-	// Behavior type class
+	/*---------------------------------------------------------------------*\
+	| *  Create Behavior Type                                               |
+	| ------                                                                |
+	|    Creates and sets the behavior's base type information.             |
+	\*---------------------------------------------------------------------*/
 	behaviorProto.Type = function(behavior, objtype)
 	{
 		this.behavior = behavior;
@@ -173,6 +179,7 @@ cr.behaviors.REDManager = function(runtime)
 			return;
 		}
 
+		this.checkLifeCount();
 		this.updateRevivalCooldown();
 		this.updateLevel();
 
@@ -226,6 +233,31 @@ cr.behaviors.REDManager = function(runtime)
 		}
 
 		this.setMapZoom(zoom);
+	};
+
+	/*---------------------------------------------------------------------*\
+	| *  Check Total Remaining Lives                                        |
+	| ------                                                                |
+	|    Called once per tick. This function checks the players' total      |
+	|  remaining lives. If the total is zero or less, the game resets to    |
+	|  the title.                                                           |
+	\*---------------------------------------------------------------------*/
+	behinstProto.checkLifeCount = function ()
+	{
+		if(this.getPlayerLives(1) > 0)
+			return;
+
+		if(this.getPlayerLives(2) > 0)
+			return;
+
+		if(this.getPlayerLives(3) > 0)
+			return;
+
+		if(this.getPlayerLives(4) > 0)
+			return;
+
+		this.resetDataArray();
+		this.setNextLayout("Title");
 	};
 
 	/*---------------------------------------------------------------------*\
@@ -535,23 +567,23 @@ cr.behaviors.REDManager = function(runtime)
 
 		if (randomNumber < 50)
 		{
-			this.dataArray.instances[0].set(34, 0, 0, "Map (Maze)");
-			this.dataArray.instances[0].set(9, 0, 0, 1);
+			this.setNextLayout("Map (Maze)");
+			this.setMapType(1);
 		}
 		else if (randomNumber < 75)
 		{
-			this.dataArray.instances[0].set(34, 0, 0, "Map (Corner)");
-			this.dataArray.instances[0].set(9, 0, 0, 2);
+			this.setNextLayout("Map (Corner)");
+			this.setMapType(2);
 		}
 		else if (randomNumber < 90)
 		{
-			this.dataArray.instances[0].set(34, 0, 0, "Map (Battleground)");
-			this.dataArray.instances[0].set(9, 0, 0, 3);
+			this.setNextLayout("Map (Battleground)");
+			this.setMapType(3);
 		}
 		else
 		{
-			this.dataArray.instances[0].set(34, 0, 0, "Map (Treasure)");
-			this.dataArray.instances[0].set(9, 0, 0, 4);
+			this.setNextLayout("Map (Treasure)");
+			this.setMapType(4);
 		}
 
 		return true;
@@ -1263,6 +1295,22 @@ cr.behaviors.REDManager = function(runtime)
 	};
 
 	/*---------------------------------------------------------------------*\
+	| *  Reset Global Data Array                                            |
+	| ------                                                                |
+	|    Utility access function. Sets the global data array to report as   |
+	|  uninitialized. This results in it being reset the next time a new    |
+	|  layout is loaded.                                                    |
+	\*---------------------------------------------------------------------*/
+	behinstProto.resetDataArray = function ()
+	{
+		if (this.dataArray == null)
+			return -200;
+
+		this.dataArray.instances[0].set(1, 0, 0, 0);
+		return true;
+	};
+
+	/*---------------------------------------------------------------------*\
 	| *  Set Current Player Count                                           |
 	| ------                                                                |
 	|    Utility access function. Sets the number of players currently      |
@@ -1306,6 +1354,23 @@ cr.behaviors.REDManager = function(runtime)
 	};
 
 	/*---------------------------------------------------------------------*\
+	| *  Set Map Type                                                       |
+	| ------                                                                |
+	|    Utility access function. Sets the type for the next map to load.   |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * newValue: A number representing the type of map.                 |
+	\*---------------------------------------------------------------------*/
+	behinstProto.setMapType = function (newValue)
+	{
+		if (this.dataArray == null)
+			return -200;
+
+		this.dataArray.instances[0].set(9, 0, 0, newValue);
+		return true;
+	};
+
+	/*---------------------------------------------------------------------*\
 	| *  Set Map Zoom                                                       |
 	| ------                                                                |
 	|    Utility access function. Sets the current map scale so that the    |
@@ -1323,6 +1388,23 @@ cr.behaviors.REDManager = function(runtime)
 			newValue = 0;
 
 		this.dataArray.instances[0].set(36, 0, 0, newValue);
+		return true;
+	};
+
+	/*---------------------------------------------------------------------*\
+	| *  Set Next Layout                                                    |
+	| ------                                                                |
+	|    Utility access function. Sets the next layout to load.             |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * newValue: A string representing the name of the layout.          |
+	\*---------------------------------------------------------------------*/
+	behinstProto.setNextLayout = function (newValue)
+	{
+		if (this.dataArray == null)
+			return -200;
+
+		this.dataArray.instances[0].set(34, 0, 0, newValue);
 		return true;
 	};
 

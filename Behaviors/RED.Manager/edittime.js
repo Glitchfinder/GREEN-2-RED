@@ -13,28 +13,69 @@
 };
 
 //////////////////////////////////////////////////////////////
-// Conditions
-
-//////////////////////////////////////////////////////////////
 // Actions
 
-AddNumberParam("Movement Angle", "Set the angle at which movement occurs relative to the layout.");
-AddAction(9, 0, "Set movement angle", "", "Set {my} angle relative to the layout to <i>{0}</i>", "Set the object's relative movement angle.", "SetMovementAngle");
+var name = "Movement Angle";
+var desc = "The current angle of the layout. Should be 0, 90, 180, or 270.";
+var init = "0";
 
-AddObjectParam("Set data array.", "Set the behavior's data array.");
-AddAction(11, 0, "Set data array", "", "Set {my} data array to <i>{0}</i>.", "Set the data array.", "SetDataArray");
+var listName	= "Set movement angle";
+var display	= "Set {my} angle relative to the layout to <i>{0}</i>.";
+var desc2	= "Set the object's angle relative to the layout.";
 
-AddObjectParam("Add player.", "Add a player to the behavior's player array.");
-AddAction(12, 0, "Add player", "", "Added player <i>{0}</i> to {my}.", "Add a player object.", "AddPlayer");
+AddNumberParam(name, desc, init);
+AddAction(9, 0, listName, "", display, desc2, "SetMovementAngle");
 
-AddObjectParam("Add goal.", "Add a goal tile to the behavior's tile array.");
-AddAction(13, 0, "Add goal tile", "", "Added <i>{0}</i> tile to {my}.", "Add a goal tile object.", "AddGoal");
+name = "Data Array";
+desc = "The data array. Should be an Array object.";
 
-AddObjectParam("Add bar.", "Add a bar tile to the behavior's tile array.");
-AddAction(14, 0, "Add bar tile", "", "Added <i>{0}</i> tile to {my}.", "Add a bar tile object.", "AddBar");
+listName	= "Set data array";
+display		= "Set {my} data array to <i>{0}</i>.";
+desc2		= "Pass in the project's data array.";
 
-AddObjectParam("Add orange.", "Add an orange enemy to the behavior.");
-AddAction(15, 0, "Add orange enemy", "", "Added enemy <i>{0}</i> to {my}.", "Add an orange enemy object.", "AddOrange");
+AddObjectParam(name, desc);
+AddAction(11, 0, listName, "", display, desc2, "SetDataArray");
+
+name = "Player Object";
+desc = "Add a player to the object. Should be a sprite with the REDPlayer behavior.";
+
+listName	= "Add a player";
+display		= "Added the player <i>{0}</i> to {my}.";
+desc2		= "Add a player object.";
+
+AddObjectParam(name, desc);
+AddAction(12, 0, listName, "", display, desc2, "AddPlayer");
+
+name = "Exit Tile Object";
+desc = "Add the exit tile to the object. Should be a sprite with the REDEXITTile behavior.";
+
+listName	= "Add an exit tile";
+display		= "Added the <i>{0}</i> exit tile to {my}.";
+desc2		= "Add an exit tile object.";
+
+AddObjectParam(name, desc);
+AddAction(13, 0, listName, "", display, desc2, "AddGoal");
+
+name = "Barred Gate Object";
+desc = "Add the barred gate tile to the object. Should be a sprite with the Solid behavior.";
+
+listName	= "Add a barred gate tile";
+display		= "Added the <i>{0}</i> barred gate tile to {my}.";
+desc2		= "Add a barred gate tile object.";
+
+AddObjectParam(name, desc);
+AddAction(14, 0, listName, "", display, desc2, "AddBar");
+
+name = "Orange Enemy Object";
+desc = "Add the orange enemy sprite to the object. ";
+desc += "Should be a sprite with the REDORANGEEnemy behavior.";
+
+listName	= "Add an orange enemy";
+display		= "Added the <i>{0}</i> orange enemy to {my}.";
+desc2		= "Add an orange enemy object.";
+
+AddObjectParam(name, desc);
+AddAction(15, 0, listName, "", display, desc2, "AddOrange");
 
 //////////////////////////////////////////////////////////////
 // Expressions

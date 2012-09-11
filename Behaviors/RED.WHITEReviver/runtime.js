@@ -323,7 +323,7 @@ cr.behaviors.REDWHITEReviver = function(runtime)
 			this.dataArray.instances[0].set(29, 0, 0, -1);
 			this.dataArray.instances[0].set(30, 0, 0, -1);
 			this.dataArray.instances[0].set(31, 0, 0, -1);
-			this.dataArray.instances[0].set(38, 0, 0, 300);
+			this.dataArray.instances[0].set(38, 0, 0, 5);
 			
 			var randomNumber = Math.floor(Math.random() * 100);
 			
