@@ -63,7 +63,10 @@ cr.behaviors.REDManager = function(runtime)
 		this.exiting = false;
 		this.bars = 0;
 		this.orange = 0;
+		this.spikes = 0;
 		this.lastDt = this.runtime.getDt(this.inst);
+		this.firstPlayer = false;
+		this.playerKilled = false;
 	};
 
 	var behinstProto = behaviorProto.Instance.prototype;
@@ -80,6 +83,8 @@ cr.behaviors.REDManager = function(runtime)
 		this.placed = false;
 		this.esckey = false;
 		this.lastesctick = -1;
+		this.firstPlayer = false;
+		this.playerKilled = false;
 
 		jQuery(document).keydown(
 			(function (self)
@@ -188,6 +193,8 @@ cr.behaviors.REDManager = function(runtime)
 		var firstX = -100;
 		var firstY = -100;
 
+		this.firstPlayer = true;
+
 		for(var i = 0; i < this.players.players.length; i += 1)
 		{
 			var instance = this.players.players[i].instances[0];
@@ -213,6 +220,8 @@ cr.behaviors.REDManager = function(runtime)
 			if(playerNum == 0)
 				continue;
 
+			this.playerKilled = false;
+
 			if(this.getPlayerLives(playerNum) <= 0)
 			{
 				this.runtime.DestroyInstance(instance)
@@ -230,6 +239,8 @@ cr.behaviors.REDManager = function(runtime)
 			this.resizePlayers(instance);
 			this.handleGoals(instance, behInstance);
 			this.handleOrange(instance, playerNum);
+
+			this.firstPlayer = false;
 		}
 
 		this.setMapZoom(zoom);
@@ -686,12 +697,16 @@ cr.behaviors.REDManager = function(runtime)
 	\*---------------------------------------------------------------------*/
 	behinstProto.decrementPlayers = function(instance)
 	{
+		if(this.playerKilled)
+			return;
+
 		instance.visible = false;
 		instance.opacity = 0;
 
 		this.setUnloadedPlayerCount(this.getUnloadedPlayerCount() - 1);
 		this.setCurrentPlayerCount(this.getCurrentPlayerCount() - 1);
 		this.runtime.DestroyInstance(instance);
+		this.playerKilled = true;
 	};
 
 	/*---------------------------------------------------------------------*\
@@ -844,17 +859,17 @@ cr.behaviors.REDManager = function(runtime)
 			if(typeof orange == 'undefined')
 				continue;
 
-			if(typeof orange.behavior_insts[0] == 'undefined')
-				continue;
-
-			if(typeof orange.behavior_insts[0].charging == 'undefined')
-				continue;
-
 			var behavior = orange.behavior_insts[0];
+
+			if(typeof behavior == 'undefined')
+				continue;
+
+			if(typeof behavior.charging == 'undefined')
+				continue;
 
 			var collision = this.runtime.testOverlap(instance, orange);
 
-			if(collision && !this.isRevivalActive())
+			if(collision && !this.isRevivalActive() && !this.playerKilled)
 			{
 				this.runtime.DestroyInstance(instance);
 				this.setCurrentPlayerCount(this.getCurrentPlayerCount() - 1);
@@ -862,10 +877,12 @@ cr.behaviors.REDManager = function(runtime)
 				this.setRespawnTimer(playerNum, 5);
 
 				this.playSound("death");
+				this.playerKilled = true;
 				continue;
 			}
 
 			this.attemptCharge(instance, orange, behavior);
+			this.handleSpikeTrap(instance, playerNum);
 		}
 	};
 
@@ -994,6 +1011,55 @@ cr.behaviors.REDManager = function(runtime)
 
 		behavior.charging = true;
 		behavior.maxspeed *= 4;
+	};
+
+	/*---------------------------------------------------------------------*\
+	| *  Handle Spike Trap                                                  |
+	| ------                                                                |
+	|    Called once per orange, per player, per tick. This function deals  |
+	|  with all processing related to the Spike Trap object. It checks to   |
+	|  see if a player is colliding with a spike trap, and deals with the   |
+	|  results. In the future, it will also deal with collisions between    |
+	|  orange and the spike trap.                                           |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * instance:  The player instance that is currently being           |
+	|                 processed.                                            |
+	|    * playerNum: The player number of the currently processing player  |
+	|                 instance.                                             |
+	\*---------------------------------------------------------------------*/
+	behinstProto.handleSpikeTrap = function (instance, playerNum)
+	{
+		if(!this.arePlayersLoaded())
+			return;
+
+		for(var i = 0; i < this.spikes.instances.length; i += 1)
+		{
+			var spike = this.spikes.instances[i];
+
+			if(typeof spike == 'undefined')
+				continue;
+
+			if(this.isRevivalActive())
+				continue;
+
+			if(this.playerKilled)
+				return;
+
+			var collision = this.runtime.testOverlap(spike, instance);
+			
+			if(!collision)
+				continue;
+
+			this.runtime.DestroyInstance(instance);
+			this.setCurrentPlayerCount(this.getCurrentPlayerCount() - 1);
+			this.setPlayerLives(playerNum, this.getPlayerLives(playerNum) - 1);
+			this.setRespawnTimer(playerNum, 5);
+
+			this.playSound("death");
+			this.playerKilled = true;
+			break;
+		}
 	};
 
 	/*---------------------------------------------------------------------*\
@@ -1738,6 +1804,20 @@ cr.behaviors.REDManager = function(runtime)
 	acts.AddOrange = function (orange)
 	{
 		this.orange = orange;
+	};
+
+	/*---------------------------------------------------------------------*\
+	| *  Add Spike Trap Enemy                                               |
+	| ------                                                                |
+	|    Stores the Spike Trap Enemy objects for later use. This is called  |
+	|  when a new layour loads.                                             |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * spike: A spike trap enemy object.                                |
+	\*---------------------------------------------------------------------*/
+	acts.AddSpike = function (spike)
+	{
+		this.spikes = spike;
 	};
 
 	/*---------------------------------------------------------------------*\

@@ -1,3 +1,6 @@
 *.capx.*
 *.uistate.xml
 Thumbs.db
+*.rar
+*.zip
+*.7zip

@@ -247,6 +247,10 @@
                     <param id="0" name="Set data array.">Globals</param>
                 </action>
                 <action id="-24" name="Move to top" type="ORANGEEnemy" />
+                <action behavior="SPIKETrap" id="9" name="Set data array" type="SPIKETrap">
+                    <param id="0" name="Set data array.">Globals</param>
+                </action>
+                <action id="-24" name="Move to top" type="SPIKETrap" />
                 <action behavior="WHITEReviver" id="1" name="Add player" type="WHITEReviver">
                     <param id="0" name="Add player.">REDPlayer</param>
                 </action>
@@ -256,16 +260,6 @@
                 <action behavior="WHITEReviver" id="0" name="Set data array" type="WHITEReviver">
                     <param id="0" name="Set data array.">Globals</param>
                 </action>
-                <action behavior="SPIKETrap" id="10" name="Add player" type="SPIKETrap">
-                    <param id="0" name="Add player.">REDPlayer</param>
-                </action>
-                <action behavior="SPIKETrap" id="10" name="Add player" type="SPIKETrap">
-                    <param id="0" name="Add player.">INDIGOPlayer</param>
-                </action>
-                <action behavior="SPIKETrap" id="9" name="Set data array" type="SPIKETrap">
-                    <param id="0" name="Set data array.">Globals</param>
-                </action>
-                <action id="-24" name="Move to top" type="SPIKETrap" />
                 <action id="-16" name="Set opacity" type="PauseScreen">
                     <param id="0" name="Opacity">0</param>
                 </action>
@@ -348,6 +342,9 @@
                 </action>
                 <action behavior="Manager" id="15" name="Add an orange enemy" type="Manager">
                     <param id="0" name="Orange Enemy Object">ORANGEEnemy</param>
+                </action>
+                <action behavior="Manager" id="0" name="Add a spike trap enemy" type="Manager">
+                    <param id="0" name="Spike Trap Enemy Object">SPIKETrap</param>
                 </action>
                 <action behavior="Manager" id="13" name="Add an exit tile" type="Manager">
                     <param id="0" name="Exit Tile Object">goal</param>

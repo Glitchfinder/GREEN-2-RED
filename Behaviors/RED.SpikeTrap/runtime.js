@@ -68,7 +68,6 @@ cr.behaviors.REDSPIKETrap = function(runtime)
 		this.dataArray = null;
 		this.paused = false;
 		this.players = {};
-		this.tickCount = 0;
 		
 		this.currentDirection = -1; // Current direction: 0 = left, 1 = right, 2 = up, 3 = down;
 	};
@@ -259,67 +258,6 @@ cr.behaviors.REDSPIKETrap = function(runtime)
 		
 		if (this.paused)
 			return;
-		
-		if (this.dataArray.instances[0].at(19, 0, 0) > 0)
-			return;
-		
-		if (this.tickCount > 0)
-		{
-			this.tickCount -= 1;
-		}
-		else
-		{
-			this.tickCount = 0;
-			
-			for(var i = 0; i < this.players.players.length; i += 1)
-			{
-				var playerNumber = 0;
-				
-				if(typeof this.players.players[i].instances[0] == 'undefined')
-					continue;
-				
-				for(var i2 = 0; i2 < this.players.players[i].instances[0].behavior_insts.length; i2 += 1)
-				{
-					if(typeof this.players.players[i].instances[0].behavior_insts[i2].playerNumber != 'undefined')
-					{
-						playerNumber = this.players.players[i].instances[0].behavior_insts[i2].playerNumber;
-					}
-				}
-				
-				if(playerNumber == 0)
-					continue;
-				
-				var collision = this.runtime.testOverlap(this.inst, this.players.players[i].instances[0])
-				
-				if(collision && this.dataArray.instances[0].at(38, 0, 0) <= 0)
-				{
-					this.runtime.DestroyInstance(this.players.players[i].instances[0]);
-					this.dataArray.instances[0].set(8, 0, 0, this.dataArray.instances[0].at(8, 0, 0) - 1);
-					switch(playerNumber)
-					{
-					case 1:
-						this.dataArray.instances[0].set(14, 0, 0, this.dataArray.instances[0].at(14, 0, 0) - 1);
-						this.dataArray.instances[0].set(28, 0, 0, 300);
-						break;
-					case 2:
-						this.dataArray.instances[0].set(15, 0, 0, this.dataArray.instances[0].at(15, 0, 0) - 1);
-						this.dataArray.instances[0].set(29, 0, 0, 300);
-						break;
-					case 3:
-						this.dataArray.instances[0].set(23, 0, 0, this.dataArray.instances[0].at(23, 0, 0) - 1);
-						this.dataArray.instances[0].set(30, 0, 0, 300);
-						break;
-					default:
-						this.dataArray.instances[0].set(26, 0, 0, this.dataArray.instances[0].at(26, 0, 0) - 1);
-						this.dataArray.instances[0].set(31, 0, 0, 300);
-						break;
-					}
-					this.dataArray.instances[0].set(18, 0, 0, "death")
-					continue;
-				}
-				
-			}
-		}
 		
 		// Is already overlapping solid: must have moved itself in (e.g. by rotating or being crushed),
 		// so push out

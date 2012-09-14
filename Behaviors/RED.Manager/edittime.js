@@ -15,6 +15,17 @@
 //////////////////////////////////////////////////////////////
 // Actions
 
+name = "Spike Trap Enemy Object";
+desc = "Add the spike trap enemy sprite to the object. ";
+desc += "Should be a sprite with the REDSPIKETrap behavior.";
+
+listName	= "Add a spike trap enemy";
+display		= "Added the <i>{0}</i> spike trap enemy to {my}.";
+desc2		= "Add a spike trap enemy object.";
+
+AddObjectParam(name, desc);
+AddAction(0, 0, listName, "", display, desc2, "AddSpike");
+
 var name = "Movement Angle";
 var desc = "The current angle of the layout. Should be 0, 90, 180, or 270.";
 var init = "0";
