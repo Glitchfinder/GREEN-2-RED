@@ -66,7 +66,7 @@ cr.behaviors.REDManager = function(runtime)
 		this.spikes = 0;
 		this.coins = 0;
 		this.lastDt = this.runtime.getDt(this.inst);
-		this.firstPlayer = false;
+		this.firstOrange = false;
 		this.playerKilled = false;
 	};
 
@@ -194,8 +194,6 @@ cr.behaviors.REDManager = function(runtime)
 		var firstX = -100;
 		var firstY = -100;
 
-		this.firstPlayer = true;
-
 		for(var i = 0; i < this.players.players.length; i += 1)
 		{
 			var instance = this.players.players[i].instances[0];
@@ -242,7 +240,6 @@ cr.behaviors.REDManager = function(runtime)
 			this.handleGoals(instance, behInstance);
 			this.handleOrange(instance, playerNum);
 
-			this.firstPlayer = false;
 		}
 
 		this.setMapZoom(zoom);
@@ -399,6 +396,9 @@ cr.behaviors.REDManager = function(runtime)
 		if (!this.arePlayersLoaded())
 			return;
 
+		if(playerNum == 0)
+			return;
+
 		for(var i = 0; i < this.coins.instances.length; i += 1)
 		{
 			var coin = this.coins.instances[i];
@@ -409,9 +409,6 @@ cr.behaviors.REDManager = function(runtime)
 			var collision = this.runtime.testOverlap(instance, coin)
 
 			if(!collision)
-				continue;
-
-			if(playerNum == 0)
 				continue;
 
 			this.setPlayerCoins(playerNum, this.getPlayerCoins(playerNum) + 1);
@@ -895,6 +892,8 @@ cr.behaviors.REDManager = function(runtime)
 		if(this.orange == 0)
 			return;
 
+		this.firstOrange = true;
+
 		for(var i = 0; i < this.orange.instances.length; i += 1)
 		{
 			var orange = this.orange.instances[i];
@@ -910,22 +909,30 @@ cr.behaviors.REDManager = function(runtime)
 			if(typeof behavior.charging == 'undefined')
 				continue;
 
-			var collision = this.runtime.testOverlap(instance, orange);
-
-			if(collision && !this.isRevivalActive() && !this.playerKilled)
-			{
-				this.runtime.DestroyInstance(instance);
-				this.setCurrentPlayerCount(this.getCurrentPlayerCount() - 1);
-				this.setPlayerLives(playerNum, this.getPlayerLives(playerNum) - 1);
-				this.setRespawnTimer(playerNum, 5);
-
-				this.playSound("death");
-				this.playerKilled = true;
-				continue;
-			}
-
 			this.attemptCharge(instance, orange, behavior);
 			this.handleSpikeTrap(instance, playerNum);
+
+			this.firstOrange = false;
+
+			var collision = this.runtime.testOverlap(instance, orange);
+
+			if(!collision)
+				continue;
+
+			if(this.isRevivalActive())
+				return;
+
+			if(this.playerKilled)
+				return;
+
+			this.runtime.DestroyInstance(instance);
+			this.setCurrentPlayerCount(this.getCurrentPlayerCount() - 1);
+			this.setPlayerLives(playerNum, this.getPlayerLives(playerNum) - 1);
+			this.setRespawnTimer(playerNum, 5);
+
+			this.playSound("death");
+			this.playerKilled = true;
+			return;
 		}
 	};
 
@@ -1034,7 +1041,9 @@ cr.behaviors.REDManager = function(runtime)
 			break;
 		}
 
-		while(((location - orange.x) > (xValue - 13)) && xValue != 0)
+		var xCheck = Math.abs((xValue < 0) ? 19 : -19);
+
+		while((Math.abs(location - orange.x) > xCheck) && xValue != 0)
 		{
 			orange.x += xValue;
 			orange.set_bbox_changed();
@@ -1043,7 +1052,9 @@ cr.behaviors.REDManager = function(runtime)
 				return false;
 		}
 
-		while(((location - orange.y) > (yValue - 13)) && yValue != 0)
+		var yCheck = Math.abs((yValue < 0) ? 19 : -19);
+
+		while((Math.abs(location - orange.y) > yCheck) && yValue != 0)
 		{
 			orange.y += yValue;
 			orange.set_bbox_changed();
@@ -1078,6 +1089,9 @@ cr.behaviors.REDManager = function(runtime)
 
 		for(var i = 0; i < this.spikes.instances.length; i += 1)
 		{
+			if(!this.firstOrange)
+				break;
+
 			var spike = this.spikes.instances[i];
 
 			if(typeof spike == 'undefined')
@@ -1087,7 +1101,7 @@ cr.behaviors.REDManager = function(runtime)
 				continue;
 
 			if(this.playerKilled)
-				return;
+				break;
 
 			var collision = this.runtime.testOverlap(spike, instance);
 			
@@ -1863,7 +1877,8 @@ cr.behaviors.REDManager = function(runtime)
 	acts.SetMovementAngle = function (angle)
 	{
 		// 0, 90, 180, 270, else 0
-		switch (angle) {
+		switch (angle)
+		{
 		case 0:		this.layoutAngle = 0;	break;
 		case 90:	this.layoutAngle = 90;	break;
 		case 180:	this.layoutAngle = 180;	break;
