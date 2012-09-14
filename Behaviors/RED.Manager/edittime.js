@@ -15,26 +15,36 @@
 //////////////////////////////////////////////////////////////
 // Actions
 
-name = "Spike Trap Enemy Object";
-desc = "Add the spike trap enemy sprite to the object. ";
+var name = "Spike Trap Enemy Object";
+var desc = "Add the spike trap enemy sprite to the object. ";
 desc += "Should be a sprite with the REDSPIKETrap behavior.";
 
-listName	= "Add a spike trap enemy";
-display		= "Added the <i>{0}</i> spike trap enemy to {my}.";
-desc2		= "Add a spike trap enemy object.";
+var listName	= "Add a spike trap enemy";
+var display		= "Added the <i>{0}</i> spike trap enemy to {my}.";
+var desc2		= "Add a spike trap enemy object.";
 
 AddObjectParam(name, desc);
 AddAction(0, 0, listName, "", display, desc2, "AddSpike");
 
-var name = "Movement Angle";
-var desc = "The current angle of the layout. Should be 0, 90, 180, or 270.";
-var init = "0";
+name = "Coin Treasure Object";
+desc = "Add the coin treasure sprite to the object. ";
+desc += "Should be a sprite with the REDYELLOWTreasure behavior.";
 
-var listName	= "Set movement angle";
-var display	= "Set {my} angle relative to the layout to <i>{0}</i>.";
-var desc2	= "Set the object's angle relative to the layout.";
+listName	= "Add a coin treasure";
+display		= "Added the <i>{0}</i> coin treasure to {my}.";
+desc2		= "Add a coin treasure object.";
 
-AddNumberParam(name, desc, init);
+AddObjectParam(name, desc);
+AddAction(1, 0, listName, "", display, desc2, "AddCoin");
+
+name = "Movement Angle";
+desc = "The current angle of the layout. Should be 0, 90, 180, or 270.";
+
+listName	= "Set movement angle";
+display		= "Set {my} angle relative to the layout to <i>{0}</i>.";
+desc2		= "Set the object's angle relative to the layout.";
+
+AddNumberParam(name, desc, "0");
 AddAction(9, 0, listName, "", display, desc2, "SetMovementAngle");
 
 name = "Data Array";

@@ -44,7 +44,6 @@ cr.behaviors.REDYELLOWTreasure = function(runtime)
 		this.dataArray = null;
 		this.paused = false;
 		this.players = {};
-		this.tickCount = 0;
 	};
 	
 	var behinstProto = behaviorProto.Instance.prototype;
@@ -74,55 +73,6 @@ cr.behaviors.REDYELLOWTreasure = function(runtime)
 		
 		if (this.paused)
 			return;
-		
-		if (this.dataArray.instances[0].at(19, 0, 0) > 0)
-			return;
-		
-		if (this.tickCount > 0)
-		{
-			this.tickCount -= 1;
-		}
-		else
-		{
-			this.tickCount = 0;
-			for(var i = 0; i < this.players.players.length; i += 1)
-			{
-				
-				if(typeof this.players.players[i].instances[0] == 'undefined')
-					continue;
-				
-				var playercollision = this.runtime.testOverlap(this.inst, this.players.players[i].instances[0])
-				
-				if(playercollision)
-				{
-					var playerNumber = 0;
-					
-					for(var i2 = 0; i2 < this.players.players[i].instances[0].behavior_insts.length; i2 += 1)
-					{
-						if(typeof this.players.players[i].instances[0].behavior_insts[i2].playerNumber != 'undefined')
-						{
-							playerNumber = this.players.players[i].instances[0].behavior_insts[i2].playerNumber;
-						}
-					}
-					
-					if(playerNumber == 0)
-						continue;
-						
-					switch(playerNumber)
-					{
-					case 1:
-						this.dataArray.instances[0].set(10, 0, 0, (this.dataArray.instances[0].at(10, 0, 0) + 1))
-						break;
-					case 2:
-						this.dataArray.instances[0].set(11, 0, 0, (this.dataArray.instances[0].at(11, 0, 0) + 1))
-						break;
-					}
-					this.dataArray.instances[0].set(3, 0, 0, this.dataArray.instances[0].at(3, 0, 0) - 1);
-					this.dataArray.instances[0].set(18, 0, 0, "normal");
-					this.runtime.DestroyInstance(this.inst);
-				}
-			}
-		}
 	};
 
 	//////////////////////////////////////

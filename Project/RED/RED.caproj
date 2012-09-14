@@ -16,8 +16,8 @@
     <used-behaviors>
         <behavior author="Glitchfinder, Scirra" id="REDEXITTile" version="1">EXITTile</behavior>
         <behavior author="Glitchfinder, Scirra" id="REDManager" version="1">Manager</behavior>
-        <behavior author="Glitchfinder, Scirra" id="REDORANGEEnemy" version="1">ORANGE</behavior>
         <behavior author="Glitchfinder, Scirra" id="REDPlayer" version="1">Player</behavior>
+        <behavior author="Glitchfinder, Scirra" id="REDORANGEEnemy" version="1">ORANGE</behavior>
         <behavior author="Glitchfinder, Scirra" id="REDRANDOMWall" version="1">RANDOMWall</behavior>
         <behavior author="Glitchfinder, Scirra" id="REDSPIKETrap" version="1">SPIKETrap</behavior>
         <behavior author="Glitchfinder, Scirra" id="REDTitleBG" version="1">Title Background</behavior>

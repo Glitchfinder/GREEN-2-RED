@@ -64,6 +64,7 @@ cr.behaviors.REDManager = function(runtime)
 		this.bars = 0;
 		this.orange = 0;
 		this.spikes = 0;
+		this.coins = 0;
 		this.lastDt = this.runtime.getDt(this.inst);
 		this.firstPlayer = false;
 		this.playerKilled = false;
@@ -237,6 +238,7 @@ cr.behaviors.REDManager = function(runtime)
 			zoom = this.calculateZoom(firstX, firstY, zoom, instance);
 
 			this.resizePlayers(instance);
+			this.handleCoins(instance, playerNum);
 			this.handleGoals(instance, behInstance);
 			this.handleOrange(instance, playerNum);
 
@@ -375,6 +377,47 @@ cr.behaviors.REDManager = function(runtime)
 			instance.width = 16;
 			instance.height = instance.width;
 			instance.set_bbox_changed();
+		}
+	};
+
+	/*---------------------------------------------------------------------*\
+	| *  Process Coin Treasure Objects                                      |
+	| ------                                                                |
+	|    Called once per player, per tick. This function deals with all     |
+	|  processing related to the Coin treasure objects. Currently, it deals |
+	|  with checking for collision between the players and coins, though in |
+	|  the future more may be involved.                                     |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * instance:  The player instance that is currently being           |
+	|                 processed.                                            |
+	|    * playerNum: The player number of the currently processing player  |
+	|                 instance.                                             |
+	\*---------------------------------------------------------------------*/
+	behinstProto.handleCoins = function(instance, playerNum)
+	{
+		if (!this.arePlayersLoaded())
+			return;
+
+		for(var i = 0; i < this.coins.instances.length; i += 1)
+		{
+			var coin = this.coins.instances[i];
+
+			if(typeof coin == 'undefined')
+				continue;
+
+			var collision = this.runtime.testOverlap(instance, coin)
+
+			if(!collision)
+				continue;
+
+			if(playerNum == 0)
+				continue;
+
+			this.setPlayerCoins(playerNum, this.getPlayerCoins(playerNum) + 1);
+			this.setMapCoins(this.getMapCoins() - 1);
+			this.playSound("normal");
+			this.runtime.DestroyInstance(coin);
 		}
 	};
 
@@ -1136,6 +1179,50 @@ cr.behaviors.REDManager = function(runtime)
 	};
 
 	/*---------------------------------------------------------------------*\
+	| *  Get Map Coin Total                                                 |
+	| ------                                                                |
+	|    Utility access function. Returns the number of coins remaining on  |
+	|  the map.                                                             |
+	\*---------------------------------------------------------------------*/
+	behinstProto.getMapCoins = function ()
+	{
+		if (this.dataArray == null)
+			return -200;
+
+		return this.dataArray.instances[0].at(3, 0, 0);
+	};
+
+	/*---------------------------------------------------------------------*\
+	| *  Get Player's Coin Total                                            |
+	| ------                                                                |
+	|    Utility access function. Returns the total amount of treasure that |
+	|  the specified player has collected.                                  |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * player: The number value that represents a specific player.      |
+	\*---------------------------------------------------------------------*/
+	behinstProto.getPlayerCoins = function (player)
+	{
+		if (this.dataArray == null)
+			return -200;
+
+		if(player != 1 && player != 2 && player != 3 && player != 4)
+			return -300;
+
+		switch(player)
+		{
+		case 1:
+			return this.dataArray.instances[0].at(10, 0, 0);
+		case 2:
+			return this.dataArray.instances[0].at(11, 0, 0);
+		case 3:
+			return this.dataArray.instances[0].at(22, 0, 0);
+		default:
+			return this.dataArray.instances[0].at(25, 0, 0);
+		}
+	};
+
+	/*---------------------------------------------------------------------*\
 	| *  Get Player Direction                                               |
 	| ------                                                                |
 	|    Utility access function. Returns the direction the given player is |
@@ -1420,6 +1507,27 @@ cr.behaviors.REDManager = function(runtime)
 	};
 
 	/*---------------------------------------------------------------------*\
+	| *  Set Map Coin Total                                                 |
+	| ------                                                                |
+	|    Utility access function. Sets the total number of coins remaning   |
+	|  on the current map.                                                  |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * newValue: A number representing the number of remaining coins.   |
+	\*---------------------------------------------------------------------*/
+	behinstProto.setMapCoins = function (newValue)
+	{
+		if (this.dataArray == null)
+			return -200;
+
+		if(newValue < 0)
+			newValue = 0;
+
+		this.dataArray.instances[0].set(3, 0, 0, newValue);
+		return true;
+	};
+
+	/*---------------------------------------------------------------------*\
 	| *  Set Map Type                                                       |
 	| ------                                                                |
 	|    Utility access function. Sets the type for the next map to load.   |
@@ -1493,6 +1601,41 @@ cr.behaviors.REDManager = function(runtime)
 
 		this.dataArray.instances[0].set(13, 0, 0, newValue);
 		return true;
+	};
+
+	/*---------------------------------------------------------------------*\
+	| *  Set Player Coins                                                   |
+	| ------                                                                |
+	|    Utility access function. Sets the total amount of treasure that    |
+	|  the specified player has collected.                                  |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * player:   The number value that represents a specific player.    |
+	|    * newValue: A number representing the total amount of treasure     |
+	|                that the player has collected.                         |
+	\*---------------------------------------------------------------------*/
+	behinstProto.setPlayerCoins = function (player, newValue)
+	{
+		if (this.dataArray == null)
+			return -200;
+
+		if(player != 1 && player != 2 && player != 3 && player != 4)
+			return -300;
+
+		if(newValue < 0)
+			newValue = 0;
+
+		switch(player)
+		{
+		case 1:
+			return this.dataArray.instances[0].set(10, 0, 0, newValue);
+		case 2:
+			return this.dataArray.instances[0].set(11, 0, 0, newValue);
+		case 3:
+			return this.dataArray.instances[0].set(22, 0, 0, newValue);
+		default:
+			return this.dataArray.instances[0].set(25, 0, 0, newValue);
+		}
 	};
 
 	/*---------------------------------------------------------------------*\
@@ -1796,7 +1939,7 @@ cr.behaviors.REDManager = function(runtime)
 	| *  Add Orange Enemy                                                   |
 	| ------                                                                |
 	|    Stores the Orange Enemy objects for later use. This is called when |
-	|  a new layour loads.                                                  |
+	|  a new layout loads.                                                  |
 	| ------                                                                |
 	|  Arguments:                                                           |
 	|    * orange: An orange enemy object.                                  |
@@ -1810,7 +1953,7 @@ cr.behaviors.REDManager = function(runtime)
 	| *  Add Spike Trap Enemy                                               |
 	| ------                                                                |
 	|    Stores the Spike Trap Enemy objects for later use. This is called  |
-	|  when a new layour loads.                                             |
+	|  when a new layout loads.                                             |
 	| ------                                                                |
 	|  Arguments:                                                           |
 	|    * spike: A spike trap enemy object.                                |
@@ -1818,6 +1961,21 @@ cr.behaviors.REDManager = function(runtime)
 	acts.AddSpike = function (spike)
 	{
 		this.spikes = spike;
+	};
+
+	
+	/*---------------------------------------------------------------------*\
+	| *  Add Coin                                                           |
+	| ------                                                                |
+	|    Stores the Coin objects for later use. This is called when a new   |
+	|  layout loads.                                                        |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * coin: A coin treasure object.                                    |
+	\*---------------------------------------------------------------------*/
+	acts.AddCoin = function (coin)
+	{
+		this.coins = coin;
 	};
 
 	/*---------------------------------------------------------------------*\

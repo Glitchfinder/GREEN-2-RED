@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Events</name>
     <events>
+        <comment>This event deals with initializing a new game upon loading the title screen. In the future, it may be entirely replaced by behavior code.</comment>
         <event-block>
             <conditions>
                 <condition id="-2" name="On start of layout" type="System" />
@@ -226,6 +227,7 @@
                 </action>
             </actions>
         </event-block>
+        <comment>This event deals with all processing that is necessary when a new layout loads. Currently, there are quite a few calls to many different objects. However, the number of calls may decrease as the behavior code is developed further.</comment>
         <event-block>
             <conditions>
                 <condition id="-2" name="On start of layout" type="System" />
@@ -233,12 +235,6 @@
             <actions>
                 <action behavior="TitleBackground" id="0" name="Set data array" type="titleBG">
                     <param id="0" name="Set data array.">Globals</param>
-                </action>
-                <action behavior="YELLOWTreasure" id="1" name="Add player" type="YELLOWTreasure">
-                    <param id="0" name="Add player.">REDPlayer</param>
-                </action>
-                <action behavior="YELLOWTreasure" id="1" name="Add player" type="YELLOWTreasure">
-                    <param id="0" name="Add player.">INDIGOPlayer</param>
                 </action>
                 <action behavior="YELLOWTreasure" id="0" name="Set data array" type="YELLOWTreasure">
                     <param id="0" name="Set data array.">Globals</param>
@@ -339,6 +335,9 @@
                 </action>
                 <action behavior="Manager" id="12" name="Add a player" type="Manager">
                     <param id="0" name="Player Object">INDIGOPlayer</param>
+                </action>
+                <action behavior="Manager" id="1" name="Add a coin treasure" type="Manager">
+                    <param id="0" name="Coin Treasure Object">YELLOWTreasure</param>
                 </action>
                 <action behavior="Manager" id="15" name="Add an orange enemy" type="Manager">
                     <param id="0" name="Orange Enemy Object">ORANGEEnemy</param>
@@ -450,6 +449,7 @@
                 </action>
             </actions>
         </event-block>
+        <comment>This event deals with processing that is necessary when a layout ends. This is planned to be entirely replaced with code within the Manager object&apos;s behavior class.</comment>
         <event-block>
             <conditions>
                 <condition id="-3" name="On end of layout" type="System" />
@@ -477,6 +477,7 @@
                 </action>
             </actions>
         </event-block>
+        <comment>This event deals with processing that needs to be done every tick. Currently, that involves a large number of varied calls, however, in the future, the number of calls may decrease as the behavior code is developed further.</comment>
         <event-block>
             <conditions>
                 <condition id="-1" name="Every tick" type="System" />
@@ -603,6 +604,7 @@
                 </action>
             </actions>
         </event-block>
+        <comment>This event deals with loading the help screen while on the Title screen. There are plans to entirely replace it in an update to the behavior code.</comment>
         <event-block>
             <conditions>
                 <condition id="0" name="On key pressed" type="KBInput">
