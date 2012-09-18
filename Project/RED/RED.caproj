@@ -7,17 +7,17 @@
     <unique-id>1c01z6bg9z2d2</unique-id>
     <saved-with-version>10302</saved-with-version>
     <used-plugins>
-        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Glitchfinder, Scirra" id="REDEXITTile" version="1">EXITTile</behavior>
         <behavior author="Glitchfinder, Scirra" id="REDManager" version="1">Manager</behavior>
-        <behavior author="Glitchfinder, Scirra" id="REDPlayer" version="1">Player</behavior>
         <behavior author="Glitchfinder, Scirra" id="REDORANGEEnemy" version="1">ORANGE</behavior>
+        <behavior author="Glitchfinder, Scirra" id="REDPlayer" version="1">Player</behavior>
         <behavior author="Glitchfinder, Scirra" id="REDRANDOMWall" version="1">RANDOMWall</behavior>
         <behavior author="Glitchfinder, Scirra" id="REDSPIKETrap" version="1">SPIKETrap</behavior>
         <behavior author="Glitchfinder, Scirra" id="REDTitleBG" version="1">Title Background</behavior>

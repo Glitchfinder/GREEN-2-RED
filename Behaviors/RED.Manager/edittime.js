@@ -37,6 +37,17 @@ desc2		= "Add a coin treasure object.";
 AddObjectParam(name, desc);
 AddAction(1, 0, listName, "", display, desc2, "AddCoin");
 
+name = "Revival Tile Object";
+desc = "Add the exit tile sprite to the object. ";
+desc += "Should be a sprite with the REDWHITEReviver behavior.";
+
+listName	= "Add a revival tile";
+display		= "Added the <i>{0}</i> revival tile to {my}.";
+desc2		= "Add a revival tile object.";
+
+AddObjectParam(name, desc);
+AddAction(2, 0, listName, "", display, desc2, "AddReviver");
+
 name = "Movement Angle";
 desc = "The current angle of the layout. Should be 0, 90, 180, or 270.";
 

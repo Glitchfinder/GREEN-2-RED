@@ -65,9 +65,11 @@ cr.behaviors.REDManager = function(runtime)
 		this.orange = 0;
 		this.spikes = 0;
 		this.coins = 0;
-		this.lastDt = this.runtime.getDt(this.inst);
+		this.reviver = 0;
+		this.dt = this.runtime.getDt(this.inst);
 		this.firstOrange = false;
 		this.playerKilled = false;
+		this.allDead = false;
 	};
 
 	var behinstProto = behaviorProto.Instance.prototype;
@@ -86,6 +88,7 @@ cr.behaviors.REDManager = function(runtime)
 		this.lastesctick = -1;
 		this.firstPlayer = false;
 		this.playerKilled = false;
+		this.allDead = false;
 
 		jQuery(document).keydown(
 			(function (self)
@@ -194,9 +197,13 @@ cr.behaviors.REDManager = function(runtime)
 		var firstX = -100;
 		var firstY = -100;
 
+		this.allDead = true;
+
 		for(var i = 0; i < this.players.players.length; i += 1)
 		{
 			var instance = this.players.players[i].instances[0];
+
+			this.handlePlayerRevival(instance, this.players.players[i]);
 
 			if(typeof instance == 'undefined')
 				continue;
@@ -235,14 +242,31 @@ cr.behaviors.REDManager = function(runtime)
 
 			zoom = this.calculateZoom(firstX, firstY, zoom, instance);
 
-			this.resizePlayers(instance);
+			this.resizePlayers(instance, behInstance);
 			this.handleCoins(instance, playerNum);
 			this.handleGoals(instance, behInstance);
 			this.handleOrange(instance, playerNum);
-
+			this.handleReviverPlacement(instance, behInstance, playerNum);
 		}
 
 		this.setMapZoom(zoom);
+
+		var reviver = this.reviver.instances[0];
+
+		if(typeof reviver == 'undefined')
+			return;
+
+		var behavior = reviver.behavior_insts[0];
+
+		if(typeof behavior == 'undefined')
+			return;
+
+		if(typeof behavior.online == 'undefined')
+			return;
+
+		this.activateReviverOnLoad(reviver, behavior);
+		this.forceRevival(behavior);
+		
 	};
 
 	/*---------------------------------------------------------------------*\
@@ -273,18 +297,16 @@ cr.behaviors.REDManager = function(runtime)
 	/*---------------------------------------------------------------------*\
 	| *  Update Revival Cooldown                                            |
 	| ------                                                                |
-	|    Called once per tick. This function checks the players' current    |
-	|  experience and updates their level accordingly.                      |
+	|    Called once per tick. This function checks the players' revival    |
+	|  cooldown status and and updates it based on time passed.             |
 	\*---------------------------------------------------------------------*/
 	behinstProto.updateRevivalCooldown = function ()
 	{
-		var dt = this.runtime.getDt(this.inst);
-		var dtDiff = dt - this.lastDt;
-		this.lastDt = dt;
+		this.dt = this.runtime.getDt(this.inst);
 
 		if (this.isRevivalActive())
 		{
-			var newValue = this.getRevivalCooldown - dtDiff;
+			var newValue = this.getRevivalCooldown() - this.dt;
 			this.setRevivalCooldown(newValue);
 		}
 	};
@@ -355,18 +377,22 @@ cr.behaviors.REDManager = function(runtime)
 	| ------                                                                |
 	|  Arguments:                                                           |
 	|    * instance: The player instance that is currently being processed. |
+	|    * behInst:  The behavior instance that contains the information    |
+	|                regarding the currently processing player.             |
 	\*---------------------------------------------------------------------*/
-	behinstProto.resizePlayers = function (instance)
+	behinstProto.resizePlayers = function (instance, behInst)
 	{
 		if (instance.width > 16 || instance.height > 16)
 		{
 			instance.width -= 4;
 			instance.height = instance.width;
 			instance.set_bbox_changed();
+			behInst.enabled = false;
 
 			if(instance.width <= 16)
 			{
 				this.setUnloadedPlayerCount(this.getUnloadedPlayerCount() - 1);
+				behInst.enabled = true;
 			}
 		}
 		else if (instance.width < 16 || instance.height < 16)
@@ -374,6 +400,7 @@ cr.behaviors.REDManager = function(runtime)
 			instance.width = 16;
 			instance.height = instance.width;
 			instance.set_bbox_changed();
+			behInst.enabled = true;
 		}
 	};
 
@@ -475,7 +502,7 @@ cr.behaviors.REDManager = function(runtime)
 			if(exits == true)
 				anyExiting = true;
 
-			if(this.selectMap())
+			if(this.exitMap())
 				return;
 
 			var result = this.handlePlayerLoad(goal, directions, instance, behInst);
@@ -596,14 +623,14 @@ cr.behaviors.REDManager = function(runtime)
 	};
 
 	/*---------------------------------------------------------------------*\
-	| *  Map Selector                                                       |
+	| *  Exit Map                                                           |
 	| ------                                                                |
 	|    Called once per exit tile, per player, per tick. This function     |
 	|  deals with successful attempts to exit the current map. If, for some |
 	|  reason, the map cannot be exited, this function will return false.   |
 	|  otherwise, it will trigger a map change, and set the necessary data. |
 	\*---------------------------------------------------------------------*/
-	behinstProto.selectMap = function()
+	behinstProto.exitMap = function()
 	{
 		if (!this.arePlayersLoaded())
 			return false;
@@ -614,6 +641,18 @@ cr.behaviors.REDManager = function(runtime)
 		if(this.getCurrentPlayerCount() > this.getExitingPlayerCount())
 			return false;
 
+		return this.selectMap();
+	};
+
+	/*---------------------------------------------------------------------*\
+	| *  Map Selector                                                       |
+	| ------                                                                |
+	|    Called when a map change is required. This function deals with     |
+	|  successful attempts to change the current map. This function         |
+	|  triggers the actual map change, and sets the required data.          |
+	\*---------------------------------------------------------------------*/
+	behinstProto.selectMap = function()
+	{
 		var randomNumber = Math.floor(Math.random() * 100);
 
 		if (randomNumber < 50)
@@ -711,6 +750,7 @@ cr.behaviors.REDManager = function(runtime)
 			return exitDirection;
 
 		exitDirection = this.getPlayerDirection(number);
+
 		if(exitDirection >= 0)
 			return exitDirection;
 
@@ -964,32 +1004,24 @@ cr.behaviors.REDManager = function(runtime)
 			switch(behavior.currentDirection)
 			{
 			case 0:
-				if(playerY > (y - 10) && playerY < (y + 10) && playerX < x)
-				{
-					orange.opacity = 0;
+				if(Math.abs(playerY - y) <= 10 && playerX < x)
 					this.checkCharge(playerX, orange, behavior);
-				}
+
 				break;
 			case 1:
-				if(playerY > (y - 10) && playerY < (y + 10) && playerX > x)
-				{
-					orange.opacity = 0;
+				if(Math.abs(playerY - y) <= 10 && playerX > x)
 					this.checkCharge(playerX, orange, behavior);
-				}
+
 				break;
 			case 2:
-				if(playerX > (x - 10) && playerX < (x + 10) && playerY < y)
-				{
-					orange.opacity = 0;
+				if(Math.abs(playerX - x) <= 10 && playerY < y)
 					this.checkCharge(playerY, orange, behavior);
-				}
+
 				break;
 			default:
-				if(playerX > (x - 10) && playerX < (x + 10) && playerY > y)
-				{
-					orange.opacity = 0;
+				if(Math.abs(playerX - x) <= 10 && playerY > y)
 					this.checkCharge(playerY, orange, behavior);
-				}
+
 				break;
 			}
 
@@ -1016,6 +1048,7 @@ cr.behaviors.REDManager = function(runtime)
 	\*---------------------------------------------------------------------*/
 	behinstProto.checkCharge = function (location, orange, behavior)
 	{
+		orange.opacity = 0;
 		if(behavior.charging)
 			return false;
 
@@ -1118,6 +1151,271 @@ cr.behaviors.REDManager = function(runtime)
 			break;
 		}
 	};
+
+	/*---------------------------------------------------------------------*\
+	| *  Handle Player Revival                                              |
+	| ------                                                                |
+	|    Called once per player, per tick. This function deals with all     |
+	|  processing related to reviving a player on the current map using an  |
+	|  active revival tile.                                                 |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * instance: The player instance that is currently being processed. |
+	|    * type:     The type class that the current player instance        |
+	|                modifies.                                              |
+	\*---------------------------------------------------------------------*/
+	behinstProto.handlePlayerRevival = function (instance, type)
+	{
+		if(typeof instance != 'undefined')
+			return;
+
+		var reviver = this.reviver.instances[0];
+
+		if(typeof reviver == 'undefined')
+			return;
+
+		var behavior = reviver.behavior_insts[0];
+
+		if(typeof behavior == 'undefined')
+			return;
+
+		if(typeof behavior.online == 'undefined')
+			return;
+
+		if (!behavior.online)
+			return;
+
+		var texname = "";		
+
+		if(typeof type == 'undefined')
+			return;
+
+		var animation = type.animations[0];
+
+		if(typeof animation == 'undefined')
+			return;
+
+		var frame = animation.frames[0];
+
+		if(typeof frame == 'undefined')
+			return;
+
+		if(typeof frame.texture_file == 'undefined')
+			return;
+
+		texname = frame.texture_file;
+
+		if(texname == "")
+			return;
+
+		var texnumber = -1;
+		var revivalNumber = 0;
+
+		texname = texname.toUpperCase().toLowerCase();
+
+		if (~texname.indexOf('red'))
+			texnumber = 1;
+		else if (~texname.indexOf('indigo'))
+			texnumber = 2;
+
+		var newPlayer = 0;
+
+		for (var index = 1; index <= 4; index += 1)
+		{
+			if(this.getPlayerColor(index) != texnumber)
+				continue;
+
+			if(this.getRespawnTimer(index) < 0)
+				continue;
+
+			if(this.getRespawnTimer(index) > 0)
+			{
+				var newTime = this.getRespawnTimer(index) - this.dt;
+				this.setRespawnTimer(index, newTime);
+			}
+
+			if(this.getRespawnTimer(index) > 0)
+				continue;
+
+			if(this.getPlayerLives(index) <= 0)
+				continue;
+
+			this.setRespawnTimer(index, -1);
+			newPlayer = index;
+		}
+		
+		if (newPlayer == 0)
+			return;
+
+		var layer = this.runtime.getLayerByNumber(1);
+		newPlayer = this.runtime.createInstance(type, layer);
+		newPlayer.x = reviver.x;
+		newPlayer.y = reviver.y;
+		newPlayer.width = 128;
+		newPlayer.height = 128;
+		newPlayer.set_bbox_changed();
+		this.playSound("revival");
+		this.setRevivalCooldown(5);
+		this.setCurrentPlayerCount(this.getCurrentPlayerCount + 1);
+	}
+
+	/*---------------------------------------------------------------------*\
+	| *  Handle Revived Player Placement                                    |
+	| ------                                                                |
+	|    Called once per player, per tick. This function deals with placing |
+	|  the players after a revival has been forced.                         |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * instance:  The player instance that is currently being           |
+	|                 processed.                                            |
+	|    * behInst:   The behavior instance that contains the information   |
+	|                 regarding the currently processing player.            |
+	|    * playerNum: The player number of the currently processing player  |
+	|                 instance.                                             |
+	\*---------------------------------------------------------------------*/
+	behinstProto.handleReviverPlacement = function (instance, behInst, playerNum)
+	{
+		if(playerNum == 0)
+			return;
+
+		var reviver = this.reviver.instances[0];
+
+		if(typeof reviver == 'undefined')
+			return;
+
+		var behavior = reviver.behavior_insts[0];
+
+		if(typeof behavior == 'undefined')
+			return;
+
+		if(typeof behavior.online == 'undefined')
+			return;
+
+		this.activateReviver(instance, reviver, behavior);
+
+		if(this.getRespawnTimer(playerNum) != -1)
+			return;
+
+		if(this.getPlayerLives(playerNum) <= 0)
+			return;
+
+		this.allDead = false;
+
+		if(!this.isRevivalForced())
+			return;
+
+		var xDiff = 32;
+		var yDiff = 32;
+
+		if(playerNum <= 2)
+			yDiff = 0;
+		else
+			xDiff = 0;
+
+		if((playerNum % 2) == 1)
+		{
+			xDiff *= -1;
+			yDiff *= -1;
+		}
+
+		instance.x = reviver.x + xDiff;
+		instance.y = reviver.y + yDiff;
+		instance.set_bbox_changed();
+		behInst.placed = true;
+	};
+
+	/*---------------------------------------------------------------------*\
+	| *  Activate Revival Tile                                              |
+	| ------                                                                |
+	|    Called once per player, per tick. This function deals with         |
+	|  activating the revival tile when a player touches it.                |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * instance: The player instance that is currently being processed. |
+	|    * reviver:  The revival tile instance.                             |
+	|    * behavior: The behavior instance that contains the information    |
+	|                regarding the revival tile.                            |
+	\*---------------------------------------------------------------------*/
+	behinstProto.activateReviver = function (instance, reviver, behavior)
+	{
+		if(behavior.online)
+			return;
+
+		if(!this.arePlayersLoaded())
+			return;
+
+		var collision = this.runtime.testOverlap(instance, reviver)
+
+		if(!collision)
+			return;
+
+		behavior.online = true;
+		reviver.opacity = 1.0;
+		this.playSound("activate");
+	}
+
+	/*---------------------------------------------------------------------*\
+	| *  Activate Revival Tile On Load                                      |
+	| ------                                                                |
+	|    Called once per per tick. This function deals with activating the  |
+	|  revival tile when a map loads due to a forced revival.               |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * reviver:  The revival tile instance.                             |
+	|    * behavior: The behavior instance that contains the information    |
+	|                regarding the revival tile.                            |
+	\*---------------------------------------------------------------------*/
+	behinstProto.activateReviverOnLoad = function (reviver, behavior)
+	{
+		if(!this.isLayoutLoaded())
+			return;
+
+		if(!this.isRevivalForced())
+			return;
+
+		if(this.allDead)
+			return;
+
+		behavior.online = true;
+		reviver.opacity = 1.0;
+		this.setForcedRevival(0);
+		this.playSound("revival");
+	}
+
+	/*---------------------------------------------------------------------*\
+	| *  Force Player Revival                                               |
+	| ------                                                                |
+	|    Called once per tick. This function deals with forcing revival on  |
+	|  a new map in the event that all players die while no revival tile is |
+	|  currently active.                                                    |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * behavior: The behavior instance that contains the information    |
+	|                regarding the revival tile.                            |
+	\*---------------------------------------------------------------------*/
+	behinstProto.forceRevival = function (behavior)
+	{
+		if(!this.allDead)
+			return;
+
+		if(behavior.online)
+			return;
+
+		if(!this.arePlayersLoaded())
+			return;
+
+		if(!this.isLayoutLoaded())
+			return;
+
+		this.setForcedRevival(1);
+		this.setRespawnTimer(1, -1);
+		this.setRespawnTimer(2, -1);
+		this.setRespawnTimer(3, -1);
+		this.setRespawnTimer(4, -1);
+		this.setRevivalCooldown(5);
+
+		this.selectMap();
+	}
 
 	/*---------------------------------------------------------------------*\
 	| *  Are Players Loaded                                                 |
@@ -1233,6 +1531,36 @@ cr.behaviors.REDManager = function(runtime)
 			return this.dataArray.instances[0].at(22, 0, 0);
 		default:
 			return this.dataArray.instances[0].at(25, 0, 0);
+		}
+	};
+
+	/*---------------------------------------------------------------------*\
+	| *  Get Player's Color                                                 |
+	| ------                                                                |
+	|    Utility access function. Returns the color representing the        |
+	|  specified player.                                                    |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * player: The number value that represents a specific player.      |
+	\*---------------------------------------------------------------------*/
+	behinstProto.getPlayerColor = function (player)
+	{
+		if (this.dataArray == null)
+			return -200;
+
+		if(player != 1 && player != 2 && player != 3 && player != 4)
+			return -300;
+
+		switch(player)
+		{
+		case 1:
+			return this.dataArray.instances[0].at(20, 0, 0);
+		case 2:
+			return this.dataArray.instances[0].at(21, 0, 0);
+		case 3:
+			return this.dataArray.instances[0].at(24, 0, 0);
+		default:
+			return this.dataArray.instances[0].at(27, 0, 0);
 		}
 	};
 
@@ -1517,6 +1845,28 @@ cr.behaviors.REDManager = function(runtime)
 			newValue = 0;
 
 		this.dataArray.instances[0].set(40, 0, 0, newValue);
+		return true;
+	};
+
+	/*---------------------------------------------------------------------*\
+	| *  Set Forced Revival                                                 |
+	| ------                                                                |
+	|    Utility access function. Sets a boolean value representing whether |
+	|  or not the players are being forcibly revived.                       |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * newValue: A number boolean representing whether or not the       |
+	|                players are being forcibly revived.                    |
+	\*---------------------------------------------------------------------*/
+	behinstProto.setForcedRevival = function (newValue)
+	{
+		if (this.dataArray == null)
+			return -200;
+
+		if(newValue != 0 && newValue != 1)
+			return -300;
+
+		this.dataArray.instances[0].set(37, 0, 0, newValue);
 		return true;
 	};
 
@@ -1991,6 +2341,20 @@ cr.behaviors.REDManager = function(runtime)
 	acts.AddCoin = function (coin)
 	{
 		this.coins = coin;
+	};
+
+	/*---------------------------------------------------------------------*\
+	| *  Add Reviver                                                        |
+	| ------                                                                |
+	|    Stores the Reviver objects for later use. This is called when a    |
+	|  new layout loads.                                                    |
+	| ------                                                                |
+	|  Arguments:                                                           |
+	|    * reviver: A reviver tile object.                                  |
+	\*---------------------------------------------------------------------*/
+	acts.AddReviver = function (reviver)
+	{
+		this.reviver = reviver;
 	};
 
 	/*---------------------------------------------------------------------*\
